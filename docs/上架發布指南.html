@@ -98,10 +98,10 @@ li{margin:5px 0}
 <tr><td>PWA manifest</td><td class="ok">✓ 完成</td><td><code>app/manifest.json</code>，含 192／512／maskable 圖示</td></tr>
 <tr><td>Service Worker</td><td class="ok">✓ 完成</td><td><code>app/sw.js</code>；Capacitor 環境內自動停用（原生已離線）</td></tr>
 <tr><td>原生外殼（.aab / .ipa）</td><td class="half">◐ 進行中</td><td>Capacitor 8.5.2 已 <code>cap add android</code>＋<code>cap sync</code>（52.8 MB 資源入包），AAB 建置中</td></tr>
-<tr><td>Android 簽名金鑰</td><td class="ok">✓ 完成</td><td><code>android/upload-keystore.jks</code>＋<code>keystore.properties</code>（已 gitignore）</td></tr>
+<tr><td>Android 簽名金鑰</td><td class="ok">✓ 完成</td><td><code>android/upload-keystore.jks</code>＋<code>keystore.properties</code>（已 gitignore）；憑證 <code>C=CN</code>。<strong>另需離線備份 → <code>python tools/backup_keystore.py</code></strong></td></tr>
 <tr><td>商店素材（截圖／圖示／文案）</td><td class="ok">✓ 完成</td><td><code>store/</code>：8 張 1080×1920 截圖、512／1024 圖示、1024×500 特色圖、中英文案</td></tr>
 <tr><td>CI 雲端建置</td><td class="ok">✓ 完成</td><td><code>.github/workflows/android.yml</code>（AAB／APK）＋<code>ios.yml</code>（macOS 雲端打包）</td></tr>
-<tr><td>隱私政策頁（公開網址）</td><td class="half">◐ 頁面已就緒</td><td><code>app/privacy.html</code> 內容完整，尚缺<strong>公開網址</strong>（建議 GitHub Pages）</td></tr>
+<tr><td>隱私政策頁（公開網址）</td><td class="half">◐ 待填信箱即可上線</td><td><code>app/privacy.html</code> 內容完整；公開倉庫 <code>jyut-fun-privacy</code> ＋ <code>python tools/publish_privacy.py --email …</code> 一鍵發佈。<strong>注意：主倉庫是 private，免費版 GitHub Pages 不支援私有倉庫</strong></td></tr>
 <tr><td>軟體著作權</td><td class="no">✗ 未申請</td><td>國內安卓全渠道硬性要求，60 工作日</td></tr>
 <tr><td>ICP 備案 / App 備案</td><td class="no">✗ 未辦理</td><td>App Store 國區必填備案號；純離線可爭取豁免</td></tr>
 <tr><td><code>app/pages/</code> 389 張原書截圖</td><td class="ok">✓ 已排除</td><td>已移出 <code>app/</code>，現僅存 <code>audio content icons index.html manifest.json privacy.html sw.js</code></td></tr>
@@ -382,8 +382,9 @@ li{margin:5px 0}
 <b>✓ 包內已核驗（非只信建置成功）</b>
 <code>base/assets/public/</code> 內含 <code>index.html</code>、<code>manifest.json</code>、<code>privacy.html</code>、<code>sw.js</code>、<code>content/curriculum.json</code>；
 音檔實點 <strong>1572 課程 + 1739 單字 ＝ 3311 段</strong>，與來源完全一致。
-簽署憑證：<code>CN=jyut.fun, OU=Mobile, O=JyutFun, L=Hong Kong, ST=Hong Kong, C=HK</code>（RSA 2048，自簽上傳金鑰）。
-AAB SHA-256：<code>176f9ab9…2c89</code>
+簽署憑證：<code>CN=jyut.fun, OU=Mobile, O=JyutFun, L=Hong Kong, ST=Hong Kong, C=CN</code>（RSA 2048 / SHA256withRSA，自簽上傳金鑰，有效期至 2054-02-03）。
+憑證 SHA-256：<code>8EC4CB47…5392</code>（上架各渠道填的就是這個值）。
+AAB SHA-256：<code>7eb79c8c…e221</code>
 </div>
 
 <div class="prog">
@@ -425,6 +426,8 @@ AAB SHA-256：<code>176f9ab9…2c89</code>
 <tr><td><code>android_emu.py</code></td><td>模擬器一鍵：<code>check</code>／<code>create</code>／<code>start</code>／<code>install</code>／<code>launch</code>／<code>shot</code>／<code>logcat</code>／<code>inspect</code>／<code>run</code>。首次需先 <code>sdkmanager "emulator" "system-images;android-36;google_apis;x86_64"</code></td></tr>
 <tr><td><code>probe_webview.mjs</code></td><td><strong>真機 WebView 版 CDP 探針</strong>：用真實指標事件驅動，讀播放器狀態判路由（Capacitor 攔截本地資源，Network 層看不到 <code>.mp3</code>）</td></tr>
 <tr><td><code>emu_shots.mjs</code></td><td>模擬器分場景驅動 ＋ <code>adb screencap</code> 截圖 ＋ 版面量測（含安全區判定）</td></tr>
+<tr><td><code>backup_keystore.py</code></td><td><strong>打包簽名金鑰離線備份</strong>：複製 <code>upload-keystore.jks</code>＋<code>keystore.properties</code>，附還原說明與指紋，輸出 zip 到 <code>dist/keystore-backup/</code>。<code>--show</code> 只印憑證資訊，<code>--force</code> 覆蓋</td></tr>
+<tr><td><code>publish_privacy.py</code></td><td><strong>發佈隱私政策公開網址</strong>：把信箱寫回 <code>app/privacy.html</code>（冪等）→ 生成靜態站台 → 推送公開倉庫 → 開啟 Pages → 驗證 HTTP 200。<code>--status</code> 查狀態，<code>-n</code> 只生成本地站台</td></tr>
 </table>
 
 <h3>商店素材（<code>store/</code>）</h3>
@@ -449,24 +452,37 @@ screenshots-emu/            6 張 1080×2400（模擬器真實截圖，非裝置
   <strong>注意：模擬器若用 <code>DETACHED_PROCESS</code> 啟動，會在呼叫端任務結束時被回收</strong>，需由長時間存活的行程持有子行程（<code>android_emu.py start --keepalive</code>）。
 </div>
 
-<h3>上架前仍缺的三件事</h3>
+<h3>上架前仍缺的三件事（2026-09-18 更新）</h3>
 <div class="callout c-warn">
-  <b>1. 隱私政策的公開網址</b>
+  <b>1. 隱私政策的公開網址 —— 方案已定、工具已備，只差一個信箱</b>
   <code>app/privacy.html</code> 內容已完備（零資料收集、純離線、AI 合成語音披露、rime-cantonese CC BY 4.0 署名），
-  但商店要求的是<strong>獨立公開網址</strong>而非 App 內頁面。最省事的做法是開一個 GitHub Pages 存放此檔。
-  <strong>另需把頁尾的 <code>[請填入聯絡信箱]</code> 換成真實信箱</strong>，否則審核會退。
+  但商店要求的是<strong>獨立公開網址</strong>而非 App 內頁面。
+  <br><br>
+  <strong>⚠️ 修正先前的建議</strong>：原稿寫「開個 GitHub Pages 放此檔」—— 但主倉庫
+  <code>DragonLuffy9527/jyut-fun</code> 是 <strong>private</strong>，而<strong>免費版 GitHub Pages 不支援私有倉庫</strong>（需付費升級 Pro）。
+  正確做法是<strong>另開一個只放隱私政策頁的公開倉庫</strong>：
+  <code>python tools/publish_privacy.py --email you@example.com</code> 會一次做完
+  渲染 → 生成站台 → 建公開倉庫 → 推送 → 開 Pages → 驗證 HTTP 200，網址形如
+  <code>https://dragonluffy9527.github.io/jyut-fun-privacy/</code>。
+  <br><br>
+  <strong>唯一需要你決定的</strong>：對外聯絡信箱（要能長期收信，會被公開展示）。
+  填好後記得同步重建 App，否則 App 內的政策頁仍是舊內容：
+  <code>python tools/sync_assets.py &amp;&amp; python tools/_build_android.py</code>
 </div>
 <div class="callout c-red">
-  <b>2. 簽名金鑰必須立即備份（最易忽略、後果最重）</b>
+  <b>2. 簽名金鑰必須離線備份（最易忽略、後果最重）</b>
   <code>android/upload-keystore.jks</code> 與 <code>android/keystore.properties</code> 已刻意排除在版控之外，
   但這意味著<strong>它們只存在於本機</strong>。一旦遺失，將<strong>永遠無法再更新這個 App</strong>（只能換包名重新上架，舊用戶無法升級）。
-  請立刻複製到至少兩處離線儲存（隨身碟／密碼管理器），並記下密碼。
   <br><br>
-  <strong>順帶一提（趁現在改還免費）</strong>：目前憑證的主體是
-  <code>C=HK</code>（<code>O=JyutFun, L=Hong Kong, ST=Hong Kong</code>）。
-  此欄位一旦上傳 Google Play 就會被<strong>永久鎖定</strong>，之後改不了。
-  若日後打算走國內安卓渠道或 App Store 國區，建議現在就把 <code>C</code> 改為 <code>CN</code>
-  （<code>L/ST</code> 保留 <code>Hong Kong</code>），與內地主體資料保持一致 —— 重建金鑰零成本，上線後就來不及了。
+  已備好打包工具：<code>python tools/backup_keystore.py</code> 會產出
+  <code>dist/keystore-backup/jyutfun-keystore-backup-&lt;日期&gt;.zip</code>（含金鑰、設定、還原說明、校驗值）。
+  <strong>但複製到哪兩處離線位置只能你自己做</strong>：加密隨身碟 ＋ 密碼管理器附件；
+  密碼與別名另外抄一份、<strong>與 zip 分開存放</strong>；完成後做一次還原測試（解壓後 <code>keytool -list</code> 讀得出來）。
+  <br><br>
+  <strong>✓ 已辦（趁未上線改，零成本）</strong>：憑證主體已由
+  <code>C=HK</code> 改為 <code>C=CN</code>（<code>CN=jyut.fun, OU=Mobile, O=JyutFun, L=Hong Kong, ST=Hong Kong, C=CN</code>），
+  並重建了金鑰與 AAB／APK。此欄位一旦上傳 Google Play 就<strong>永久鎖定</strong>，所以提早上線前完成。
+  舊的 <code>C=HK</code> 備份留存於 <code>dist/keystore-backup/OBSOLETE-keystore-C_HK-2026-09-18.zip</code>（勿再使用）。
 </div>
 <div class="callout c-tip">
   <b>3. iOS 需要 macOS 環境</b>

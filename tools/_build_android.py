@@ -134,32 +134,100 @@ def main():
     if produced:
         print("\n=== 簽名驗證 ===")
         for p in produced:
-            ok, detail = verify_signature(p, java_home)
+            if p.lower().endswith(".apk"):
+                ok, detail = verify_apk(p, SDK)
+            else:
+                ok, detail = verify_signature(p, java_home)
             print("  %-46s %s  %s" % (os.path.basename(p), "✓ 已簽名" if ok else "✗ 未簽名／驗證失敗", detail))
 
     return proc.returncode
 
 
+def verify_apk(path, sdk):
+    """用 SDK 的 apksigner 驗證 APK 簽名，回傳 (是否通過, 摘要)。
+
+    為何不用 jarsigner：APK 在 minSdk >= 24 時可以只掛 v2 方案、完全不掛 v1
+    （本專案就是這樣，見 apksigner 的「Verified using v1 scheme: false」）。
+    jarsigner 只認 v1，會把簽好的 APK 誤判為 unsigned，所以 APK 一律走 apksigner。
+    """
+    import glob
+    cands = sorted(glob.glob(os.path.join(sdk, "build-tools", "*", "apksigner.bat")))
+    if not cands:
+        return False, "(找不到 apksigner，請確認 build-tools 已安裝)"
+    apksigner = cands[-1]
+    try:
+        r = subprocess.run([apksigner, "verify", "--print-certs", "-v", path],
+                           capture_output=True, timeout=180)
+    except Exception as e:  # noqa: BLE001
+        return False, "(驗證異常：%s)" % e
+
+    raw = (r.stdout or b"") + (r.stderr or b"")
+    out = None
+    for enc in ("utf-8", "gbk", "latin-1"):
+        try:
+            out = raw.decode(enc)
+            break
+        except UnicodeDecodeError:
+            continue
+    if out is None:
+        out = raw.decode("utf-8", errors="replace")
+
+    # apksigner 驗證失敗會回非 0 並印 "DOES NOT VERIFY"
+    if r.returncode != 0 or "DOES NOT VERIFY" in out:
+        first = next((l.strip() for l in out.splitlines() if l.strip()), "")
+        return False, first[:80] or "apksigner 回傳非 0"
+
+    schemes = []
+    for name in ("v1", "v2", "v3", "v3.1"):
+        m = re.search(r"Verified using %s scheme[^:]*:\s*(true|false)" % re.escape(name), out)
+        if m and m.group(1) == "true":
+            schemes.append(name)
+    dn = ""
+    m = re.search(r"certificate DN:\s*(.+)", out)
+    if m:
+        cn = re.search(r"CN=([^,]+)", m.group(1))
+        dn = "簽署者 CN=%s" % cn.group(1).strip() if cn else m.group(1).strip()
+    return True, ("%s | 簽名方案 %s" % (dn, "+".join(schemes))) if schemes else dn
+
+
 def verify_signature(path, java_home):
-    """用 JDK 內附的 jarsigner 驗證 v1(JAR) 簽名，回傳 (是否通過, 摘要)。"""
+    """用 JDK 內附的 jarsigner 驗證 v1(JAR) 簽名，回傳 (是否通過, 摘要)。
+
+    坑：jarsigner 在中文 Windows 上會用系統 ANSI 碼頁(GBK)輸出中文訊息
+    （「jar 已驗證。／jar 未簽名」），用 UTF-8 解碼會變亂碼，
+    令「jar verified」關鍵字永遠匹配不到 → 明明簽好了卻報「未簽名」。
+    解法：用 -J-Duser.language=en 強制英文輸出，解碼再加 GBK 退路。
+    """
     jarsigner = os.path.join(java_home, "bin", "jarsigner.exe")
     if not os.path.exists(jarsigner):
         return False, "(找不到 jarsigner)"
     try:
-        r = subprocess.run([jarsigner, "-verify", "-certs", path],
-                           capture_output=True, text=True, encoding="utf-8",
-                           errors="replace", timeout=120)
+        r = subprocess.run(
+            [jarsigner, "-J-Duser.language=en", "-J-Duser.country=US",
+             "-verify", "-certs", path],
+            capture_output=True, timeout=180)
     except Exception as e:  # noqa: BLE001
         return False, "(驗證異常：%s)" % e
-    out = (r.stdout or "") + (r.stderr or "")
+
+    raw = (r.stdout or b"") + (r.stderr or b"")
+    out = None
+    for enc in ("utf-8", "gbk", "latin-1"):
+        try:
+            out = raw.decode(enc)
+            break
+        except UnicodeDecodeError:
+            continue
+    if out is None:
+        out = raw.decode("utf-8", errors="replace")
+
     low = out.lower()
-    if "jar verified" in low:
+    if "jar verified" in low or "jar 已驗證" in out:
         signer = ""
         m = re.search(r"CN=([^,]+)", out)
         if m:
             signer = "簽署者 CN=%s" % m.group(1).strip()
         return True, signer
-    if "unsigned" in low:
+    if "unsigned" in low or "未簽名" in out:
         return False, "jar is unsigned"
     first = next((l.strip() for l in out.splitlines() if l.strip()), "")
     return False, first[:80]

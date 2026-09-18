@@ -55,7 +55,10 @@
 - **JDK 21 已裝到用戶空間**：`C:\Users\Luffy\.workbuddy\binaries\jdk21\jdk-21.0.12.1+1`（Temurin，`java -version` = 21.0.12.1 LTS）。**切勿改 node_modules 的 sourceCompatibility**，`cap sync`／`npm install` 會還原。
 - **Android SDK**：`C:\Users\Luffy\AppData\Local\Android\Sdk`（免 Android Studio，用 `tools/_setup_android_sdk.py` 裝 commandlinetools + platform-tools + android-36 + build-tools）。`android/local.properties` 的 `sdk.dir` **必須用正斜線**（Java properties 會把 `\` 當轉義）。
 - **建置指令**：`python tools/_build_android.py`（內部自動挑 JDK 21+，找不到會列出本機所有版本）；產物 `android/app/build/outputs/{bundle,apk}/release/`。
-- **簽名**：`android/upload-keystore.jks` + `android/keystore.properties`（alias `upload`，CN=jyut.fun，RSA 2048 / 10000 天）。**兩者已 gitignore，只存在本機 → 必須離線備份，遺失即永久無法更新此 App。** `app/build.gradle` 會同時在 `android/app/` 與 `android/` 兩處找金鑰，兩處都無則主動報錯。
+- **簽名**：`android/upload-keystore.jks` + `android/keystore.properties`（alias `upload`，CN=jyut.fun，RSA 2048 / SHA256withRSA / 10000 天，有效期至 2054-02-03）。✅ **2026-09-18 已把憑證 `C=HK` 改成 `C=CN` 並重建金鑰與 AAB/APK**（`L/ST=Hong Kong` 保留）——未上架前改零成本，上傳 Play 後永久鎖定。現憑證 **SHA-256 `8EC4CB47…5392`**、SHA-1 `4642180F…BF2F`，上架各渠道填的就是這個。舊 `C=HK` 備份留檔 `dist/keystore-backup/OBSOLETE-keystore-C_HK-2026-09-18.zip`（勿再使用）。
+- **簽名金鑰備份**：`python tools/backup_keystore.py` 產出 `dist/keystore-backup/jyutfun-keystore-backup-<日期>.zip`（jks + properties + `README.txt` 還原說明 + `SHA256SUMS.txt`）；`--show` 只印指紋不打包，`--force` 覆蓋。zip 內檔名刻意全 ASCII —— 舊版 Info-ZIP 不認 UTF-8 檔名旗標，中文名會變亂碼。**打包只是第一步，複製到兩處離線位置（加密隨身碟 + 密碼管理器附件）只能人工做**，且要與密碼分開存放、做一次解壓還原測試。
+- **【產物自檢坑】`jarsigner` 不能驗 APK，且不可用英文關鍵字硬匹配**：① 中文 Windows 上 jarsigner 用系統 ANSI(GBK) 輸出中文（「jar 已驗證。」），用 UTF-8 解碼會變亂碼，grep `"jar verified"` 永遠匹配不到 → **明明簽好了卻報「未簽名」**（曾因此誤報一次）。解法：加 `-J-Duser.language=en -J-Duser.country=US` 強制英文，解碼再加 gbk 退路。同招適用 `keytool -list -v`（中文標籤「所有者／有效期」同樣不可靠）。② **APK 一律用 `apksigner` 驗**：本專案 minSdk 24，APK 只掛 v2 方案、冇 v1，`jarsigner` 會把它判成 `jar is unsigned`（假陰性）。AAB 用 jarsigner、APK 用 apksigner，兩者不可互換。兩個坑方向相同 —— 都在「狼來了」，會令真正的未簽名事故被當成噪音忽略。已在 `tools/_build_android.py` 修好並分流。
+- **`tools/_build_android.py` 的簽名自檢**已改成：`.apk` 走 SDK `build-tools/*/apksigner verify --print-certs -v`（解析 `Verified using vN scheme` 與 `certificate DN`），其餘走 jarsigner；找不到 apksigner 會明確報錯而非假通過。
 - **`app/index.html` 的 `isLessonClip()`**：板塊 regex **必須由 `CURR.domains` 動態推導**，不可寫死板塊 id（曾寫死 `basic|life|study|work`，令後加的 construction/medical 進度全不記錄）。
 - **驗證（兩套探針，用途不同，勿互相取代）**：
   - `python tools/verify_release.py` — 發布前一鍵自檢（靜態資源 + 打包純淨度 + 外部 URL 掃描 + 桌面 CDP 探針）。日常邏輯回歸用這個，快。
@@ -75,6 +78,14 @@
 - **【環境坑】`npx cap sync android` 會清空目標目錄後卡死**（實測只複製 25 個 mp3 就停住，`assets/public` 由 52.8 MB 打成 576 KB；npm debug log 停在啟動階段）。**改用 `python tools/sync_assets.py`**：逐檔比對 mtime+size 的鏡像複製，保留 `cordova.js`/`cordova_plugins.js`，完成後驗證檔案數 / mp3 3311 / 五個關鍵產物 / 總大小，可重複安全執行（約 78 秒）。若真要殺卡死的 `cap sync`：殺 node 行程中命令行含 `cap sync android` 的兩個（npx 包裝 + `capacitor` 本體），**勿殺 MCP 服務那幾個 node**。
 - **App 在 Android 上不是 edge-to-edge**：WebView 自身 `screenY=136`、`height=2201`（2400−136 狀態列−63 導覽列），`env(safe-area-inset-*) = 0` 屬正確。Capacitor `SystemBars.java:270` 那個 `Error injecting safe area CSS` 是**上游 bug 但無害**（注入時 `document.documentElement` 仍為 null）。判警的正確做法是先讀 target 描述的 `screenY`，**只有 `screenY === 0`（真 edge-to-edge）才需要檢查 `env()`**。
 - **Android WebView 冇 `speechSynthesis`**（桌面 Chrome/Safari 有）→ App 內 `TTS.noApi` 會成立，音色卡顯示「不支援」。任何依賴 Web Speech API 的功能在 Android 上都不可用，別當它是 fallback。
+
+## 隱私政策公開網址（商店硬性要求）
+
+- Play 與 App Store 都要**公開、免登入可訪問的獨立 URL**，App 內頁面不算。App 內入口（「我的」）另計。
+- **⚠️ 更正**：原稿寫「開個 GitHub Pages 放 `privacy.html`」—— 但主倉庫 `jyut-fun` 是 **private**，而**免費版 GitHub Pages 不支援私有倉庫**（需付費 Pro）。正解是**另開一個只放政策頁的公開倉庫** `jyut-fun-privacy`。
+- 工具：`python tools/publish_privacy.py --email <信箱>` —— 把信箱寫回 `app/privacy.html`（**幂等**，中英兩處 `[請填入聯絡信箱]` / `[please fill in contact email]` 一起換）→ 生成 `dist/privacy-site/`（`index.html` + `privacy.html` + `.nojekyll` + `README.md`）→ 建公開倉庫（已存在則強推）→ 開 Pages → 驗 HTTP 200。`--status` 查狀態、`-n` 只生成本地站台。目標網址 `https://dragonluffy9527.github.io/jyut-fun-privacy/`。
+- **連鎖注意**：此腳本會改 `app/privacy.html`，即 App 內政策頁 → 填完信箱**必須**再跑 `python tools/sync_assets.py && python tools/_build_android.py`，否則 App 內仍是舊內容（現時 AAB 內隱私頁仍是佔位符，待信箱到位後重建）。
+- **待用戶提供**：對外聯絡信箱（會被公開展示，需能長期收信）。`store/listing.md` 的「聯絡電郵」欄位同步待填。
 
 ## 版控與備份
 

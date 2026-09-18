@@ -157,7 +157,22 @@ Found a pronunciation error? Email us and we will fix it in the next release.
 
 1. **私隱政策公開網址** —— `app/privacy.html` 目前只存在 App 內部，
    Play 與 App Store 都要求一個**公開可訪問的 URL**。
-   最省事的做法是開一個 GitHub Pages 放 `privacy.html`，把網址填進商店後台。
+   主倉庫 `jyut-fun` 是 private，免費版 GitHub Pages 不支援私有倉庫，
+   因此改用**獨立的公開倉庫** `jyut-fun-privacy`：
+   ```
+   python tools/publish_privacy.py --email 你的聯絡信箱
+   ```
+   會一次完成渲染、建倉、推送、開 Pages，並驗證頁面回 200。
+   完成後把網址填進商店後台。
+   **注意**：因為它同時改寫了 `app/privacy.html`，要再跑一次
+   `python tools/sync_assets.py && python tools/_build_android.py`，
+   否則 App 內的政策頁仍是舊內容。
+
 2. **上傳簽名金鑰備份** —— `android/upload-keystore.jks` 與
    `android/keystore.properties` 必須另存備份（見《上架發布指南》）。
    遺失上傳金鑰會導致無法更新已上架的 App。
+   ```
+   python tools/backup_keystore.py
+   ```
+   產出 `dist/keystore-backup/jyutfun-keystore-backup-<日期>.zip`，
+   請人工複製到至少兩處離線位置。
