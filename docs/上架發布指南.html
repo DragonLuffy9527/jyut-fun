@@ -101,7 +101,7 @@ li{margin:5px 0}
 <tr><td>Android 簽名金鑰</td><td class="ok">✓ 完成</td><td><code>android/upload-keystore.jks</code>＋<code>keystore.properties</code>（已 gitignore）；憑證 <code>C=CN</code>。<strong>另需離線備份 → <code>python tools/backup_keystore.py</code></strong></td></tr>
 <tr><td>商店素材（截圖／圖示／文案）</td><td class="ok">✓ 完成</td><td><code>store/</code>：8 張 1080×1920 截圖、512／1024 圖示、1024×500 特色圖、中英文案</td></tr>
 <tr><td>CI 雲端建置</td><td class="ok">✓ 完成</td><td><code>.github/workflows/android.yml</code>（AAB／APK）＋<code>ios.yml</code>（macOS 雲端打包）</td></tr>
-<tr><td>隱私政策頁（公開網址）</td><td class="half">◐ 待填信箱即可上線</td><td><code>app/privacy.html</code> 內容完整；公開倉庫 <code>jyut-fun-privacy</code> ＋ <code>python tools/publish_privacy.py --email …</code> 一鍵發佈。<strong>注意：主倉庫是 private，免費版 GitHub Pages 不支援私有倉庫</strong></td></tr>
+<tr><td>隱私政策頁（公開網址）</td><td class="ok">✓ 已完成</td><td>已上線：<code>https://dragonluffy9527.github.io/jyut-fun-privacy/</code>（獨立公開倉庫 <code>jyut-fun-privacy</code>；主倉庫 private，免費版 Pages 不支援私有倉庫）。聯絡信箱 <code>hjjliufei@qq.com</code> 已填入中英兩處</td></tr>
 <tr><td>軟體著作權</td><td class="no">✗ 未申請</td><td>國內安卓全渠道硬性要求，60 工作日</td></tr>
 <tr><td>ICP 備案 / App 備案</td><td class="no">✗ 未辦理</td><td>App Store 國區必填備案號；純離線可爭取豁免</td></tr>
 <tr><td><code>app/pages/</code> 389 張原書截圖</td><td class="ok">✓ 已排除</td><td>已移出 <code>app/</code>，現僅存 <code>audio content icons index.html manifest.json privacy.html sw.js</code></td></tr>
@@ -384,7 +384,7 @@ li{margin:5px 0}
 音檔實點 <strong>1572 課程 + 1739 單字 ＝ 3311 段</strong>，與來源完全一致。
 簽署憑證：<code>CN=jyut.fun, OU=Mobile, O=JyutFun, L=Hong Kong, ST=Hong Kong, C=CN</code>（RSA 2048 / SHA256withRSA，自簽上傳金鑰，有效期至 2054-02-03）。
 憑證 SHA-256：<code>8EC4CB47…5392</code>（上架各渠道填的就是這個值）。
-AAB SHA-256：<code>7eb79c8c…e221</code>
+AAB SHA-256：<code>b973218d…cefb</code>（2026-09-18 換填聯絡信箱後重出）
 </div>
 
 <div class="prog">
@@ -452,22 +452,24 @@ screenshots-emu/            6 張 1080×2400（模擬器真實截圖，非裝置
   <strong>注意：模擬器若用 <code>DETACHED_PROCESS</code> 啟動，會在呼叫端任務結束時被回收</strong>，需由長時間存活的行程持有子行程（<code>android_emu.py start --keepalive</code>）。
 </div>
 
-<h3>上架前仍缺的三件事（2026-09-18 更新）</h3>
-<div class="callout c-warn">
-  <b>1. 隱私政策的公開網址 —— 方案已定、工具已備，只差一個信箱</b>
-  <code>app/privacy.html</code> 內容已完備（零資料收集、純離線、AI 合成語音披露、rime-cantonese CC BY 4.0 署名），
-  但商店要求的是<strong>獨立公開網址</strong>而非 App 內頁面。
+<h3>上架前必辦事項（2026-09-18 更新）</h3>
+<div class="callout c-ok">
+  <b>1. ✓ 隱私政策公開網址 —— 已上線</b>
+  <code>app/privacy.html</code> 內容完備（零資料收集、純離線、AI 合成語音披露、rime-cantonese CC BY 4.0 署名），
+  已發佈成獨立公開網址，商店後台填這個即可：
+  <br><code>https://dragonluffy9527.github.io/jyut-fun-privacy/</code>
+  （備用：同網址後接 <code>privacy.html</code>；實測 HTTP 200）
   <br><br>
   <strong>⚠️ 修正先前的建議</strong>：原稿寫「開個 GitHub Pages 放此檔」—— 但主倉庫
   <code>DragonLuffy9527/jyut-fun</code> 是 <strong>private</strong>，而<strong>免費版 GitHub Pages 不支援私有倉庫</strong>（需付費升級 Pro）。
-  正確做法是<strong>另開一個只放隱私政策頁的公開倉庫</strong>：
-  <code>python tools/publish_privacy.py --email you@example.com</code> 會一次做完
-  渲染 → 生成站台 → 建公開倉庫 → 推送 → 開 Pages → 驗證 HTTP 200，網址形如
-  <code>https://dragonluffy9527.github.io/jyut-fun-privacy/</code>。
+  故改為<strong>另開一個只放隱私政策頁的公開倉庫</strong> <code>jyut-fun-privacy</code>，由
+  <code>python tools/publish_privacy.py --email &lt;信箱&gt;</code> 一鍵完成
+  渲染 → 生成站台 → 建倉 → 推送 → 開 Pages → 驗證 HTTP 200。
+  該公開倉庫的提交署名固定為 <code>DragonLuffy9527 &lt;noreply@github.com&gt;</code>，不會外洩私人信箱。
   <br><br>
-  <strong>唯一需要你決定的</strong>：對外聯絡信箱（要能長期收信，會被公開展示）。
-  填好後記得同步重建 App，否則 App 內的政策頁仍是舊內容：
-  <code>python tools/sync_assets.py &amp;&amp; python tools/_build_android.py</code>
+  對外聯絡信箱：<code>hjjliufei@qq.com</code>（已同步寫入 <code>app/privacy.html</code> 中英兩處與商店文案）。
+  <strong>日後換信箱只需重跑該腳本（幂等）</strong>，再跑
+  <code>python tools/sync_assets.py &amp;&amp; python tools/_build_android.py</code> 讓 App 內頁面同步。
 </div>
 <div class="callout c-red">
   <b>2. 簽名金鑰必須離線備份（最易忽略、後果最重）</b>

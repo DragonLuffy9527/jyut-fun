@@ -132,7 +132,7 @@ content is originally written for this app.
 Jyutping data based on rime-cantonese (CC BY 4.0).
 
 ---
-Found a pronunciation error? Email us and we will fix it in the next release.
+Found a pronunciation error? Email hjjliufei@qq.com and we will fix it in the next release.
 ```
 
 ---
@@ -148,31 +148,35 @@ Found a pronunciation error? Email us and we will fix it in the next release.
 | 應用內購買 | 否 |
 | 需要網路 | 否（純離線） |
 | 資料安全 | 不收集、不分享任何資料 |
-| 聯絡電郵 | （待填你的電郵） |
-| 私隱政策網址 | （見下方提醒：必須是公開可訪問的網址） |
+| 聯絡電郵 | hjjliufei@qq.com |
+| 私隱政策網址 | https://dragonluffy9527.github.io/jyut-fun-privacy/ |
 
 ---
 
-## 5. 送審前必須補的兩件事
+## 5. 送審前檢查（2026-09-18 更新）
 
-1. **私隱政策公開網址** —— `app/privacy.html` 目前只存在 App 內部，
-   Play 與 App Store 都要求一個**公開可訪問的 URL**。
+1. **✓ 私隱政策公開網址 —— 已上線**
+   網址：**https://dragonluffy9527.github.io/jyut-fun-privacy/**
+   （備用 `…/privacy.html`，實測 HTTP 200）
    主倉庫 `jyut-fun` 是 private，免費版 GitHub Pages 不支援私有倉庫，
-   因此改用**獨立的公開倉庫** `jyut-fun-privacy`：
+   故另開獨立公開倉庫 `jyut-fun-privacy` 只放這一頁。
+   日後要換聯絡信箱，重跑（幂等）：
    ```
-   python tools/publish_privacy.py --email 你的聯絡信箱
+   python tools/publish_privacy.py --email 新信箱
+   python tools/sync_assets.py && python tools/_build_android.py
    ```
-   會一次完成渲染、建倉、推送、開 Pages，並驗證頁面回 200。
-   完成後把網址填進商店後台。
-   **注意**：因為它同時改寫了 `app/privacy.html`，要再跑一次
-   `python tools/sync_assets.py && python tools/_build_android.py`，
-   否則 App 內的政策頁仍是舊內容。
+   第二行是必須的 —— 腳本同時改寫了 `app/privacy.html`，
+   不同步重建的話 App 內政策頁會與網頁版不一致。
 
-2. **上傳簽名金鑰備份** —— `android/upload-keystore.jks` 與
-   `android/keystore.properties` 必須另存備份（見《上架發布指南》）。
-   遺失上傳金鑰會導致無法更新已上架的 App。
+2. **◐ 上傳簽名金鑰離線備份 —— 包已打好，複製待你**
+   產出：`dist/keystore-backup/jyutfun-keystore-backup-<日期>.zip`
+   （含 jks、properties、還原說明、校驗值）
    ```
-   python tools/backup_keystore.py
+   python tools/backup_keystore.py        # 打包；--show 只印指紋
    ```
-   產出 `dist/keystore-backup/jyutfun-keystore-backup-<日期>.zip`，
-   請人工複製到至少兩處離線位置。
+   **必須人工複製到至少兩處離線位置**（加密隨身碟 + 密碼管理器附件），
+   密碼與 zip 分開存放。遺失上傳金鑰 = 永遠無法更新已上架的 App。
+   注意此 zip 已在 `.gitignore` 內，**不可放普通雲盤同步資料夾**。
+
+3. **◐ iOS 打包** —— `.github/workflows/ios.yml` 已備好雲端流程，
+   尚缺 GitHub Secrets 內的 Apple 簽名憑證，否則只能無簽名編譯驗證。
