@@ -59,3 +59,13 @@
 - **`app/index.html` 的 `isLessonClip()`**：板塊 regex **必須由 `CURR.domains` 動態推導**，不可寫死板塊 id（曾寫死 `basic|life|study|work`，令後加的 construction/medical 進度全不記錄）。
 - **驗證**：`python tools/verify_release.py` 一鍵發布前自檢（靜態資源 + 打包純淨度 + 外部 URL 掃描 + CDP 實時探針）。CDP 探針**不可用 `--virtual-time-budget`**（會凍結虛擬時鐘）；查發音路由要聽 **Network domain 的 `.mp3` 請求**，不要讀 `audio.src`（單字走獨立 `charAudio` player 會誤判）。
 - **iOS**：本機無 Mac，走 `.github/workflows/ios.yml`（macos-15）。未填 Apple 憑證 secrets 時只做無簽名封存驗證。
+
+## 版控與備份
+
+- **私有倉庫**：https://github.com/DragonLuffy9527/jyut-fun （`gh` 帳號 `DragonLuffy9527`，gh CLI 已認證且具 `repo`/`workflow` scope）。預設分支 `main`。
+- **入庫範圍**：`app/`（含 3311 段音檔，約 57 MB）、`android/`、`ios/` 設定、`tools/`、`docs/`、`store/`、`resources/`、`.github/`、`.workbuddy/memory/`。總計約 60 MB / 3428 檔。
+- **不進版控**（見 `.gitignore`）：`node_modules/`、`android/build/`、`android/app/build/`、`android/app/src/main/assets/public/`（`cap sync` 會重建）、`dist/`（AAB/APK 各約 50 MB）、`*.jks`／`keystore.properties`、`粵語教程/`、`archive/`、`prototype/`、`tools/*_acro_backup.json`、`tools/ocr_raw/`、`tools/models/`、`tools/_*`（但 `_build_android.py`／`_setup_android_sdk.py` 例外放行）。
+- **新增內容前必做紅線掃描**：`.gitignore` 只擋已知路徑。提交前用內容特徵掃全部候選文字檔，例如
+  `git diff --cached --name-only -z | xargs -0 grep -lI -E "粵語（香港話）教程|jointpublishing|pdfOffset|audioBaseUrl"`，
+  確認沒有原教材衍生物漏網（曾靠此法攔下 `tools/*_acro_backup.json` 與 `prototype/`）。
+- **`.gitattributes` 要點**：`gradlew` 必須釘 `eol=lf`（Linux CI 直接執行 `./gradlew`，CRLF 會令 interpreter 失敗）；mp3/png/jar/jks 標 `binary` 防換行轉換損毀。提交後建議抽驗 `git show :<path>` 與磁碟檔 byte 相等。
