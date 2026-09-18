@@ -89,6 +89,15 @@
 - **已辦（2026-09-18）**：公開網址 **https://dragonluffy9527.github.io/jyut-fun-privacy/** 已上線（實測 HTTP 200，`index.html` 與 `privacy.html` 都有）；對外聯絡信箱 **hjjliufei@qq.com** 已寫入 `app/privacy.html` 中英兩處、`store/listing.md`（表格欄位 + 英文描述「Email hjjliufei@qq.com and we will fix it」）與上架指南。公開倉庫提交署名固定為 `DragonLuffy9527 <noreply@github.com>`，不外洩私人信箱。
 - **注意**：本機 git 身分是 `FlowerWeSaw <191559729@qq.com>`（global），私有倉庫所有提交都帶此署名 —— 私有倉庫無妨，但若日後要公開此倉庫需先改身分。
 
+## 離線能力與 APK 分發（2026-09-18 實測）
+
+- **100% 離線可用，已實測**：模擬器開飛航模式 + 關 WiFi/數據（`ping 223.5.5.5` → `Network is unreachable`）下 `adb install` 裝 APK → 啟動 → CDP 探針抽驗：逐字點讀 **6/6 命中**（棚/架/要/由/合/資，全 `char-clip`、`readyState=4` 且在播）、整句課程音檔 `con-11-c1.mp3` 正常播放、進度寫入原生 Preferences 往返成功，**0 JS 錯誤 / 0 console 錯誤 / 0 次網絡 mp3 請求**。
+- **App 內零外部網址**：全 `app/` 掃 `https?://` 只中命名空間；唯一 `fetch()` 是相對路徑 `content/char_audio.json`、`content/curriculum.json`（均在包內）。音檔路徑全相對：`audio/<clip>.mp3`、`audio/chars/<字>_<粵拼>.mp3`。教材來源只是文字署名，無外鏈。
+- **`INTERNET` 權限 ≠ 上網**：Capacitor 用 WebView 內建本機伺服器把 APK 資產以 `https://localhost/` 供應（探針實測 `location.href` 即 `https://localhost/`），此權限是 loopback 所需，移除會壞，勿動。
+- **APK 通用性**：包內 **0 個 .so**（純 Java/Kotlin + WebView，單 dex）→ **全 ABI 通用**（arm64/armeabi/x86 皆可）；`minSdk 24`（Android 7.0+）、targetSdk 36。
+- **直裝注意**：自簽上傳金鑰 → 手機需開「允許安裝未知來源」；**因 2026-09-18 換過金鑰（C=HK→C=CN），若手機已有舊版必須先卸載再裝**，否則報 `INSTALL_FAILED_UPDATE_INCOMPATIBLE`（模擬器實測踩到）。
+- 證據截圖：`screenshots-emu/emu-offline-me.png`（狀態欄有飛航圖示，底部迷你播放器仍掛住該課音檔）。
+
 ## 版控與備份
 
 - **私有倉庫**：https://github.com/DragonLuffy9527/jyut-fun （`gh` 帳號 `DragonLuffy9527`，gh CLI 已認證且具 `repo`/`workflow` scope）。預設分支 `main`。

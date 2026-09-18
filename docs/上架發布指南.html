@@ -392,6 +392,25 @@ AAB SHA-256：<code>b973218d…cefb</code>（2026-09-18 換填聯絡信箱後重
 <code>location.href = https://localhost/</code>、<code>Capacitor.getPlatform() = android</code>、原生 Preferences 可用、Service Worker 正確地未註冊。
 <strong>逐字點讀 6/6 命中本地字庫且真的在播</strong>（棚 u68da_paang4／架 u67b6_gaa2／要 u8981_jiu3／由 u7531_jau4／合 u5408_hap6／資 u8cc7_zi1，全部 readyState=4、paused=false、currentTime 遞增）；
 點整句走 <code>con-11-c1.mp3</code> 課程原聲並彈出迷你播放器。無 JS 例外。
+<br><br>
+<b>✓ 已驗證「完全離線可用」</b>：模擬器開<strong>飛航模式</strong>並關 WiFi／數據（<code>ping 223.5.5.5</code> 回 <code>Network is unreachable</code>）後，
+<code>adb install</code> 裝入 APK 仍可正常啟動，逐字點讀同樣 <strong>6/6 命中且在播</strong>、整句課程音檔照播、進度照樣存進原生 Preferences。
+<strong>0 次網絡 mp3 請求、0 JS 錯誤、0 console 錯誤</strong>。
+證據：<code>screenshots-emu/emu-offline-me.png</code>（狀態欄有飛航圖示，底部迷你播放器仍掛住該課音檔）。
+</div>
+
+<div class="callout c-tip">
+  <b>APK 可以直接發給手機安裝嗎？可以</b>
+  此 APK 內<strong>沒有原生庫（0 個 <code>.so</code>）</strong>，是純 Java/Kotlin + WebView、單一 dex，因此<strong>全 ABI 通用</strong>（arm64 / armeabi / x86 都能裝）；
+  最低 <code>minSdk 24</code>（Android 7.0 以上）。因為用自簽上傳金鑰簽署，手機需開「允許安裝未知來源」（各家 UI 名稱不一，通常在
+  「設定 → 應用程式 → 特殊應用程式存取權」，或安裝時按提示直接開啟）。
+  <br><br>
+  <strong>⚠️ 一個容易中的坑</strong>：因本版換過簽名金鑰（<code>C=HK</code> → <code>C=CN</code>），<strong>手機上若已裝過舊版，
+  必須先卸載再裝新版</strong>，否則系統會以 <code>INSTALL_FAILED_UPDATE_INCOMPATIBLE</code>（簽章不符）拒裝 —— 卸載會清掉該機的學習進度。
+  <br><br>
+  <strong>發送方式</strong>：建議雲端硬碟連結、USB 傳輸線或藍牙；即時通訊軟體常把 <code>.apk</code> 改名或直接阻擋，需改成 <code>.apk1</code> 之類再請對方改回。
+  <strong>另：App 內宣告的 <code>INTERNET</code> 權限不是「會上網」</strong> —— Capacitor 用 WebView 內建本機伺服器把 APK 資產以
+  <code>https://localhost/</code> 供應，這個權限正是該 loopback 所需，移除反而會壞。
 </div>
 
 <div class="callout c-warn">
