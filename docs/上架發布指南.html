@@ -440,13 +440,14 @@ AAB SHA-256：<code>b973218d…cefb</code>（2026-09-18 換填聯絡信箱後重
 <tr><td><code>gen_store_assets.py</code></td><td>產出特色圖 1024×500、複製 512／1024 圖示</td></tr>
 <tr><td><code>gen_android_res.py</code></td><td>產出 Android 各密度圖示（含 adaptive 前景／背景）＋ 11 種啟動畫面尺寸</td></tr>
 <tr><td><code>_setup_android_sdk.py</code></td><td>免 Android Studio 安裝 SDK：commandlinetools ＋ platform-tools ＋ android-36 ＋ build-tools</td></tr>
-<tr><td><code>_build_android.py</code></td><td>建置 AAB／APK；自動挑選本機 JDK 21+（Capacitor 8 硬性要求），找不到時明確報錯</td></tr>
+<tr><td><code>_build_android.py</code></td><td>建置 AAB／APK；自動挑選本機 JDK 21+（Capacitor 8 硬性要求），找不到時明確報錯。建置後<strong>自動驗簽名 ＋ 驗資源完整性</strong>，任一項不過即回傳非 0（見 <code>verify_bundle.py</code>）</td></tr>
 <tr><td><code>sync_assets.py</code></td><td><strong>取代 <code>cap sync</code> 的複製步驟</strong>：鏡像複製 <code>app/</code> → Android assets，保留 Cordova 產物，完成後驗證檔案數／mp3／關鍵產物</td></tr>
 <tr><td><code>android_emu.py</code></td><td>模擬器一鍵：<code>check</code>／<code>create</code>／<code>start</code>／<code>install</code>／<code>launch</code>／<code>shot</code>／<code>logcat</code>／<code>inspect</code>／<code>run</code>。首次需先 <code>sdkmanager "emulator" "system-images;android-36;google_apis;x86_64"</code></td></tr>
 <tr><td><code>probe_webview.mjs</code></td><td><strong>真機 WebView 版 CDP 探針</strong>：用真實指標事件驅動，讀播放器狀態判路由（Capacitor 攔截本地資源，Network 層看不到 <code>.mp3</code>）</td></tr>
 <tr><td><code>emu_shots.mjs</code></td><td>模擬器分場景驅動 ＋ <code>adb screencap</code> 截圖 ＋ 版面量測（含安全區判定）</td></tr>
 <tr><td><code>backup_keystore.py</code></td><td><strong>打包簽名金鑰離線備份</strong>：複製 <code>upload-keystore.jks</code>＋<code>keystore.properties</code>，附還原說明與指紋，輸出 zip 到 <code>dist/keystore-backup/</code>。<code>--show</code> 只印憑證資訊，<code>--force</code> 覆蓋</td></tr>
 <tr><td><code>publish_privacy.py</code></td><td><strong>發佈隱私政策公開網址</strong>：把信箱寫回 <code>app/privacy.html</code>（冪等）→ 生成靜態站台 → 推送公開倉庫 → 開啟 Pages → 驗證 HTTP 200。<code>--status</code> 查狀態，<code>-n</code> 只生成本地站台</td></tr>
+<tr><td><code>verify_bundle.py</code></td><td><strong>打包產物資源終檢</strong>（.aab／.apk 通用）：用「資料引用 → 音檔」閉環核對 <code>curriculum.json</code> 的 <code>clips[]</code> 與 <code>char_audio.json</code> 的 <code>d</code>／<code>r[]</code>，再與源 <code>app/</code> 雙向差集比對，另查孤兒音檔、關鍵產物、已知修復。<code>--quiet</code> 只印錯誤。已併入 <code>_build_android.py</code></td></tr>
 </table>
 
 <h3>商店素材（<code>store/</code>）</h3>

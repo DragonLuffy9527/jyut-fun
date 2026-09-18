@@ -16,7 +16,9 @@
 - `tools/build_curriculum.py` — 合并各领域 → 自动标注粤拼 → 产出 `app/content/curriculum.json` + `tools/audio_manifest.json`；含 `WORD_OVERRIDES` 词级读音覆盖表；会打印「手写 vs 词库」差异报告。
 - `tools/gen_audio.py` — edge-tts 并发(6)生成 `app/audio/*.mp3`，断点续跑。命名：`{课号}-c{n}` / `-d{n}` / `-v{n}` / `-df`（完整对话）。对话男女双声（A 女 HiuMaan / B 男 WanLung / C 女 HiuGaai），核心句与词汇用 HiuMaan（词 −18%、句 −10% 语速）；`-df` 由逐句 MP3 字节拼接。
 - `tools/gen_char_audio.py` — 生成单字发音库 `app/audio/chars/` + 索引 `app/content/char_audio.json`，令点读完全不依赖系统粤语音色。可断点续跑。
-- `tools/verify_audio.py` — 发音资产体检（单字库/课程音档完整性 + 模拟前端路由算覆盖率 + 分领域覆盖表）。
+- `tools/verify_audio.py` — **源目录**发音资产体检（单字库/课程音档完整性 + 模拟前端路由算覆盖率 + 分领域覆盖表）。
+- `tools/verify_bundle.py` — **打包产物**（.aab/.apk）资源完整性终检。与 `verify_audio.py` 分工不同：前者查 `app/` 源，后者查已封装的包。做法是**引用闭环**（非数档数）：`curriculum.json` 每课 `clips[]` → `audio/<clip>.mp3`；`char_audio.json` 每字 `d`/`r[]` → `audio/chars/<name>.mp3`；再与源 `app/` 双向差集比对 + 孤兒音档 + 关键产物 + 已知修复（TTS.noApi／隐私页信箱）。**已接入 `_build_android.py`**，建置後自動跑，失敗輸出完整報告並回傳非 0 —— 防的是「簽名正確、能裝能開，但音檔沒進包」這類事故（`cap sync` 卡死曾把 `assets/public` 清到只剩 25 段音檔）。支援 `--quiet`（只印錯誤）。
+- **音檔路徑約定（寫碼時別猜）**：所有 mp3 都在 `assets/public/audio/` 下（單字庫是子目錄 `audio/chars/`）。課程 `audio.src='audio/'+clipId+'.mp3'`；單字 `charAudio.src='audio/chars/'+f+'.mp3'`。資料端：課程用 `clips:["basic-01-c1"]`（**無副檔名**），單字用 `chars["㗎"].d="u35ce_gaa3"`。3311 = 課程 1572 + 單字 1739。
 - `app/index.html` — 场景课程学习页 + 四层发音路由点读 + 游戏 + 生词本 + 打卡；课程数/领域数文案由 `renderMeta()` 动态生成，勿写死。
 - `docs/課程設計.html` — 课程设计文档（旧方案放弃原因、粤拼验证过程、两大专业板块课目一览）。
 - Python venv（edge-tts / ToJyutping / pycantonese / RapidOCR / pymupdf）：`C:/Users/Luffy/.workbuddy/binaries/python/envs/default`

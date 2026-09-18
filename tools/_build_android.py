@@ -140,7 +140,29 @@ def main():
                 ok, detail = verify_signature(p, java_home)
             print("  %-46s %s  %s" % (os.path.basename(p), "✓ 已簽名" if ok else "✗ 未簽名／驗證失敗", detail))
 
-    return proc.returncode
+    # 內容驗證：簽名正確 ≠ 內容完整。曾發生 cap sync 中途卡死、把 assets/public
+    # 清到只剩 576KB（3311 段音檔只進 25 段）卻仍建置成功 —— 這種包能裝能開，
+    # 但學到一半沒聲音。故在發布前做「資料引用 → 音檔」的閉環校驗。
+    content_rc = 0
+    if produced:
+        print("\n=== 資源完整性驗證 ===")
+        try:
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            import verify_bundle
+        except Exception as e:  # noqa: BLE001
+            print("  (略過：無法載入 verify_bundle.py —— %s)" % e)
+            verify_bundle = None
+        if verify_bundle is not None:
+            failed = [p for p in produced if verify_bundle.verify(p, quiet=True) != 0]
+            if failed:
+                for p in failed:  # 失敗才把完整報告打出來，方便定位
+                    verify_bundle.verify(p, quiet=False)
+                print("  ✗ 資源校驗未通過 —— 此包不要發布")
+                content_rc = 1
+            else:
+                print("  ✓ %d 個產物資源閉環校驗通過（詳情：python tools/verify_bundle.py）" % len(produced))
+
+    return proc.returncode or content_rc
 
 
 def verify_apk(path, sdk):
