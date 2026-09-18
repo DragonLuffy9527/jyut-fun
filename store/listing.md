@@ -1,10 +1,12 @@
 # 商店上架文案
 
 > 直接複製貼上到 Google Play Console / App Store Connect。
-> 字數限制：Play 應用名稱 30 / 簡短說明 80 / 完整說明 4000；App Store 名稱 30 / 副標題 30 / 描述 4000。
-> ⚠️ **Play 的說明欄不支援 markdown** —— 貼上時不可帶 `**粗體**`、`#` 標題等符號，會原樣顯示給用戶看。
+> 字數限制：Play 應用名稱 30 / 簡短說明 80 / 完整說明 4000；
+> App Store 名稱 30 / 副標題 30 / 關鍵詞 100 / 推廣文本 170 / 描述 4000。
+> ⚠️ **兩邊的說明欄都不支援 markdown** —— 貼上時不可帶 `**粗體**`、`#` 標題等符號，會原樣顯示給用戶看。
 > 各欄字元數已腳本核過（2026-09-18）：英文簡短說明原為 83 字元**超出 80 上限**（Console 會拒絕儲存），已改為 78；
 > 繁中完整說明原含 `**正確的粵語讀音**`，已去星號。日後改文案請維持純文字並重核長度。
+> App Store 專屬欄位（副標題／關鍵詞／推廣文本）見 §5，已逐欄核過並含截圖尺寸規格。
 
 ---
 
@@ -157,7 +159,67 @@ Found a pronunciation error? Email hjjliufei@qq.com and we will fix it in the ne
 
 ---
 
-## 5. 送審前檢查（2026-09-18 更新）
+## 5. App Store 專屬欄位（Google Play 用不到）
+
+App Store Connect 有幾個 Play 沒有的欄位，各有硬性字元上限。以下已逐欄核過長度。
+
+### 繁體中文（主要語言）
+
+```
+名稱       粵.fun · 場景粵語
+副標題     66 課場景粵語 · 完全離線
+關鍵詞     粵語,廣東話,香港話,學粵語,粵拼,粵語拼音,粵語發音,離線學習,點讀,六聲調,建築粵語,醫療粵語,地盤,醫護,香港
+推廣文本   唔使連網，唔使裝語音包。66 課原創場景課程、3311 段離線語音，點一個字就聽到正確粵語讀音 —— 由茶餐廳到地盤，都學得實。
+```
+
+### English
+
+```
+Name          粵.fun · Cantonese
+Subtitle      66 offline Cantonese lessons
+Keywords      cantonese,learn cantonese,hong kong,jyutping,cantonese pronunciation,offline,construction,medical
+Promotional   No internet, no voice pack to install. 66 original lessons and 3,311 offline audio clips — tap any character to hear it pronounced correctly.
+```
+
+| 欄位 | 上限 | 繁中 | English |
+|---|---|---|---|
+| 名稱 Name | 30 | 12 ✓ | 17 ✓ |
+| 副標題 Subtitle | 30 | 15 ✓ | 28 ✓ |
+| 關鍵詞 Keywords | 100 | 58 ✓ | 97 ✓ |
+| 推廣文本 Promotional Text | 170 | 64 ✓ | 141 ✓ |
+| 描述 Description | 4000 | 沿用 §3 完整說明 ✓ | 同 |
+
+**關鍵詞格式規則**：用**半角逗號**分隔，**逗號後不加空格**（空格會佔用 100 字元額度），亦不需要重複填「粵語」這類已含在名稱／副標題裡的詞 —— Apple 會自動合併名稱與副標題入搜尋索引。
+
+**描述欄同樣不支援 Markdown**（與 Play 一致），`**粗體**` 會原樣顯示。§3 的文案已清乾淨。
+
+### 其他 App Store 專屬設定
+
+| 欄位 | 值 |
+|---|---|
+| 主要語言 | 繁體中文 |
+| 支援網址 Support URL | https://dragonluffy9527.github.io/jyut-fun-privacy/ |
+| 版權 | 2026 JyutFun |
+| 年齡分級 | 新制 4+（無不當內容）。問卷含 2026-09 起強制的「社群功能」題 → 選「無」（本 App 無 UGC、無社交動態） |
+| App 隱私 | 全部選「不收集資料」、無追蹤 |
+| 出口合規 | 已由 `Info.plist` 的 `ITSAppUsesNonExemptEncryption=false` 免除逐次申報 |
+| 定價 | 免費（無內購 → 不觸發 Guideline 3.1.1） |
+| 發行地區 | **不可勾選中國大陸**（需 ICP 備案號，無營業執照無法辦理）；勾海外粵語社群 |
+
+### iOS 截圖（與 Play 尺寸不同，需另備）
+
+| 裝置類別 | 必填 | 尺寸（直向） |
+|---|---|---|
+| iPhone 6.9" | ✓ 主要一組 | 1320×2868 / 1290×2796 / 1260×2736 |
+| iPhone 6.5" | 僅在無 6.9" 時要求 | 1284×2778 / 1242×2688 |
+| iPad 13" | 不需要（App 已設為只支援 iPhone） | 2064×2752 |
+
+只要提供 6.9 吋一組，其餘由 Apple 自動縮放。**不可含透明通道**。
+`store/screenshots-emu/` 的 Android 截圖不能直接沿用 —— 比例不同，直接拉伸會讓畫面變形。
+
+---
+
+## 6. 送審前檢查（2026-09-18 更新）
 
 1. **✓ 私隱政策公開網址 —— 已上線**
    網址：**https://dragonluffy9527.github.io/jyut-fun-privacy/**
@@ -182,5 +244,12 @@ Found a pronunciation error? Email hjjliufei@qq.com and we will fix it in the ne
    密碼與 zip 分開存放。遺失上傳金鑰 = 永遠無法更新已上架的 App。
    注意此 zip 已在 `.gitignore` 內，**不可放普通雲盤同步資料夾**。
 
-3. **◐ iOS 打包** —— `.github/workflows/ios.yml` 已備好雲端流程，
-   尚缺 GitHub Secrets 內的 Apple 簽名憑證，否則只能無簽名編譯驗證。
+3. **◐ iOS 打包 —— 工程已備好，缺 Apple 憑證**
+   `ios/` 工程已由 `tools/ios_setup.py` 產生並客製化（Info.plist 顯示名/出口合規/
+   裝置能力、App 級隱私清單、圖示與啟動圖、Bundle ID `com.jyutfun.app`）。
+   雲端流程 `.github/workflows/ios.yml` 跑在 `macos-26`（Xcode 26，2026-04-28 起強制）。
+   **未配置 Secrets 時仍會跑「不簽名編譯驗證」**，可用來先確認工程編得過。
+   完整的註冊、憑證申請（Windows 用 openssl 即可）、上傳步驟見
+   `docs/AppStore上架操作手冊.html`。
+   ⚠️ **前提**：中國大陸個人開發者註冊必須用 Apple 裝置上的 Apple Developer App，
+   且全程不可換裝置；沒有 Mac 或 iPhone／iPad 則無法註冊也無法測試。

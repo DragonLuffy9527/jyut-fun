@@ -71,7 +71,16 @@
   - **發音路由的觀測點兩邊不同**：桌面 Edge 可以聽 **Network domain 的 `.mp3` 請求**；但 **WebView 內不行** —— Capacitor 用 `WebViewLocalServer` 在 `shouldInterceptRequest` 攔截 `https://localhost/*`，那些請求不進 Network 域，永遠回 0，會誤判「音訊全掛」。**WebView 版一律直接讀播放器狀態**：`charAudio.src` / `audio.src` 決定走哪條路，`readyState` / `paused` / `currentTime` 決定是否真的在播（單字走獨立 `charAudio`，課程原聲走 `audio`）。
   - **WebView 內點擊必須發真實指標事件**（`Input.dispatchMouseEvent` 的 `mouseMoved`→`mousePressed`→`mouseReleased`，座標取 `getBoundingClientRect()` 中心）。`element.click()` 不是 trusted user gesture，Chromium 會擋掉音訊播放，量到的是假路由。
   - **陷阱**：`Runtime.evaluate` 傳 `awaitPromise:false` 配 `async` IIFE，CDP 會回 Promise 物件（序列化成 `{}`）而函式仍在背景跑，造成步驟交錯、整輪驗證假通過。另外**可見性不能靠讀內容判斷** —— `display:none` 子樹裡的元素一樣讀得到 `textContent`；`tools/probe_webview.mjs` 的 `realClick` 會在 rect 寬高為 0 時直接拋錯。
-- **iOS**：本機無 Mac，走 `.github/workflows/ios.yml`（macos-15）。未填 Apple 憑證 secrets 時只做無簽名封存驗證。
+- **iOS（2026-09-18 建立）**：**唔需要 Mac 都可以備妥工程** —— Capacitor 的 iOS 模板隨 CLI 附帶（`node_modules/@capacitor/cli/assets/ios-pods-template.tar.gz`），解壓與客製化免 macOS，只有 `pod install` / `xcodebuild` 才要 Mac。`python tools/ios_setup.py` 一次做完（**幂等，可重複跑**；`--check` 只檢查不改）：修 `Info.plist`（顯示名 `粵.fun`、`ITSAppUsesNonExemptEncryption=false` 省下每次上傳答出口合規、`UIRequiredDeviceCapabilities→arm64`、補 `CFBundleLocalizations`）→ 寫 App 級 `PrivacyInfo.xcprivacy`（只宣告 `NSPrivacyAccessedAPICategoryUserDefaults` / `CA92.1`，因 `@capacitor/preferences` 用 `UserDefaults.standard`）→ 改 `pbxproj` → 生成圖示與啟動圖。
+  - **【坑】「每個 build config 都要一致」的設定不可只改第一處**：`pbxproj` 的 Debug 與 Release 各有一份 `buildSettings`；通用替換傳 `count=1` 只改了 Debug，**Release（＝雲端歸檔實際用的那份）仍是模板值 `com.getcapacitor.App`**，而自檢只查 `in` 故漏報。已加 `sub_all()` 全量替換，自檢改為**逐值核對**（找出所有 `PRODUCT_BUNDLE_IDENTIFIER` 並要求全部相符）＋檢查無模板殘留。教訓：`in` 只證明「存在」，證明不了「全部正確」。
+  - **【坑】行尾不一致會令工具永遠報假變更**：比對時 `want` 轉成 `os.linesep`（Windows＝CRLF）但寫入用 LF，兩邊永不相等 → 每次跑都印「內容有差異，重寫」。已統一 LF 並在比對前正規化 CRLF。
+  - **⚠️ `config.xml` 對 iOS 是必需的，勿從工程檔或建置斷言中移除**：它看似 Android 專有，實際 CLI 的 `handleCordovaPluginsJS → autoGenerateConfig` **無條件**為每個平台產生（`platform === 'ios'` 時目錄＝`ios/App/App/`）；`pbxproj` 的 Copy Bundle Resources 有引用（`2FAD9763…`），不生成會 `Build input file cannot be found` 編譯失敗。（2026-09-18 曾誤判為 Android 專有並移除斷言，靠讀 CLI 原始碼更正。）
+  - **【硬要求】2026-04-28 起上傳 App Store Connect 必須用 Xcode 26+ / iOS 26 SDK**，否則上傳即被拒。工作流用 `macos-26` 並**顯式 `xcode-select` 到 26.x 再斷言版本**，不靠預設值；部署目標維持模板值 `IPHONEOS_DEPLOYMENT_TARGET = 15.0`（SDK 要求 ≠ 最低系統版本要求）。
+  - **【註冊前置】中國大陸個人開發者必須用 iPhone/iPad/Mac 上的 Apple Developer App 完成身分驗證，且全程不能換裝置** —— 無 Apple 裝置者先解決這個，否則後面全部做不了。
+  - **上傳方式**：`apple-actions/upload-testflight-build@v5`（v4 起預設 backend 改為 `appstore-api`，直走 App Store Connect API、不再依賴 runner 上的 Transporter；v3- 的 `altool` 已淘汰；只支援 `.ipa`）。`ExportOptions.plist` **不可用 YAML heredoc 產生**：縮排會令 `<?xml` 聲明前多出空白（聲明必須在檔首），而縮排的 python 腳本又會 `IndentationError` → 用單行 `python3 -c`。
+  - **Secrets**（9 個，見 `ios.yml` 檔頭）：未填時工作流只做**無簽名封存驗證**，用來確認能編譯。
+  - `tools/verify_bundle.py` 已支援 `.aab/.apk/.ipa` 三種（IPA 的 web 資產在 `Payload/App.app/public/`），同一套「資料引用 → 音檔」閉環。
+  - 逐步操作見 `docs/AppStore上架操作手冊.html`；商店專屬欄位（副標題 30 / 關鍵詞 100 / 推廣文本 170）見 `store/listing.md` §5。
 
 ## Android 模擬器（2026-09-18 建立，可重複使用）
 

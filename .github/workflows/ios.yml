@@ -2,27 +2,50 @@ name: iOS Build
 
 # Windows 做唔到 iOS 打包，所以借用 GitHub 的 macOS runner。
 #
+# ⚠️ 硬性要求：2026-04-28 起，上傳 App Store Connect 的包必須用
+#    Xcode 26+ / iOS 26 SDK 建置，否則上傳即被拒。所以：
+#      · runner 用 macos-26（唔係 macos-15）
+#      · 下面會顯式 xcode-select 到 26.x 並斷言版本，唔靠預設值
+#
 # 兩段式：
-#   1) 無條件跑一次「不簽名」的 archive —— 用來驗證 iOS 工程能不能編譯，
-#      唔需要 Apple 帳號，出錯會即刻看到。
-#   2) 若已配置簽名秘密（Apple 憑證 + provisioning profile），
-#      再匯出可上傳 App Store Connect 的 IPA。
+#   1) 無條件跑：選 Xcode、驗資源完整性、編譯一次「不簽名」archive。
+#      唔需要任何 Apple 憑證，出錯會即刻看到。
+#   2) 若已配置簽名秘密（憑證 + profile + App Store Connect API Key），
+#      再匯出可上傳的 IPA、校驗內容，並直接送上 TestFlight。
 #
 # 需要的 Secrets（第 2 段才要）：
 #   IOS_CERT_P12_BASE64      Distribution 憑證 .p12 的 base64
 #   IOS_CERT_PASSWORD        .p12 密碼
 #   IOS_PROVISION_BASE64     .mobileprovision 的 base64
-#   IOS_TEAM_ID              Apple Team ID
+#   IOS_PROVISION_NAME       provisioning profile 的名稱（ExportOptions 要）
+#   IOS_TEAM_ID              Apple Team ID（10 碼）
 #   IOS_KEYCHAIN_PASSWORD    任意臨時密碼（CI 用，唔會外洩）
+#   ASC_KEY_ID               App Store Connect API Key 的 Key ID
+#   ASC_ISSUER_ID            App Store Connect API Key 的 Issuer ID
+#   ASC_PRIVATE_KEY          API Key 的 .p8 內容（完整文字）
 
 on:
   push:
     tags: ['v*']
   workflow_dispatch:
+    inputs:
+      upload:
+        description: '完成後上傳到 TestFlight（需已配置簽名 Secrets）'
+        type: boolean
+        default: false
+
+env:
+  APP_NAME: App
+  SCHEME: App
+  BUNDLE_ID: com.jyutfun.app
+  # 每次上傳都需要一個比上次大的 build number；用 run_number 天然遞增
+  BUILD_NUMBER: ${{ github.run_number }}
 
 jobs:
   build:
-    runs-on: macos-15
+    runs-on: macos-26
+    timeout-minutes: 60
+
     steps:
       - uses: actions/checkout@v4
 
@@ -34,44 +57,97 @@ jobs:
       - name: 安裝 JS 依賴
         run: npm ci
 
-      - name: 建立或同步 iOS 工程
+      # ── 1. 選對 Xcode（呢步唔可以省）──────────────────────────────
+      - name: 選用 Xcode 26 並斷言版本
         run: |
-          if [ -d ios ]; then
-            npx cap sync ios
-          else
-            npx cap add ios
-            npx cap sync ios
+          set -euo pipefail
+          # 由新到舊揀最新的 Xcode 26.x；sort -V 令 26.10 > 26.9
+          XCODE=$(ls -d /Applications/Xcode_26.*.app 2>/dev/null | sort -V | tail -1 || true)
+          if [ -z "${XCODE:-}" ]; then
+            XCODE=/Applications/Xcode.app
+            echo "::warning::找不到 Xcode_26.*.app，改用預設 $XCODE"
+          fi
+          sudo xcode-select -s "$XCODE"
+          echo "已選用：$XCODE"
+          xcodebuild -version
+          MAJOR=$(xcodebuild -version | head -1 | sed -E 's/^Xcode ([0-9]+).*/\1/')
+          if [ "$MAJOR" -lt 26 ]; then
+            echo "::error::Xcode 版本為 $MAJOR，但 2026-04-28 起 App Store 要求 Xcode 26+。上傳一定會被拒。"
+            exit 1
+          fi
+          echo "✓ Xcode $MAJOR 符合 App Store 最低要求"
+
+      # ── 2. 工程與工具前置檢查 ────────────────────────────────────
+      - name: 確認 iOS 工程存在（由 tools/ios_setup.py 產生）
+        run: |
+          set -euo pipefail
+          if [ ! -d ios/App/App.xcodeproj ]; then
+            echo "::error::ios/ 工程缺失。本機執行 python tools/ios_setup.py 後再提交。"
+            echo "（唔好改用 npx cap add ios —— 咁會丟失 Info.plist 修補、隱私清單與圖示）"
+            exit 1
+          fi
+          echo "✓ ios/ 工程就位"
+
+      - name: 確保 CocoaPods 可用
+        run: |
+          set -euo pipefail
+          if ! command -v pod >/dev/null 2>&1; then
+            echo "runner 未附 CocoaPods，即場安裝…"
+            sudo gem install cocoapods --no-document
+          fi
+          pod --version
+
+      # ── 3. 同步 web 資源（Capacitor 會同時跑 pod install）────────
+      - name: 同步 web 資源到 iOS 工程
+        run: npx cap sync ios
+
+      - name: 確認同步產物齊備
+        run: |
+          set -euo pipefail
+          # ⚠️ config.xml 對 iOS 係必需的，唔好刪。
+          #    佢看似 Android 專有（PBX 外的 Android 流程亦會生一份），實際上
+          #    CLI 的 handleCordovaPluginsJS → autoGenerateConfig 會**無條件**
+          #    為每個平台產生，而 platform==='ios' 時目錄係 ios/App/App/。
+          #    工程檔的 Copy Bundle Resources 亦有引用佢（2FAD9763...），
+          #    唔生就會以「Build input file cannot be found」編譯失敗。
+          for f in ios/App/App/capacitor.config.json ios/App/App/config.xml ios/App/App/public/index.html; do
+            if [ ! -f "$f" ]; then
+              echo "::error::同步後仍缺少 $f（Xcode 會因找不到建置輸入而失敗）"
+              exit 1
+            fi
+            echo "✓ $f"
+          done
+
+      # ── 4. 資源完整性（防「同步被截斷卻照樣建置成功」）────────────
+      #     呢類事故在 Android 真實發生過一次，同樣會發生在 iOS
+      - name: 資源完整性與工程設定斷言
+        run: |
+          set -euo pipefail
+
+          SRC=$(find app -name '*.mp3' | wc -l | tr -d ' ')
+          PKG=$(find ios/App/App/public -name '*.mp3' | wc -l | tr -d ' ')
+          echo "源 app/ 音檔 $SRC 段 ／ 同步到 iOS 的 $PKG 段"
+          if [ "$SRC" != "$PKG" ]; then
+            echo "::error::音檔數不符（源 $SRC ≠ iOS $PKG）。同步被截斷，停止建置。"
+            exit 1
           fi
 
-      - name: CocoaPods 安裝
-        working-directory: ios/App
-        run: pod install --repo-update
+          ENC=$(/usr/libexec/PlistBuddy -c 'Print :ITSAppUsesNonExemptEncryption' ios/App/App/Info.plist)
+          echo "ITSAppUsesNonExemptEncryption = $ENC"
+          if [ "$ENC" != "false" ]; then
+            echo "::error::Info.plist 缺 ITSAppUsesNonExemptEncryption=false（每次上傳都要人手答出口合規）"
+            exit 1
+          fi
 
-      - name: 顯示可用 Xcode 版本
-        run: xcodebuild -version
+          grep -q 'PrivacyInfo.xcprivacy in Resources' ios/App/App.xcodeproj/project.pbxproj \
+            || { echo "::error::PrivacyInfo.xcprivacy 未加入 Copy Bundle Resources"; exit 1; }
+          test -f ios/App/App/PrivacyInfo.xcprivacy \
+            || { echo "::error::找不到 PrivacyInfo.xcprivacy"; exit 1; }
+          echo "✓ 隱私清單已就位並已入資源清單"
 
-      - name: 建置不簽名 archive（驗證可編譯）
-        working-directory: ios/App
-        run: |
-          set -o pipefail
-          xcodebuild -workspace App.xcworkspace \
-            -scheme App \
-            -configuration Release \
-            -sdk iphoneos \
-            -archivePath "$RUNNER_TEMP/App.xcarchive" \
-            CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGN_IDENTITY="" \
-            CODE_SIGNING_REQUIRED=NO \
-            archive
+          echo "✓ 資源與工程設定全部通過"
 
-      - name: 上傳 archive（供排查）
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: ios-xcarchive-unsigned
-          if-no-files-found: warn
-          path: ${{ runner.temp }}/App.xcarchive
-
+      # ── 5. 建置 ──────────────────────────────────────────────────
       - name: 匯入簽名憑證
         if: ${{ secrets.IOS_CERT_P12_BASE64 != '' }}
         env:
@@ -98,37 +174,124 @@ jobs:
              "$HOME/Library/MobileDevice/Provisioning Profiles/"
 
           security list-keychain -d user -s "$KEYCHAIN"
+          echo "✓ 憑證與 profile 已匯入"
 
-      - name: 匯出已簽名 IPA
-        if: ${{ secrets.IOS_CERT_P12_BASE64 != '' }}
+      - name: Archive
         working-directory: ios/App
         env:
+          # 喺 env 轉成字串，避免喺 shell 度內插 secret 本體
+          SIGNED: ${{ secrets.IOS_CERT_P12_BASE64 != '' }}
           TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
         run: |
           set -euo pipefail
-          cat > "$RUNNER_TEMP/ExportOptions.plist" <<PLIST
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0">
-          <dict>
-            <key>method</key><string>app-store-connect</string>
-            <key>teamID</key><string>${TEAM_ID}</string>
-            <key>signingStyle</key><string>manual</string>
-            <key>uploadSymbols</key><true/>
-            <key>compileBitcode</key><false/>
-          </dict>
-          </plist>
-          PLIST
+          ARCHIVE="$RUNNER_TEMP/App.xcarchive"
 
+          COMMON=(
+            -workspace App.xcworkspace
+            -scheme "$SCHEME"
+            -configuration Release
+            -destination 'generic/platform=iOS'
+            -archivePath "$ARCHIVE"
+            CURRENT_PROJECT_VERSION="$BUILD_NUMBER"
+          )
+
+          if [ "$SIGNED" = "true" ]; then
+            echo "→ 簽名 archive（Team $TEAM_ID）"
+            xcodebuild "${COMMON[@]}" \
+              DEVELOPMENT_TEAM="$TEAM_ID" \
+              CODE_SIGN_STYLE=Manual
+          else
+            echo "→ 未配置簽名憑證，只做不簽名的編譯驗證"
+            xcodebuild "${COMMON[@]}" \
+              CODE_SIGNING_ALLOWED=NO \
+              CODE_SIGN_IDENTITY="" \
+              CODE_SIGNING_REQUIRED=NO
+          fi
+          echo "✓ archive 完成"
+
+      - name: 上傳 archive（僅失敗時，供排查）
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-xcarchive-unsigned
+          if-no-files-found: warn
+          path: ${{ runner.temp }}/App.xcarchive
+
+      # ── 6. 匯出 IPA ──────────────────────────────────────────────
+      - name: 匯出已簽名 IPA
+        if: ${{ secrets.IOS_CERT_P12_BASE64 != '' }}
+        env:
+          TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+          PROV_NAME: ${{ secrets.IOS_PROVISION_NAME }}
+        run: |
+          set -euo pipefail
+          # 用 python 產生 ExportOptions.plist，而唔係 YAML heredoc：
+          # heredoc 嘅縮排會令 <?xml 聲明前多出空白，XML 聲明必須在檔案最開頭；
+          # 而縮排嘅 python 腳本又會 IndentationError，故用單行 -c。
+          python3 -c 'import os,plistlib,sys; plistlib.dump({"method":"app-store-connect","destination":"export","teamID":os.environ["TEAM_ID"],"signingStyle":"manual","provisioningProfiles":{os.environ["BUNDLE_ID"]:os.environ["PROV_NAME"]},"uploadSymbols":True,"stripSwiftSymbols":True,"manageAppVersionAndBuildNumber":False,"compileBitcode":False}, open(sys.argv[1],"wb"))' "$RUNNER_TEMP/ExportOptions.plist"
+          echo "ExportOptions.plist："
+          cat "$RUNNER_TEMP/ExportOptions.plist"
+
+          rm -rf "$RUNNER_TEMP/ipa"
           xcodebuild -exportArchive \
             -archivePath "$RUNNER_TEMP/App.xcarchive" \
             -exportPath "$RUNNER_TEMP/ipa" \
             -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist"
 
-      - name: 上傳 IPA
+          ls -la "$RUNNER_TEMP/ipa"
+          # 後續步驟要用固定路徑，所以正規化檔名
+          GOT=$(ls "$RUNNER_TEMP"/ipa/*.ipa | head -1)
+          if [ "$GOT" != "$RUNNER_TEMP/ipa/App.ipa" ]; then
+            cp "$GOT" "$RUNNER_TEMP/ipa/App.ipa"
+          fi
+          test -f "$RUNNER_TEMP/ipa/App.ipa"
+          echo "✓ IPA：$(du -h "$RUNNER_TEMP/ipa/App.ipa" | cut -f1)"
+
+      # ── 7. 校驗 IPA 內容（與 Android 共用同一套引用閉環）──────────
+      - name: 校驗 IPA 內資源完整性
+        if: ${{ secrets.IOS_CERT_P12_BASE64 != '' }}
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          cp "$RUNNER_TEMP/ipa/App.ipa" "dist/粵fun-v1.0-release.ipa"
+          python3 tools/verify_bundle.py "dist/粵fun-v1.0-release.ipa"
+
+      - name: 上傳 IPA（供人手備用）
         if: ${{ secrets.IOS_CERT_P12_BASE64 != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: cantonese-fun-ios-ipa
           if-no-files-found: warn
-          path: ${{ runner.temp }}/ipa/*.ipa
+          path: ${{ runner.temp }}/ipa/App.ipa
+
+      # ── 8. 送上 TestFlight ───────────────────────────────────────
+      # 版本：v5（v4 起預設 backend 改為 appstore-api，直接走 App Store
+      # Connect API，唔再依賴 runner 上嘅 Transporter；v3- 嘅 altool 已淘汰）。
+      # 只支援 .ipa，本流程正是產 .ipa，無問題。
+      - name: 上傳到 TestFlight
+        if: ${{ secrets.IOS_CERT_P12_BASE64 != '' && (github.event_name == 'push' || inputs.upload) }}
+        uses: apple-actions/upload-testflight-build@v5
+        with:
+          app-path: ${{ runner.temp }}/ipa/App.ipa
+          issuer-id: ${{ secrets.ASC_ISSUER_ID }}
+          api-key-id: ${{ secrets.ASC_KEY_ID }}
+          api-private-key: ${{ secrets.ASC_PRIVATE_KEY }}
+          # 本 App 只用 Capacitor 的 https://localhost 本地回環，屬豁免範圍
+          uses-non-exempt-encryption: 'false'
+          wait-for-processing: 'true'
+
+      - name: 完成摘要
+        if: always()
+        env:
+          SIGNED: ${{ secrets.IOS_CERT_P12_BASE64 != '' }}
+        run: |
+          {
+            echo "### iOS 建置結果"
+            echo ""
+            echo "| 項目 | 值 |"
+            echo "|---|---|"
+            echo "| Xcode | $(xcodebuild -version 2>/dev/null | head -1) |"
+            echo "| Bundle ID | $BUNDLE_ID |"
+            echo "| Build number | $BUILD_NUMBER |"
+            echo "| 簽名 | $([ "$SIGNED" = "true" ] && echo '已簽名' || echo '未簽名（僅編譯驗證）') |"
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-校驗已打包產物（.aab / .apk）內的資源是否完整、且與源目錄 app/ 一致。
+校驗已打包產物（.aab / .apk / .ipa）內的資源是否完整、且與源目錄 app/ 一致。
 
 為什麼需要它：`_build_android.py` 只驗簽名，不驗內容。曾發生過
 `npx cap sync android` 中途卡死、把 assets/public 清空到只剩 576KB
@@ -54,11 +54,21 @@ def ok(b):
 
 
 def public_prefix(names):
-    """找出包內 assets/public/ 的路徑前綴（AAB 會多一層 base/）。"""
+    """找出包內 web 資源的根路徑前綴。
+
+    兩種產物佈局不同：
+      Android（.aab / .apk）：assets/public/…        （AAB 會再多一層 base/）
+      iOS（.ipa）          ：Payload/App.app/public/…
+    """
     for n in names:
         i = n.find("assets/public/")
         if i >= 0:
             return n[: i + len("assets/public/")]
+    for n in names:
+        if n.endswith("/public/index.html"):
+            return n[: -len("index.html")]
+    if "public/index.html" in names:
+        return "public/"
     return None
 
 
@@ -83,7 +93,7 @@ def verify(path, quiet=False):
     names = z.namelist()
     pre = public_prefix(names)
     if not pre:
-        print("%s 包內找不到 assets/public/，可能不是 Capacitor 產物" % ok(False))
+        print("%s 包內找不到 web 資源根目錄（assets/public/ 或 Payload/*.app/public/），可能不是 Capacitor 產物" % ok(False))
         return 2
 
     pkg_mp3 = {n[len(pre):] for n in names if n.startswith(pre) and n.endswith(".mp3")}
@@ -226,22 +236,22 @@ def latest(pattern):
         return []
     hits = []
     for f in os.listdir(DIST):
-        if pattern in f.lower() and f.lower().endswith(pattern):
+        if f.lower().endswith(pattern):
             hits.append(os.path.join(DIST, f))
     return sorted(hits, key=os.path.getmtime, reverse=True)
 
 
 def main():
-    ap = argparse.ArgumentParser(description="校驗 AAB/APK 內資源完整性（引用閉環）")
-    ap.add_argument("bundles", nargs="*", help="要校驗的包（預設自動挑 dist/ 下最新 .apk 與 .aab）")
+    ap = argparse.ArgumentParser(description="校驗 AAB/APK/IPA 內資源完整性（引用閉環）")
+    ap.add_argument("bundles", nargs="*", help="要校驗的包（預設自動挑 dist/ 下最新 .apk / .aab / .ipa）")
     ap.add_argument("--quiet", action="store_true", help="只印結論與錯誤")
     args = ap.parse_args()
 
     targets = args.bundles
     if not targets:
-        targets = latest(".apk")[:1] + latest(".aab")[:1]
+        targets = latest(".apk")[:1] + latest(".aab")[:1] + latest(".ipa")[:1]
     if not targets:
-        print("%s dist/ 下找不到 .apk 或 .aab，請先建置或用參數指定" % ok(False))
+        print("%s dist/ 下找不到 .apk／.aab／.ipa，請先建置或用參數指定" % ok(False))
         return 2
 
     rc = 0
