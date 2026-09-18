@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>粵.fun · 場景課程設計</title>
+<style>
+  :root{
+    --bg:#FFF7EE; --card:#FFF; --ink:#4A3F3D; --muted:#A89A92;
+    --pink:#FF8FAB; --pink-deep:#E56A8C; --pink-soft:#FFE4EC;
+    --yellow:#FFD166; --yellow-soft:#FFF3D6; --yellow-deep:#C98A0B;
+    --mint:#6FCFBA; --mint-deep:#3FA893; --mint-soft:#DFF6F0;
+    --purple:#9B8CDB; --purple-soft:#ECE7FB;
+    --radius:22px; --shadow:0 4px 14px rgba(150,110,90,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"PingFang TC","PingFang SC","Microsoft JhengHei",-apple-system,sans-serif;
+    background:#F2E8DD;color:var(--ink);line-height:1.75;padding:28px 16px 60px}
+  .wrap{max-width:920px;margin:0 auto}
+  .hero{background:linear-gradient(135deg,var(--pink) 0%,#FFB0C4 100%);border-radius:28px;
+    padding:32px 30px;color:#fff;box-shadow:0 10px 30px rgba(229,106,140,.3);margin-bottom:26px}
+  .hero h1{font-size:30px;letter-spacing:.5px;margin-bottom:8px}
+  .hero p{font-size:14.5px;opacity:.95}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .pill{background:rgba(255,255,255,.25);border-radius:999px;padding:5px 15px;font-size:12.5px;font-weight:600}
+  .card{background:var(--card);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin-bottom:18px}
+  h2{font-size:19px;margin-bottom:14px;display:flex;align-items:center;gap:9px}
+  h2 .dot{width:10px;height:10px;border-radius:50%;background:var(--pink)}
+  h3{font-size:15px;margin:16px 0 8px;color:var(--pink-deep)}
+  p,li{font-size:14px}
+  ul,ol{padding-left:20px}
+  li{margin-bottom:5px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid #F2E9E0;vertical-align:top}
+  th{background:#FAF6EF;font-weight:700;font-size:12.5px;color:#7d6f68}
+  tr:last-child td{border-bottom:none}
+  code{font-family:Consolas,monospace;background:#F5F0E9;border-radius:6px;padding:1px 6px;font-size:12.5px}
+  .dom{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+  .dbox{border-radius:18px;padding:15px 17px}
+  .dbox h4{font-size:14.5px;margin-bottom:4px}
+  .dbox p{font-size:12.5px;color:#7d6f68}
+  .dbox .n{font-size:11.5px;font-weight:700;border-radius:999px;padding:2px 10px;background:rgba(255,255,255,.75);
+    display:inline-block;margin-top:8px}
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px;font-size:12.5px}
+  .step{background:var(--mint-soft);color:var(--mint-deep);border-radius:12px;padding:8px 14px;font-weight:600}
+  .arrow{color:var(--muted)}
+  .warn{background:var(--yellow-soft);border-left:5px solid var(--yellow);border-radius:12px;
+    padding:13px 17px;font-size:13.5px;margin-top:12px}
+  .good{background:var(--mint-soft);border-left:5px solid var(--mint);border-radius:12px;
+    padding:13px 17px;font-size:13.5px;margin-top:12px}
+  .samp{background:#FAF6EF;border-radius:14px;padding:13px 16px;margin-top:10px;font-size:13.5px}
+  .samp .y{font-weight:700;font-size:15px}
+  .samp .j{font-family:Consolas,monospace;color:var(--mint-deep);font-size:12px}
+  .samp .z{color:#7a6fb5;font-size:12.5px}
+  footer{text-align:center;font-size:12px;color:var(--muted);margin-top:26px;line-height:1.9}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <h1>粵.fun · 場景課程設計</h1>
+    <p>唔靠教材、唔靠現成音頻——由零開始編寫嘅 66 個生活／學習／職場／建造／醫療場景粵語課程，配自家合成粵語配音。</p>
+    <div class="pills">
+      <span class="pill">6 大領域</span>
+      <span class="pill">66 課</span>
+      <span class="pill">438 核心句</span>
+      <span class="pill">468 句對話</span>
+      <span class="pill">600 詞彙</span>
+      <span class="pill">1572 段音頻</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot"></span>一、點解放棄舊方案</h2>
+    <p>原本方案建基於《粵語（香港話）教程（修訂版）》PDF 同配套 MP3，做落去遇到三個硬傷：</p>
+    <table>
+      <tr><th style="width:26%">問題</th><th>具體情況</th></tr>
+      <tr><td><b>版權風險</b></td><td>教材、錄音都係第三方版權物，就算官方公開下載，都唔代表可以直接打包入 App 公開發佈。</td></tr>
+      <tr><td><b>內容唔可控</b></td><td>掃描版 OCR 有固有錯字，規則救唔返；音頻係整課錄音，冇逐句切分，做唔到「點句子聽句子」。</td></tr>
+      <tr><td><b>學習路徑錯配</b></td><td>教材按語法體系編排，唔係按「我要去茶樓點餐」呢種真實需求編排，學習者要學好耐先講得出口。</td></tr>
+    </table>
+    <div class="good"><b>新方案</b>：課程內容 100% 原創編寫，發音 100% 自家合成。<b>冇版權風險</b>、<b>逐句音頻精準對齊</b>、<b>可以自由改寫同擴充</b>。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot"></span>二、課程體系</h2>
+    <p>按「場景驅動」編排：每一課對應一個真實處境，學完即刻用得着。六個領域由淺入深，難度分 L1–L3。其中<b>香港建築業</b>同<b>香港醫療業</b>係兩大專業板塊，各 18 課，行內術語逐一拆解。</p>
+    <div class="dom">
+      <div class="dbox" style="background:var(--purple-soft)">
+        <h4>🔤 基礎發音</h4><p>六聲調、聲母、入聲、語氣詞</p><span class="n" style="color:var(--purple)">4 課</span>
+      </div>
+      <div class="dbox" style="background:var(--pink-soft)">
+        <h4>🏠 生活日常</h4><p>打招呼 · 家庭 · 時間 · 飲茶 · 買餸 · 點餐 · 交通 · 問路 · 購物 · 睇醫生 · 天氣 · 家務</p><span class="n" style="color:var(--pink-deep)">12 課</span>
+      </div>
+      <div class="dbox" style="background:var(--mint-soft)">
+        <h4>📚 學習進修</h4><p>課堂提問 · 圖書館 · 小組報告 · 考試溫習 · 升學選科 · 興趣班</p><span class="n" style="color:var(--mint-deep)">6 課</span>
+      </div>
+      <div class="dbox" style="background:var(--yellow-soft)">
+        <h4>💼 職場工作</h4><p>見工 · 寒暄 · 開會 · 電話電郵 · 接待客戶 · 匯報 · 請假 · 商務飯局</p><span class="n" style="color:var(--yellow-deep)">8 課</span>
+      </div>
+      <div class="dbox" style="background:#FFEEDC">
+        <h4>🏗️ 香港建築業</h4><p>入行工種 · 安全簡報 · 防護裝備 · 工具 · 材料 · 圖則 · 度量衡 · 紮鐵釘板 · 落石屎 · 砌磚批盪貼瓦 · 搭棚 · 水電機電 · 工地溝通 · 質量驗收 · 工業意外 · 惡劣天氣 · 標書計糧 · 交樓執漏</p><span class="n" style="color:#C07425">18 課</span>
+      </div>
+      <div class="dbox" style="background:#E1EFFA">
+        <h4>🏥 香港醫療業</h4><p>掛號分流 · 問診 · 痛楚 · 發燒感冒 · 腸胃 · 皮膚敏感 · 生命體徵 · 抽血化驗 · 打針輸液 · 食藥藥房 · 專科轉介 · 入院出院 · 手術前後 · 急症室 · 產科 · 兒科疫苗 · 物理治療跌打 · 費用保險交更</p><span class="n" style="color:#3C7CB0">18 課</span>
+      </div>
+    </div>
+
+    <h3>每一課嘅結構</h3>
+    <div class="flow">
+      <span class="step">🎬 場景</span><span class="arrow">→</span>
+      <span class="step">⭐ 核心句 ×6–7</span><span class="arrow">→</span>
+      <span class="step">💬 對話 ×6–8</span><span class="arrow">→</span>
+      <span class="step">📖 詞彙 ×8–10</span><span class="arrow">→</span>
+      <span class="step">💡 學習貼士</span><span class="arrow">→</span>
+      <span class="step">✏️ 即學即練</span>
+    </div>
+    <div class="samp">
+      <div class="y">唔該埋單！</div>
+      <div class="j">m4 goi1 maai4 daan1</div>
+      <div class="z">麻煩買單！（茶餐廳結帳）</div>
+    </div>
+    <p style="margin-top:10px;font-size:13px;color:var(--muted)">每一句都有：漢字 + 粵拼 + 普通話對譯 + 獨立音檔。點句子播錄音，點單字聽發音。</p>
+
+    <h3>兩大專業板塊 · 課目一覽</h3>
+    <table>
+      <tr><th style="width:50%">🏗️ 香港建築業（18 課）</th><th>🏥 香港醫療業（18 課）</th></tr>
+      <tr><td>1 入行與工種</td><td>1 掛號與分流</td></tr>
+      <tr><td>2 開工前安全簡報</td><td>2 問診基本</td></tr>
+      <tr><td>3 個人防護裝備</td><td>3 描述痛楚</td></tr>
+      <tr><td>4 工地常用工具</td><td>4 發燒感冒與咳嗽</td></tr>
+      <tr><td>5 建築材料</td><td>5 腸胃不適</td></tr>
+      <tr><td>6 睇圖則與尺寸</td><td>6 皮膚與敏感</td></tr>
+      <tr><td>7 度量衡與單位</td><td>7 量度生命體徵</td></tr>
+      <tr><td>8 紮鐵與釘板</td><td>8 抽血驗尿與化驗</td></tr>
+      <tr><td>9 落石屎</td><td>9 打針與輸液</td></tr>
+      <tr><td>10 砌磚、批盪與貼瓦</td><td>10 食藥與藥房</td></tr>
+      <tr><td>11 搭棚與高空工作</td><td>11 專科轉介與覆診</td></tr>
+      <tr><td>12 水電與機電安裝</td><td>12 入院與出院</td></tr>
+      <tr><td>13 工地溝通與指令</td><td>13 手術前後</td></tr>
+      <tr><td>14 質量檢查與驗收</td><td>14 急症室與意外受傷</td></tr>
+      <tr><td>15 工業意外與急救</td><td>15 產科與產檢</td></tr>
+      <tr><td>16 惡劣天氣與颱風</td><td>16 兒科與疫苗</td></tr>
+      <tr><td>17 標書、數量與計糧</td><td>17 物理治療與中醫跌打</td></tr>
+      <tr><td>18 交樓與執漏</td><td>18 費用、保險與交更</td></tr>
+    </table>
+
+    <div class="warn"><b>行內術語要特別小心</b>：呢兩個板塊有唔少「字面一樣、讀法唔同」嘅詞。例如「天秤」指塔式起重機時讀 <code>tin1 cing3</code>，唔係天秤座嘅 <code>tin1 ping4</code>；「轉介」讀 <code>zyun3 gaai3</code>，同「轉車／轉工」一致。呢類詞已經逐個對照權威語料核實，並寫入覆蓋表。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot" style="background:var(--mint)"></span>三、粵語配音方案</h2>
+    <p>用微軟 Edge 神經網絡語音（edge-tts）嘅粵語音色，離線生成再打包，唔使 App 內聯網合成。</p>
+    <table>
+      <tr><th>用途</th><th>音色</th><th>說明</th></tr>
+      <tr><td>A 角色（女）</td><td><code>zh-HK-HiuMaanNeural</code></td><td rowspan="3">對話用<b>男女雙聲</b>演繹，聽得出邊個講，比單一機械聲自然好多</td></tr>
+      <tr><td>B 角色（男）</td><td><code>zh-HK-WanLungNeural</code></td></tr>
+      <tr><td>C 角色（女）</td><td><code>zh-HK-HiuGaaiNeural</code></td></tr>
+      <tr><td>核心句 / 詞彙</td><td><code>zh-HK-HiuMaanNeural</code></td><td>統一音色做示範；詞彙語速 −18%，句子 −10%，方便跟讀</td></tr>
+    </table>
+    <p style="margin-top:12px">完整對話音檔由<b>逐句音檔拼接</b>而成，保留男女對答，唔使額外合成。</p>
+    <div class="good"><b>額外好處</b>：App 內置「慢速 0.75×」開關，配合慢速錄音，初學者可以逐字跟。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot" style="background:var(--purple)"></span>四、粵拼準確性（重點）</h2>
+    <p>你之前反饋過「拼音錯會誤導學習者」，所以呢次粵拼<b>唔靠人手打</b>，全部由開源權威語料庫自動標註：</p>
+    <table>
+      <tr><th style="width:30%">環節</th><th>做法</th></tr>
+      <tr><td>主要標註</td><td><b>ToJyutping</b>（基於 <b>rime-cantonese</b>，粵語計算語言學基礎建設組，CC BY 4.0）逐字轉粵拼</td></tr>
+      <tr><td>交叉驗證</td><td>用 <b>pycantonese</b>（獨立詞庫）覆核高風險詞，兩個詞庫有分歧就人手裁決</td></tr>
+      <tr><td>詞級覆蓋</td><td>已知誤判用覆蓋表精準修正</td></tr>
+    </table>
+    <h3>交叉驗證實際抓出嘅問題</h3>
+    <table>
+      <tr><th>詞</th><th>ToJyutping</th><th>pycantonese</th><th>裁決</th></tr>
+      <tr><td>爸爸 / 媽媽</td><td>baa4 baa1</td><td>baa4 baa1</td><td>✅ 兩庫一致 → 變調形式係真實讀音（<b>我原本手寫 baa1 反而係錯</b>）</td></tr>
+      <tr><td>轉左 / 轉右</td><td>zyun2</td><td><b>zyun3</b></td><td>⚠️ 分歧，且與「轉車 zyun3」不一致 → 採用 zyun3</td></tr>
+      <tr><td>喺度</td><td>詞級 dou6 / <b>句級 dok6</b></td><td>dou6</td><td>⚠️ 句級上下文誤判 → 加覆蓋修正為 dou6</td></tr>
+    </table>
+    <div class="warn"><b>坦白講</b>：冇任何自動工具係 100% 準。呢個流程嘅價值係「錯得少 + 錯得可追溯」——詞庫版本同覆蓋表都喺代碼入面，之後發現問題可以隨時補。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot" style="background:var(--yellow)"></span>五、數據同工具鏈</h2>
+    <table>
+      <tr><th style="width:38%">檔案 / 工具</th><th>作用</th></tr>
+      <tr><td><code>tools/curriculum/*.json</code></td><td>課程原稿（分四領域編輯，只寫漢字＋對譯，唔寫粵拼）</td></tr>
+      <tr><td><code>tools/build_curriculum.py</code></td><td>合併四領域 → 自動標註粵拼 → 產出課程數據同音頻清單</td></tr>
+      <tr><td><code>tools/gen_audio.py</code></td><td>併發生成 636 段 MP3，支援斷點續跑</td></tr>
+      <tr><td><code>app/content/curriculum.json</code></td><td>App 讀取嘅課程數據（129 KB）</td></tr>
+      <tr><td><code>app/audio/*.mp3</code></td><td>課程音檔（<code>{課號}-c{n}</code> 核心句、<code>-d{n}</code> 對話句、<code>-v{n}</code> 詞彙、<code>-df</code> 完整對話）</td></tr>
+      <tr><td><code>app/index.html</code></td><td>可互動原型：課程 + 點讀 + 遊戲 + 生詞本</td></tr>
+    </table>
+    <div class="samp" style="font-family:Consolas,monospace;font-size:12px;line-height:1.8">
+      tools/curriculum/*.json<br>
+      &nbsp;&nbsp;→ build_curriculum.py <span style="color:var(--muted)">（rime-cantonese 標註粵拼）</span><br>
+      &nbsp;&nbsp;→ app/content/curriculum.json + audio_manifest.json<br>
+      &nbsp;&nbsp;→ gen_audio.py <span style="color:var(--muted)">（edge-tts 粵語音色）</span><br>
+      &nbsp;&nbsp;→ app/audio/*.mp3
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot" style="background:var(--mint)"></span>六、App 功能</h2>
+    <table>
+      <tr><th style="width:26%">模組</th><th>功能</th></tr>
+      <tr><td>首頁</td><td>今日目標環（聽 5 段達標）、一鍵續學、遊戲入口、今日生詞</td></tr>
+      <tr><td>場景課程</td><td>四大領域目錄，進入課程見完整學習流程</td></tr>
+      <tr><td>課程詳情</td><td>點句子播錄音 · 點單字聽發音 · 劃選即讀 · 拼音／對譯開關 · 慢速播放 · 即學即練</td></tr>
+      <tr><td>遊戲</td><td><b>配對樂園</b>（字卡配對）、<b>聽音辨義</b>（聽真人發音揀意思，練耳）</td></tr>
+      <tr><td>我的</td><td>學習統計、生詞本、發音引擎狀態</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot" style="background:var(--purple)"></span>七、下一步建議</h2>
+    <ol>
+      <li><b>擴充課程</b>：現有 30 課可再按需加（例如飲酒文化、寵物、租樓、銀行、投訴），改 <code>tools/curriculum/*.json</code> 再跑一次工具鏈就得。</li>
+      <li><b>間隔重複</b>：生詞本接 SRS 算法（Anki 式），按遺忘曲線安排複習，比單純收集有效得多。</li>
+      <li><b>跟讀打分</b>：錄音比對音高／時長，畀學習者知自己聲調啱唔啱——呢個係粵語學習嘅核心難點。</li>
+      <li><b>落 Flutter 工程</b>：原型驗證完就直接照搬呢個數據結構，音檔放 assets 或 CDN，<code>just_audio + audio_service</code> 做播放核心。</li>
+    </ol>
+    <div class="warn"><b>版權狀態</b>：本 App 課程內容同音頻均為本項目原創／合成，冇第三方版權負擔。唯一要注意嘅係粵拼數據來自 rime-cantonese（CC BY 4.0）—— 按該協議需標明出處，App「我的」頁已註明。</div>
+  </div>
+
+  <footer>
+    粵.fun · 場景課程設計 v1.0 ｜ 2026-09-18<br>
+    課程內容原創 ｜ 粵拼：rime-cantonese（CC BY 4.0）｜ 配音：粵語神經語音合成
+  </footer>
+</div>
+</body>
+</html>

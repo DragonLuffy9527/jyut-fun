@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>粵.fun · 上架發布指南</title>
+<style>
+:root{
+  --bg:#FFF7EE; --card:#FFFFFF; --ink:#4A3F3D; --muted:#A89A92; --line:#F0E4D8;
+  --pink:#FF8FAB; --pink-deep:#E56A8C; --pink-soft:#FFE4EC;
+  --yellow:#FFD166; --yellow-soft:#FFF3D6; --yellow-deep:#C98A0B;
+  --mint:#6FCFBA; --mint-soft:#DFF6F0; --mint-deep:#3FA893;
+  --blue:#7FB5E8; --blue-soft:#E8F2FC; --blue-deep:#2F6FA8;
+  --red:#E5736F; --red-soft:#FDEBEA; --red-deep:#B3443F;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:34px 20px 80px;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang HK","Microsoft JhengHei","Noto Sans TC",sans-serif;
+  line-height:1.75;font-size:14.5px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto}
+h1{font-size:27px;margin:0 0 8px;letter-spacing:.5px}
+.sub{color:var(--muted);font-size:13.5px;margin:0 0 26px}
+h2{font-size:19px;margin:42px 0 14px;padding-left:13px;border-left:4px solid var(--pink);line-height:1.35}
+h3{font-size:15.5px;margin:24px 0 8px;color:var(--pink-deep)}
+p{margin:9px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:16px 0;
+  box-shadow:0 3px 12px rgba(150,110,90,.06)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.pill{background:var(--pink-soft);color:var(--pink-deep);font-size:12.5px;padding:4px 12px;border-radius:99px}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;background:var(--card);
+  border-radius:12px;overflow:hidden}
+th{background:var(--yellow-soft);color:var(--yellow-deep);font-weight:600;text-align:left;
+  padding:10px 13px;font-size:13px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+code{background:var(--mint-soft);color:var(--mint-deep);font-size:12.5px;padding:1.5px 6px;border-radius:5px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.callout{border-radius:14px;padding:15px 18px;margin:16px 0;font-size:13.5px}
+.callout b{display:block;margin-bottom:4px;font-size:14px}
+.c-red{background:var(--red-soft);border-left:4px solid var(--red)}
+.c-red b{color:var(--red-deep)}
+.c-ok{background:var(--mint-soft);border-left:4px solid var(--mint)}
+.c-ok b{color:var(--mint-deep)}
+.c-tip{background:var(--blue-soft);border-left:4px solid var(--blue)}
+.c-tip b{color:var(--blue-deep)}
+.c-warn{background:var(--yellow-soft);border-left:4px solid var(--yellow)}
+.c-warn b{color:var(--yellow-deep)}
+ul,ol{margin:9px 0;padding-left:22px}
+li{margin:5px 0}
+.ok{color:var(--mint-deep);font-weight:600}
+.no{color:var(--red-deep);font-weight:600}
+.half{color:var(--yellow-deep);font-weight:600}
+.prog{background:var(--mint-soft);border:1px solid var(--mint);border-radius:14px;padding:15px 18px;margin:16px 0}
+.prog b{display:block;margin:0 0 6px;font-size:14px;color:var(--mint-deep)}
+.prog code{background:rgba(255,255,255,.75)}
+.tree{background:#FBF6F0;border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;
+  line-height:1.85;white-space:pre;overflow-x:auto;color:#5C4F4B}
+.step{display:flex;gap:14px;align-items:flex-start;margin:14px 0}
+.num{flex:0 0 30px;height:30px;border-radius:50%;background:var(--pink-soft);color:var(--pink-deep);
+  display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px}
+.num.r{background:var(--red-soft);color:var(--red-deep)}
+.step-b{flex:1;min-width:0}
+.step-b h4{margin:2px 0 4px;font-size:14.5px}
+.step-b p{margin:2px 0;font-size:13.5px;color:var(--muted)}
+.foot{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
+.chk{list-style:none;padding-left:0}
+.chk li{padding-left:26px;position:relative}
+.chk li::before{content:"";position:absolute;left:0;top:7px;width:13px;height:13px;
+  border:1.5px solid var(--mint);border-radius:4px}
+@media(max-width:600px){body{padding:22px 14px 60px}h1{font-size:22px}table{font-size:12.5px}th,td{padding:8px 9px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>粵.fun 上架發布指南</h1>
+<p class="sub">從現在的網頁原型，到雙端應用商店可下載的正式 App — 完整路徑、資質清單、時間表與風險項。</p>
+
+<div class="pills">
+  <span class="pill">6 大板塊 · 66 課</span>
+  <span class="pill">3311 段語音 · 52.8 MB</span>
+  <span class="pill">純離線已達成</span>
+  <span class="pill">Capacitor 8 外殼已就位</span>
+  <span class="pill">AAB 已產出並簽名</span>
+</div>
+
+<h2>一、現狀盤點</h2>
+
+<p>目前手上是一套<strong>已驗證可用、但尚未「變成 App」</strong>的資產。內容與語音這條最難的線已經全部打通，缺的是外殼、資質與合規。</p>
+
+<table>
+<tr><th>資產</th><th>狀態</th><th>說明</th></tr>
+<tr><td>課程內容（6 板塊 66 課）</td><td class="ok">✓ 完成</td><td><code>app/content/curriculum.json</code>，438 核心句 / 468 對話句 / 600 詞彙</td></tr>
+<tr><td>粵語語音（3311 段）</td><td class="ok">✓ 完成</td><td>課程語音 1572 段 + 單字音庫 1739 檔，52.2 MB</td></tr>
+<tr><td>粵拼標註</td><td class="ok">✓ 完成</td><td>逐字對齊全數通過，多音字用同音替身保證音準</td></tr>
+<tr><td>前端應用</td><td class="ok">✓ 完成</td><td><code>app/index.html</code> 單檔 70.7 KB，四層發音路由</td></tr>
+<tr><td>PWA manifest</td><td class="ok">✓ 完成</td><td><code>app/manifest.json</code>，含 192／512／maskable 圖示</td></tr>
+<tr><td>Service Worker</td><td class="ok">✓ 完成</td><td><code>app/sw.js</code>；Capacitor 環境內自動停用（原生已離線）</td></tr>
+<tr><td>原生外殼（.aab / .ipa）</td><td class="half">◐ 進行中</td><td>Capacitor 8.5.2 已 <code>cap add android</code>＋<code>cap sync</code>（52.8 MB 資源入包），AAB 建置中</td></tr>
+<tr><td>Android 簽名金鑰</td><td class="ok">✓ 完成</td><td><code>android/upload-keystore.jks</code>＋<code>keystore.properties</code>（已 gitignore）</td></tr>
+<tr><td>商店素材（截圖／圖示／文案）</td><td class="ok">✓ 完成</td><td><code>store/</code>：8 張 1080×1920 截圖、512／1024 圖示、1024×500 特色圖、中英文案</td></tr>
+<tr><td>CI 雲端建置</td><td class="ok">✓ 完成</td><td><code>.github/workflows/android.yml</code>（AAB／APK）＋<code>ios.yml</code>（macOS 雲端打包）</td></tr>
+<tr><td>隱私政策頁（公開網址）</td><td class="half">◐ 頁面已就緒</td><td><code>app/privacy.html</code> 內容完整，尚缺<strong>公開網址</strong>（建議 GitHub Pages）</td></tr>
+<tr><td>軟體著作權</td><td class="no">✗ 未申請</td><td>國內安卓全渠道硬性要求，60 工作日</td></tr>
+<tr><td>ICP 備案 / App 備案</td><td class="no">✗ 未辦理</td><td>App Store 國區必填備案號；純離線可爭取豁免</td></tr>
+<tr><td><code>app/pages/</code> 389 張原書截圖</td><td class="ok">✓ 已排除</td><td>已移出 <code>app/</code>，現僅存 <code>audio content icons index.html manifest.json privacy.html sw.js</code></td></tr>
+<tr><td><code>粵語教程/</code> 原書 PDF + 138 段原版錄音</td><td class="ok">✓ 已排除</td><td>已加入 <code>.gitignore</code>，不進包亦不進版控</td></tr>
+</table>
+
+<h2>二、發布前必清的兩條紅線</h2>
+
+<p>這兩項與技術無關，但任何一項沒處理，上架一定出問題，且都是事後補救極貴的那種。</p>
+
+<h3>紅線一：3311 段語音的授權來源</h3>
+
+<div class="callout c-red">
+  <b>現況</b>
+  全部語音由 <code>edge-tts</code> 生成。它是社區對 Microsoft Edge「大聲朗讀」功能的<strong>逆向封裝</strong>，微軟從未授權第三方以這種方式批量調用。個人自用無人追究，但<strong>向應用商店分發屬於明確的風險區</strong>。
+</div>
+
+<p>幸運的是，同一條路有完全乾淨的走法：本次使用的音色在 <strong>Azure 官方語音服務</strong>裡是<strong>同名預建神經語音</strong>，而微軟產品條款明確允許付費訂閱客戶商用其生成音頻 — 可嵌入產品、可轉售、無需署名。注意兩點：必須使用 pay-as-you-go 付費訂閱（免費額度不得用於商用），且微軟要求對 AI 合成語音做<strong>適當披露</strong>。</p>
+
+<table>
+<tr><th>比較項</th><th>edge-tts（現況）</th><th>Azure Speech 官方（建議）</th></tr>
+<tr><td>授權狀態</td><td class="no">灰色地帶，未授權第三方批量調用</td><td class="ok">產品條款明文允許商用</td></tr>
+<tr><td>音色</td><td>zh-HK-HiuMaanNeural / HiuGaaiNeural / WanLungNeural</td><td class="ok">同名音色，聽感一致</td></tr>
+<tr><td>能否嵌入付費產品</td><td class="no">有爭議</td><td class="ok">可以</td></tr>
+<tr><td>是否需署名</td><td>—</td><td class="ok">不需要</td></tr>
+<tr><td>需否披露 AI 合成</td><td>是</td><td>是（微軟明確要求）</td></tr>
+<tr><td>成本</td><td>免費但無授權保障</td><td>全部文本約 3 萬字符，一次性不足 1 美元</td></tr>
+</table>
+
+<div class="callout c-ok">
+  <b>遷移成本極低，不必重做內容</b>
+  <code>tools/gen_audio.py</code> 與 <code>tools/gen_char_audio.py</code> 只需把合成後端從 edge-tts 換成 Azure Speech SDK，<strong>音色名稱與腳本結構原封不動</strong>。輸出檔名規則不變，前端零改動。跑一次即可重出全部 3311 段。
+</div>
+
+<h3>紅線二：原書素材絕不可進包</h3>
+
+<table>
+<tr><th>路徑</th><th>內容</th><th>處理</th></tr>
+<tr><td><code>app/pages/</code></td><td>389 個檔案、16.9 MB 的原教材頁面截圖</td><td class="no">整目錄刪除，或移出 <code>app/</code></td></tr>
+<tr><td><code>粵語教程/</code></td><td>原書 PDF + 138 段原版配套錄音</td><td class="no">保留在研究目錄，設定打包排除規則</td></tr>
+</table>
+
+<div class="callout c-warn">
+  <b>為什麼特別強調</b>
+  這兩批素材是整個專案唯一涉及第三方版權的資產，也是審核最容易直接打回的材料。它們目前<strong>就躺在 <code>app/</code> 目錄底下</strong>，而打包工具默認會把 <code>app/</code> 整個當成 Web 資源目錄 — 一不小心就全打進去了。發布前務必先清空或加排除規則。
+</div>
+
+<h2>三、技術路徑：三選一</h2>
+
+<table>
+<tr><th>方案</th><th>工作量</th><th>能上商店</th><th>優點</th><th>代價</th></tr>
+<tr>
+  <td><strong>PWA 網頁版</strong></td><td>1–2 天</td><td>否（可上架 Google Play 需 TWA 包裝）</td>
+  <td>零改造成本，加到主屏即用，可先驗證真實用戶反應</td>
+  <td>iOS 支援受限、無商店曝光、無法離線分發大量音檔</td>
+</tr>
+<tr>
+  <td><strong>Capacitor 包殼</strong><br><span class="ok">建議</span></td><td>3–5 天</td><td class="ok">是（雙端）</td>
+  <td>現有程式碼 100% 複用；已有驗證過的 UI 與發音路由不用重做</td>
+  <td>需處理 WebView 儲存與背景播放；須通過蘋果 4.2 最低功能性審查</td>
+</tr>
+<tr>
+  <td><strong>Flutter 重寫</strong></td><td>數週</td><td class="ok">是（雙端）</td>
+  <td>原生體驗最好，背景播放、鎖屏控制最順</td>
+  <td>UI、發音路由、逐字拼音對齊全部推倒重來，回歸風險高</td>
+</tr>
+</table>
+
+<div class="callout c-tip">
+  <b>為什麼建議 Capacitor</b>
+  這個 App 的形態是「靜態內容 + 本地音頻」，沒有 AR、沒有重度傳感器、沒有複雜原生 UI。它已經被逐項驗證過：66 課全渲染、逐字發音 8169/8169 命中、整句 1506/1506 可讀。用 Flutter 重寫等於把這些驗證全部作廢，換來的體驗提升對內容型 App 而言很有限。包殼能讓你在本週內拿到可提交的安裝包，之後若真需要跟讀打分等重原生能力，再局部遷移也不遲。
+</div>
+
+<h3>包殼前必做的前置改造</h3>
+
+<div class="step">
+  <div class="num">1</div>
+  <div class="step-b">
+    <h4>補 PWA 三件套</h4>
+    <p><code>manifest.json</code>（名稱、圖示 192/512、主題色、<code>display:standalone</code>）、Service Worker（預快取 <code>index.html</code> + 兩個 JSON 索引）、App 圖示一組。這是 PWA 與包殼共同的前提。</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">2</div>
+  <div class="step-b">
+    <h4>把進度儲存從 localStorage 換成原生儲存</h4>
+    <p>iOS 的 WKWebView 會把 <code>localStorage</code> 當可清理快取，系統儲存緊張時直接清空 — 用戶的課程進度與星星會無聲消失。改用 <code>@capacitor/preferences</code>，寫一層儲存適配器替換現有調用即可。</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">3</div>
+  <div class="step-b">
+    <h4>處理背景播放與鎖屏控制</h4>
+    <p>WebView 音頻在背景會被暫停。需接原生音頻插件，在 iOS 開啟 <code>UIBackgroundModes: audio</code>，並提供鎖屏播放控制，同時這也是讓審核認定「原生 App」而非「網頁」的重要證據。</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num r">4</div>
+  <div class="step-b">
+    <h4>確保零外部網路請求</h4>
+    <p>所有 JSON 與音檔改為相對路徑內建，移除任何 CDN、字體或分析腳本引用。純離線既能規避「套殼網站」判定，也讓你有可能豁免 ICP 備案。</p>
+  </div>
+</div>
+
+<h2>四、上架路線圖</h2>
+
+<div class="step">
+  <div class="num r">1</div>
+  <div class="step-b">
+    <h4>清掉原書素材</h4>
+    <p>刪除 <code>app/pages/</code>，為 <code>粵語教程/</code> 設定打包排除。這步今天就能做完，零風險。</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num r">2</div>
+  <div class="step-b">
+    <h4>語音授權遷至 Azure 官方</h4>
+    <p>開通 Azure 付費訂閱 → 建立語音資源 → 改寫兩個生成腳本的合成後端 → 重跑輸出 3311 段。半天到一天。</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">3</div>
+  <div class="step-b">
+    <h4>送件申請軟體著作權</h4>
+    <p><strong>越早越好，它決定全案時間。</strong>需要源碼前後各 30 頁、操作說明書（≥10 頁帶截圖）、主體證照。注意：軟著登記名稱要與 App 名稱、開發者帳號主體完全一致。</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">4</div>
+  <div class="step-b">
+    <h4>PWA 化 → Capacitor 包殼</h4>
+    <p>完成上述四項前置改造，產出 <code>.aab</code>（Android）與 <code>.ipa</code>（iOS）。同時寫好隱私政策頁並掛上可公開訪問的網址。</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">5</div>
+  <div class="step-b">
+    <h4>分別送審雙端商店</h4>
+    <p>Google Play 送封閉測試軌道；App Store 送國區需先填 ICP 備案號。詳見第六節。</p>
+  </div>
+</div>
+
+<h2>五、關鍵路徑：軟體著作權</h2>
+
+<p>這是最容易被低估的一件事。把所有環節耗時攤開看，<strong>技術工作總共不到一週，資質辦理卻是以月計</strong> — 軟著普通件 60 個工作日，加急也要 20–30 個工作日（找代理約 800–1500 元）。</p>
+
+<div class="callout c-warn">
+  <b>結論：今天就送軟著</b>
+  正確的節奏是「送件 → 邊等邊做技術改造 → 邊等邊辦備案 → 證下來直接送審」。若等 App 做完才想起申請，會白白多等兩個月。其餘所有事情都可以與它並行。
+</div>
+
+<h2>六、各平台上架要求</h2>
+
+<h3>6.1 Apple App Store</h3>
+
+<table>
+<tr><th>項目</th><th>要求</th></tr>
+<tr><td>開發者帳號</td><td>個人 $99／年；企業 $299／年（社交、付費、UGC 等品類僅接受企業帳號）</td></tr>
+<tr><td><strong>中國區 ICP 備案</strong></td><td class="no">強制。App Store Connect 有專屬欄位錄入備案號，系統會自動校驗 App 名稱與備案主體是否一致，不一致直接駁回</td></tr>
+<tr><td>隱私政策</td><td>必須是<strong>獨立域名的公開網址</strong>，不能內嵌在用戶協議、也不能是 App 內文字。須完整列明權限用途、第三方 SDK 清單、資料儲存方式、帳號註銷通道；首次啟動須彈窗同意</td></tr>
+<tr><td>軟體著作權</td><td>不強制上傳，但遇侵權投訴、名稱爭議或平台抽查時必須能提供，建議一併辦好</td></tr>
+<tr><td>付費方式</td><td>虛擬內容必須走 IAP（蘋果抽 15–30%）。<strong>建議首版免費無廣告</strong>，最省審核麻煩</td></tr>
+<tr><td>教育類歸屬</td><td>粵語學習不屬 K12 學科培訓，一般不觸發「互聯網教育信息服務備案」</td></tr>
+<tr><td>審核紅線</td><td>指南 4.2 最低功能性 — 不能讓審核認為「這只是個網站」。全離線 + 原生互動 + 背景播放是關鍵證據</td></tr>
+</table>
+
+<h3>6.2 Google Play</h3>
+
+<table>
+<tr><th>項目</th><th>要求</th></tr>
+<tr><td>註冊費</td><td>$25 一次性</td></tr>
+<tr><td><strong>新個人帳號封測</strong></td><td class="no">2023-11-13 之後建立的個人帳號，必須先跑封閉測試：<strong>至少 12 名測試者連續 opt-in 滿 14 天</strong>，才能申請正式版發布權限</td></tr>
+<tr><td>什麼算「有效測試者」</td><td>必須<strong>點擊邀請連結完成 opt-in</strong>，僅把 email 加進名單不算。且 Google 會檢視測試者的實際參與度，掛著不用會被要求繼續測</td></tr>
+<tr><td>企業帳號</td><td>持有 D-U-N-S 碼的組織帳號<strong>豁免</strong>此要求</td></tr>
+<tr><td>實務建議</td><td>12 是官方底線。實際操作招 15–25 人更穩妥，且同一批人可重複用於你日後的其它 App</td></tr>
+<tr><td>審核週期</td><td>正式版權限申請一般 7 天內出結果；App 本身首次送審另計</td></tr>
+</table>
+
+<h3>6.3 國內安卓市場（華為／小米／OPPO／vivo／應用寶）</h3>
+
+<table>
+<tr><th>項目</th><th>要求</th></tr>
+<tr><td>主體資質</td><td>個人帳號限制極大，多數品類需企業營業執照（經營範圍含軟件開發／資訊技術服務）。各平台認證服務費約 300 元／次</td></tr>
+<tr><td><strong>軟體著作權</strong></td><td class="no">華為／小米／OPPO／vivo 硬性必交；應用寶相對寬鬆，可用其他市場的通過截圖替代</td></tr>
+<tr><td>工信部 App 備案</td><td>2023 年起聯網 App 硬性要求，未備案會被商店拒收，且手機純淨模式會攔截安裝</td></tr>
+<tr><td>ICP 域名備案</td><td>僅當後端／官網指向國內伺服器且聯網時需要。<strong>純離線單機應用可爭取豁免</strong></td></tr>
+<tr><td>隱私政策</td><td>獨立域名網頁，且 App 內須有明確入口（通常在「我的」或設定頁）</td></tr>
+<tr><td>公安聯網備案</td><td>上架後 30 日內完成，平台會抽查</td></tr>
+<tr><td><strong>一致性紅線</strong></td><td class="no">軟著登記名稱 ＝ 營業執照主體 ＝ 開發者帳號主體 ＝ App 顯示名稱，必須一字不差，否則駁回</td></tr>
+</table>
+
+<div class="callout c-ok">
+  <b>純離線設計的合規紅利</b>
+  這個 App 天然可以做到<strong>零網路請求</strong> — 66 課內容與 3311 段語音全部內建。這點很值錢：法規明文「純離線單機工具無聯網功能可豁免」ICP 備案。相當於省掉域名備案與工信部 App 備案兩道手續。建議按這個方向設計，並就豁免條件向各市場客服逐一確認。
+</div>
+
+<h3>一次性開支估算</h3>
+
+<table>
+<tr><th>項目</th><th>金額</th><th>備註</th></tr>
+<tr><td>Apple 開發者帳號（個人）</td><td>約 $99／年</td><td>公司主體則 $299／年</td></tr>
+<tr><td>Google Play 註冊費</td><td>$25 一次性</td><td>—</td></tr>
+<tr><td>國內各市場開發者認證</td><td>約 300 元／家</td><td>五家約 1500 元，需企業主體</td></tr>
+<tr><td>軟體著作權</td><td>加急約 800–1500 元</td><td>普通件官費較低但需 60 工作日</td></tr>
+<tr><td>域名 + 主機（放隱私政策頁）</td><td>約 100–300 元／年</td><td>也可先用靜態託管服務</td></tr>
+<tr><td>Azure 語音重製 3311 段</td><td class="ok">不足 $1</td><td>約 3 萬字符，另有每月免費額度</td></tr>
+</table>
+
+<h2>七、送審前自檢清單</h2>
+
+<div class="card">
+<ul class="chk">
+<li><code>app/pages/</code> 已刪除，<code>粵語教程/</code> 已排除在打包範圍外</li>
+<li>3311 段語音已由 Azure 官方音色重新生成，並抽驗試聽</li>
+<li>App 內已加入「語音由 AI 合成」的披露說明</li>
+<li><code>manifest.json</code>、Service Worker、App 圖示（192／512）齊備</li>
+<li>進度儲存已改走原生儲存，殺掉進程後進度不丟失</li>
+<li>背景播放與鎖屏控制可用，iOS 已開 <code>UIBackgroundModes: audio</code></li>
+<li>全域搜尋，確認 App 內零外部網路請求</li>
+<li>隱私政策頁已掛上公開網址，且 App 內有入口</li>
+<li>粵拼資料來源 <code>rime-cantonese</code>（CC BY 4.0）署名已顯示在「我的」頁</li>
+<li>商店素材備齊：App 名稱、副標題、描述、關鍵詞、截圖（6.7"／5.5"／Android 各尺寸）、1024×1024 圖示</li>
+<li>軟著登記名稱、開發者主體、App 名稱三者完全一致</li>
+<li>Apple 測試帳號（若需登入）或說明「無需登入即可完整使用」</li>
+</ul>
+</div>
+
+<h2>八、上架之後</h2>
+
+<div class="card">
+<p><strong>30 日內</strong>：完成公安聯網備案。</p>
+<p><strong>版本更新</strong>：同一個 App 的後續更新<strong>不需要</strong>再跑 12 人封測 — 那是首次取得正式版權限的門檻，不是每次發布都要交的過路費。新增一個全新 App（新包名）才需重來一次。</p>
+<p><strong>內容迭代</strong>：課程數據已完全解耦，新增板塊只要改 <code>tools/curriculum/*.json</code>，依序跑 <code>build_curriculum.py</code> → <code>gen_audio.py</code> → <code>gen_char_audio.py</code> → <code>verify_audio.py</code>，再重新打包即可。若只改文字，記得手動刪掉對應課程的舊音檔，否則生成腳本會跳過已存在的檔案。</p>
+<p><strong>建議下一步功能</strong>：間隔重複（SRS）生詞本、跟讀錄音與評分、學習數據統計。這三項能顯著提升留存，也是後續做付費版的支點。</p>
+</div>
+
+<div class="callout c-tip">
+  <b>建議的執行順序（今天就能開始）</b>
+  ① 刪 <code>app/pages/</code> → ② 送軟著申請（最長路徑，先啟動）→ ③ Azure 開通並重製語音 → ④ PWA 三件套 + 儲存改造 + 包殼 → ⑤ <code>.aab</code> 先上 Google Play 封測（同步湊齊 12 名測試者）→ ⑥ 等軟著與備案下來 → ⑦ 上國內安卓五家與 App Store 國區。
+</div>
+
+<h2>九、已完成交付物（2026-09-18 實作）</h2>
+
+<p>承接上面「建議的執行順序」，①③④ 三步已落地，⑤ 進入收尾。以下為目前倉庫內<strong>已存在且可直接使用</strong>的成果。</p>
+
+<div class="prog">
+<b>✓ 包殼路線確定：Capacitor 8.5.2</b>
+未選 Flutter 重寫。理由是原型已通過逐字拼音對齊、四層發音路由、3311 段音檔等全部驗證，
+而本 App 屬「內容型」而非「重度圖形型」，重寫換不到體驗收益，卻會重蹈內容驗證成本。
+</div>
+
+<table>
+<tr><th>階段</th><th>指令／檔案</th><th>狀態</th></tr>
+<tr><td>① 清除版權風險</td><td><code>app/</code> 僅存 <code>audio content icons index.html manifest.json privacy.html sw.js</code></td><td class="ok">✓ 已完成</td></tr>
+<tr><td>② 專案內自檢</td><td><code>tools/verify_release.py</code>（一鍵發布前自檢）</td><td class="ok">✓ 全部通過</td></tr>
+<tr><td>③ 原生外殼</td><td><code>npx cap add android</code> → <code>npx cap sync</code></td><td class="ok">✓ 52.8 MB 資源已入包</td></tr>
+<tr><td>④ 簽名設定</td><td><code>android/app/build.gradle</code> 讀 <code>keystore.properties</code></td><td class="ok">✓ release 已掛簽名</td></tr>
+<tr><td>⑤ 產出 AAB</td><td><code>python tools/_build_android.py</code></td><td class="ok">✓ BUILD SUCCESSFUL（11 分 21 秒）</td></tr>
+<tr><td>⑥ iOS 打包</td><td><code>.github/workflows/ios.yml</code>（macos-15 雲端）</td><td class="half">◐ 已配置，待 Apple 簽名密鑰</td></tr>
+</table>
+
+<h3>發行產物（<code>dist/</code>）</h3>
+<table>
+<tr><th>檔案</th><th>大小</th><th>用途</th><th>簽名狀態</th></tr>
+<tr><td><code>粵fun-v1.0-release.aab</code></td><td>48.0 MB</td><td>上傳 Google Play</td><td class="ok">✓ jar verified（v1 簽名）</td></tr>
+<tr><td><code>粵fun-v1.0-release.apk</code></td><td>55.9 MB</td><td>真機側載試玩</td><td class="ok">✓ APK Signature Scheme v2</td></tr>
+</table>
+
+<div class="prog">
+<b>✓ 包內已核驗（非只信建置成功）</b>
+<code>base/assets/public/</code> 內含 <code>index.html</code>、<code>manifest.json</code>、<code>privacy.html</code>、<code>sw.js</code>、<code>content/curriculum.json</code>；
+音檔實點 <strong>1572 課程 + 1739 單字 ＝ 3311 段</strong>，與來源完全一致。
+簽署憑證：<code>CN=jyut.fun, OU=Mobile, O=JyutFun, L=Hong Kong, ST=Hong Kong, C=HK</code>（RSA 2048，自簽上傳金鑰）。
+AAB SHA-256：<code>1b88494e…9219c33</code>
+</div>
+
+<div class="callout c-warn">
+  <b>建置環境的硬性前提：必須 JDK 21</b>
+  Capacitor 8 的 <code>capacitor-android</code> 模組在 <code>build.gradle</code> 第 66 行寫死 <code>JavaVersion.VERSION_21</code>，
+  用 JDK 17 會在建置中途報 <code>錯誤: 無效的源發行版：21</code>。
+  本機已加裝 Temurin JDK 21 於 <code>~/.workbuddy/binaries/jdk21/</code>，
+  <code>_build_android.py</code> 會自動挑選 21+ 的 JDK，不必手動切換環境變數。
+  <strong>不要</strong>去改 <code>node_modules</code> 裡的 sourceCompatibility —— <code>cap sync</code> 或 <code>npm install</code> 會把它還原。
+</div>
+
+<h3>工具腳本（<code>tools/</code>）</h3>
+<table>
+<tr><th>腳本</th><th>用途</th></tr>
+<tr><td><code>verify_release.py</code></td><td>發布前一鍵自檢：資源可達性、打包純淨度（版權紅線）、外部 URL 掃描、CDP 實時執行期探針</td></tr>
+<tr><td><code>verify_app.mjs</code></td><td>CDP 實時探針：驅動 headless Edge 逐項驗證 6 板塊 66 課渲染、點字發音路由（Network 層監聽 .mp3）、偏好開關、我的頁</td></tr>
+<tr><td><code>gen_screenshots.mjs</code></td><td>裝置模擬（360×640＠3x → 1080×1920）批次產出 8 張商店截圖</td></tr>
+<tr><td><code>gen_store_assets.py</code></td><td>產出特色圖 1024×500、複製 512／1024 圖示</td></tr>
+<tr><td><code>gen_android_res.py</code></td><td>產出 Android 各密度圖示（含 adaptive 前景／背景）＋ 11 種啟動畫面尺寸</td></tr>
+<tr><td><code>_setup_android_sdk.py</code></td><td>免 Android Studio 安裝 SDK：commandlinetools ＋ platform-tools ＋ android-36 ＋ build-tools</td></tr>
+<tr><td><code>_build_android.py</code></td><td>建置 AAB／APK；自動挑選本機 JDK 21+（Capacitor 8 硬性要求），找不到時明確報錯</td></tr>
+</table>
+
+<h3>商店素材（<code>store/</code>）</h3>
+<div class="tree">store/
+├─ listing.md                 App 名稱／副標／長短描述／關鍵詞（中英）
+├─ app-icon-512.png           Google Play 圖示
+├─ hi-res-icon-1024.png       App Store 1024×1024
+├─ feature-graphic-1024x500.png  Google Play 特色圖
+└─ screenshots/               8 張 1080×1920（9:16）
+     01-home  02-lessons  03-domain-construction  04-lesson-medical
+     05-lesson-vocab  06-tapping  07-game  08-me</div>
+
+<h3>上架前仍缺的三件事</h3>
+<div class="callout c-warn">
+  <b>1. 隱私政策的公開網址</b>
+  <code>app/privacy.html</code> 內容已完備（零資料收集、純離線、AI 合成語音披露、rime-cantonese CC BY 4.0 署名），
+  但商店要求的是<strong>獨立公開網址</strong>而非 App 內頁面。最省事的做法是開一個 GitHub Pages 存放此檔。
+  <strong>另需把頁尾的 <code>[請填入聯絡信箱]</code> 換成真實信箱</strong>，否則審核會退。
+</div>
+<div class="callout c-red">
+  <b>2. 簽名金鑰必須立即備份（最易忽略、後果最重）</b>
+  <code>android/upload-keystore.jks</code> 與 <code>android/keystore.properties</code> 已刻意排除在版控之外，
+  但這意味著<strong>它們只存在於本機</strong>。一旦遺失，將<strong>永遠無法再更新這個 App</strong>（只能換包名重新上架，舊用戶無法升級）。
+  請立刻複製到至少兩處離線儲存（隨身碟／密碼管理器），並記下密碼。
+  <br><br>
+  <strong>順帶一提（趁現在改還免費）</strong>：目前憑證的主體是
+  <code>C=HK</code>（<code>O=JyutFun, L=Hong Kong, ST=Hong Kong</code>）。
+  此欄位一旦上傳 Google Play 就會被<strong>永久鎖定</strong>，之後改不了。
+  若日後打算走國內安卓渠道或 App Store 國區，建議現在就把 <code>C</code> 改為 <code>CN</code>
+  （<code>L/ST</code> 保留 <code>Hong Kong</code>），與內地主體資料保持一致 —— 重建金鑰零成本，上線後就來不及了。
+</div>
+<div class="callout c-tip">
+  <b>3. iOS 需要 macOS 環境</b>
+  本機無 Mac。<code>.github/workflows/ios.yml</code> 已備好雲端建置流程，
+  但需先在 GitHub Secrets 填入 Apple 簽名憑證（<code>BUILD_CERTIFICATE_BASE64</code>、<code>P12_PASSWORD</code>、
+  <code>PROVISIONING_PROFILE_BASE64</code>、<code>KEYCHAIN_PASSWORD</code>）方能匯出可分發的 <code>.ipa</code>。
+  在此之前，該 workflow 只做「無簽名封存驗證」，用來確認 iOS 端能編譯通過。
+</div>
+
+<div class="foot">
+  粵.fun · 上架發布指南 &nbsp;|&nbsp; 編製於 2026-09-18 &nbsp;|&nbsp;
+  各平台政策會變動，正式提交前請以官方最新文件為準。資質辦理週期與費用為市場行情估值，實際以受理機構報價為準。
+</div>
+
+</div>
+</body>
+</html>

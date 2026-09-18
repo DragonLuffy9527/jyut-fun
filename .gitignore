@@ -1,0 +1,53 @@
+# 依賴
+node_modules/
+
+# Capacitor / Android 建置產物
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/app/release/
+android/app/debug/
+*.keystore
+*.jks
+keystore.properties
+
+# 由 `cap sync` 產生（CI 會自動重建）；排除咗就唔會把 53MB 音檔重複入庫
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+
+# Capacitor / iOS 建置產物
+ios/App/Pods/
+ios/App/build/
+ios/App/App/public/
+ios/App/DerivedData/
+ios/App/output/
+
+# ── 版權紅線：原教材與其衍生物，永遠不可進版控 ──
+# 原書 PDF ＋ 138 段原版錄音
+粵語教程/
+# 原教材頁面截圖、PDF 時代抽取的內容、OCR 中間產物
+archive/
+tools/ocr_raw/
+tools/models/
+tools/_tts_test/
+# OCR 抽取出的原書全文／版式備份（內含《粵語（香港話）教程》正文，屬紅線）
+tools/*_acro_backup.json
+# PDF 時代的閱讀點讀原型（引用 粵語教程/ 原版音檔，且 lessons.json 為原書章節結構）
+prototype/
+
+# 驗證與建置臨時檔（含 CDP 探針產生的 Edge profile：tools/_edge_profile、tools/_edge_t1）
+tools/_*
+tools/*.log
+# 例外：發布流程的兩個腳本屬正式交付物，要進版控
+!tools/_build_android.py
+!tools/_setup_android_sdk.py
+
+# 發行產物（AAB / APK 各約 50 MB，不入庫；用 tools/_build_android.py 重建）
+dist/
+
+# 系統檔
+.DS_Store
+Thumbs.db
+*.log

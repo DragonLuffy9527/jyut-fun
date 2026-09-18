@@ -1,0 +1,8332 @@
+{
+ "clips": [
+  {
+   "id": "basic-01-c1",
+   "text": "詩",
+   "kind": "core"
+  },
+  {
+   "id": "basic-01-c2",
+   "text": "史",
+   "kind": "core"
+  },
+  {
+   "id": "basic-01-c3",
+   "text": "試",
+   "kind": "core"
+  },
+  {
+   "id": "basic-01-c4",
+   "text": "時",
+   "kind": "core"
+  },
+  {
+   "id": "basic-01-c5",
+   "text": "市",
+   "kind": "core"
+  },
+  {
+   "id": "basic-01-c6",
+   "text": "事",
+   "kind": "core"
+  },
+  {
+   "id": "basic-01-d1",
+   "text": "你今日有咩事呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "basic-01-d2",
+   "text": "我要去街市買嘢。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "basic-01-d3",
+   "text": "咁你要幾時返嚟呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "basic-01-d4",
+   "text": "大概一個鐘，唔會好耐。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "basic-01-d5",
+   "text": "不如我同你一齊去啦。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "basic-01-d6",
+   "text": "好呀，咁就快啲出發！",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "basic-01-v1",
+   "text": "聲調",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-01-v2",
+   "text": "高低",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-01-v3",
+   "text": "例子",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-01-v4",
+   "text": "意思",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-01-v5",
+   "text": "讀音",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-01-v6",
+   "text": "唔同",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-01-v7",
+   "text": "準確",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-01-v8",
+   "text": "練多啲",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-01-df",
+   "text": "你今日有咩事呀？我要去街市買嘢。咁你要幾時返嚟呀？大概一個鐘，唔會好耐。不如我同你一齊去啦。好呀，咁就快啲出發！",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "basic-02-c1",
+   "text": "爸",
+   "kind": "core"
+  },
+  {
+   "id": "basic-02-c2",
+   "text": "趴",
+   "kind": "core"
+  },
+  {
+   "id": "basic-02-c3",
+   "text": "媽",
+   "kind": "core"
+  },
+  {
+   "id": "basic-02-c4",
+   "text": "花",
+   "kind": "core"
+  },
+  {
+   "id": "basic-02-c5",
+   "text": "打",
+   "kind": "core"
+  },
+  {
+   "id": "basic-02-c6",
+   "text": "他",
+   "kind": "core"
+  },
+  {
+   "id": "basic-02-c7",
+   "text": "乸",
+   "kind": "core"
+  },
+  {
+   "id": "basic-02-c8",
+   "text": "啦",
+   "kind": "core"
+  },
+  {
+   "id": "basic-02-d1",
+   "text": "你爸爸媽媽係咪都喺香港？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "basic-02-d2",
+   "text": "係呀，佢哋喺度住咗好多年喇。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "basic-02-d3",
+   "text": "咁你會唔會講家鄉話？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "basic-02-d4",
+   "text": "都會啲，不過最流利始終係粵語。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "basic-02-d5",
+   "text": "咁你細個嗰陣講咩話㗎？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "basic-02-d6",
+   "text": "喺屋企講粵語，喺學校先講普通話。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "basic-02-v1",
+   "text": "爸爸",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-02-v2",
+   "text": "媽媽",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-02-v3",
+   "text": "打",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-02-v4",
+   "text": "屋企",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-02-v5",
+   "text": "流利",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-02-v6",
+   "text": "家鄉",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-02-v7",
+   "text": "學校",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-02-v8",
+   "text": "細個",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-02-df",
+   "text": "你爸爸媽媽係咪都喺香港？係呀，佢哋喺度住咗好多年喇。咁你會唔會講家鄉話？都會啲，不過最流利始終係粵語。咁你細個嗰陣講咩話㗎？喺屋企講粵語，喺學校先講普通話。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "basic-03-c1",
+   "text": "十",
+   "kind": "core"
+  },
+  {
+   "id": "basic-03-c2",
+   "text": "一",
+   "kind": "core"
+  },
+  {
+   "id": "basic-03-c3",
+   "text": "六",
+   "kind": "core"
+  },
+  {
+   "id": "basic-03-c4",
+   "text": "八",
+   "kind": "core"
+  },
+  {
+   "id": "basic-03-c5",
+   "text": "食",
+   "kind": "core"
+  },
+  {
+   "id": "basic-03-c6",
+   "text": "濕",
+   "kind": "core"
+  },
+  {
+   "id": "basic-03-c7",
+   "text": "熱",
+   "kind": "core"
+  },
+  {
+   "id": "basic-03-c8",
+   "text": "黑",
+   "kind": "core"
+  },
+  {
+   "id": "basic-03-d1",
+   "text": "你食咗飯未呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "basic-03-d2",
+   "text": "未呀，而家好肚餓。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "basic-03-d3",
+   "text": "咁去食碗麵啦，熱辣辣最好。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "basic-03-d4",
+   "text": "好主意！不過我要食一碟菜先。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "basic-03-d5",
+   "text": "咁樣就夠晒健康喇。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "basic-03-d6",
+   "text": "係呀，食得多肉都唔係幾好。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "basic-03-v1",
+   "text": "入聲",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-03-v2",
+   "text": "短促",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-03-v3",
+   "text": "食飯",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-03-v4",
+   "text": "潮濕",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-03-v5",
+   "text": "肚餓",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-03-v6",
+   "text": "健康",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-03-v7",
+   "text": "合埋",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-03-v8",
+   "text": "斷開",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-03-df",
+   "text": "你食咗飯未呀？未呀，而家好肚餓。咁去食碗麵啦，熱辣辣最好。好主意！不過我要食一碟菜先。咁樣就夠晒健康喇。係呀，食得多肉都唔係幾好。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "basic-04-c1",
+   "text": "啦",
+   "kind": "core"
+  },
+  {
+   "id": "basic-04-c2",
+   "text": "喇",
+   "kind": "core"
+  },
+  {
+   "id": "basic-04-c3",
+   "text": "囉",
+   "kind": "core"
+  },
+  {
+   "id": "basic-04-c4",
+   "text": "咩",
+   "kind": "core"
+  },
+  {
+   "id": "basic-04-c5",
+   "text": "㗎",
+   "kind": "core"
+  },
+  {
+   "id": "basic-04-c6",
+   "text": "喎",
+   "kind": "core"
+  },
+  {
+   "id": "basic-04-c7",
+   "text": "呀",
+   "kind": "core"
+  },
+  {
+   "id": "basic-04-c8",
+   "text": "嘅",
+   "kind": "core"
+  },
+  {
+   "id": "basic-04-d1",
+   "text": "你聽日得唔得閒呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "basic-04-d2",
+   "text": "得閒呀，有咩事咩？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "basic-04-d3",
+   "text": "我想約你去行山囉。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "basic-04-d4",
+   "text": "行山？咁熱嘅天氣喎！",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "basic-04-d5",
+   "text": "一早出發就冇咁熱啦。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "basic-04-d6",
+   "text": "好，就咁話囉，你記得帶水呀。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "basic-04-v1",
+   "text": "語氣詞",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-04-v2",
+   "text": "得閒",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-04-v3",
+   "text": "行山",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-04-v4",
+   "text": "出發",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-04-v5",
+   "text": "記得",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-04-v6",
+   "text": "天氣",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-04-v7",
+   "text": "約",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-04-v8",
+   "text": "話",
+   "kind": "vocab"
+  },
+  {
+   "id": "basic-04-df",
+   "text": "你聽日得唔得閒呀？得閒呀，有咩事咩？我想約你去行山囉。行山？咁熱嘅天氣喎！一早出發就冇咁熱啦。好，就咁話囉，你記得帶水呀。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "life-01-c1",
+   "text": "你好！好耐冇見喎。",
+   "kind": "core"
+  },
+  {
+   "id": "life-01-c2",
+   "text": "你近排點呀？",
+   "kind": "core"
+  },
+  {
+   "id": "life-01-c3",
+   "text": "我幾好，你呢？",
+   "kind": "core"
+  },
+  {
+   "id": "life-01-c4",
+   "text": "你叫咩名呀？",
+   "kind": "core"
+  },
+  {
+   "id": "life-01-c5",
+   "text": "我叫阿明，好高興認識你。",
+   "kind": "core"
+  },
+  {
+   "id": "life-01-c6",
+   "text": "得閒飲茶啦！",
+   "kind": "core"
+  },
+  {
+   "id": "life-01-d1",
+   "text": "咦，阿玲！好耐冇見喎！",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-01-d2",
+   "text": "係呀，成兩年喇。你近排點呀？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-01-d3",
+   "text": "我幾好，轉咗份新工。你呢？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-01-d4",
+   "text": "都唔錯，啱啱搬咗屋。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-01-d5",
+   "text": "咁要搵日一齊食餐飯敘下舊。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-01-d6",
+   "text": "好呀，得閒飲茶啦！",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-01-v1",
+   "text": "你好",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-01-v2",
+   "text": "好耐冇見",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-01-v3",
+   "text": "近排",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-01-v4",
+   "text": "幾好",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-01-v5",
+   "text": "認識",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-01-v6",
+   "text": "得閒",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-01-v7",
+   "text": "飲茶",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-01-v8",
+   "text": "敘舊",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-01-df",
+   "text": "咦，阿玲！好耐冇見喎！係呀，成兩年喇。你近排點呀？我幾好，轉咗份新工。你呢？都唔錯，啱啱搬咗屋。咁要搵日一齊食餐飯敘下舊。好呀，得閒飲茶啦！",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "life-02-c1",
+   "text": "呢個係我阿爸。",
+   "kind": "core"
+  },
+  {
+   "id": "life-02-c2",
+   "text": "我有一個家姐同一個細佬。",
+   "kind": "core"
+  },
+  {
+   "id": "life-02-c3",
+   "text": "佢哋兩個都喺香港住。",
+   "kind": "core"
+  },
+  {
+   "id": "life-02-c4",
+   "text": "你屋企有幾多個人呀？",
+   "kind": "core"
+  },
+  {
+   "id": "life-02-c5",
+   "text": "我哋一家四口。",
+   "kind": "core"
+  },
+  {
+   "id": "life-02-c6",
+   "text": "佢係我哋屋企嘅大家姐。",
+   "kind": "core"
+  },
+  {
+   "id": "life-02-d1",
+   "text": "呢位係……",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-02-d2",
+   "text": "呢個係我阿媽。阿媽，呢個係我同事阿Ken。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-02-d3",
+   "text": "你好呀，阿Ken。請坐請坐。",
+   "kind": "dlg",
+   "sp": "C"
+  },
+  {
+   "id": "life-02-d4",
+   "text": "阿姨你好。你屋企好熱鬧喎。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-02-d5",
+   "text": "係呀，我哋一家六口，仲有個細佬未返嚟。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-02-d6",
+   "text": "家姐搬咗出去住，不過成日返嚟食飯。",
+   "kind": "dlg",
+   "sp": "C"
+  },
+  {
+   "id": "life-02-v1",
+   "text": "阿爸",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-02-v2",
+   "text": "阿媽",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-02-v3",
+   "text": "家姐",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-02-v4",
+   "text": "細佬",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-02-v5",
+   "text": "大佬",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-02-v6",
+   "text": "屋企人",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-02-v7",
+   "text": "一家四口",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-02-v8",
+   "text": "熱鬧",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-02-df",
+   "text": "呢位係……呢個係我阿媽。阿媽，呢個係我同事阿Ken。你好呀，阿Ken。請坐請坐。阿姨你好。你屋企好熱鬧喎。係呀，我哋一家六口，仲有個細佬未返嚟。家姐搬咗出去住，不過成日返嚟食飯。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "life-03-c1",
+   "text": "而家幾點呀？",
+   "kind": "core"
+  },
+  {
+   "id": "life-03-c2",
+   "text": "三點三。",
+   "kind": "core"
+  },
+  {
+   "id": "life-03-c3",
+   "text": "我哋約聽日下晝三點。",
+   "kind": "core"
+  },
+  {
+   "id": "life-03-c4",
+   "text": "等多半個鐘啦。",
+   "kind": "core"
+  },
+  {
+   "id": "life-03-c5",
+   "text": "星期五得唔得？",
+   "kind": "core"
+  },
+  {
+   "id": "life-03-c6",
+   "text": "我遲少少，五分鐘到。",
+   "kind": "core"
+  },
+  {
+   "id": "life-03-d1",
+   "text": "你今日幾點放工呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-03-d2",
+   "text": "六點半左右啦。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-03-d3",
+   "text": "咁我哋七點食飯，得唔得？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-03-d4",
+   "text": "冇問題。喺邊度等？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-03-d5",
+   "text": "地鐵站B出口等啦。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-03-d6",
+   "text": "好，我會準時嘅。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-03-v1",
+   "text": "幾點",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-03-v2",
+   "text": "半個鐘",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-03-v3",
+   "text": "聽日",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-03-v4",
+   "text": "琴日",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-03-v5",
+   "text": "下晝",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-03-v6",
+   "text": "星期五",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-03-v7",
+   "text": "準時",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-03-v8",
+   "text": "出口",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-03-df",
+   "text": "你今日幾點放工呀？六點半左右啦。咁我哋七點食飯，得唔得？冇問題。喺邊度等？地鐵站B出口等啦。好，我會準時嘅。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "life-04-c1",
+   "text": "幾位呀？",
+   "kind": "core"
+  },
+  {
+   "id": "life-04-c2",
+   "text": "兩位，唔該。",
+   "kind": "core"
+  },
+  {
+   "id": "life-04-c3",
+   "text": "要咩茶呀？",
+   "kind": "core"
+  },
+  {
+   "id": "life-04-c4",
+   "text": "一壺普洱，唔該。",
+   "kind": "core"
+  },
+  {
+   "id": "life-04-c5",
+   "text": "加多一籠蝦餃。",
+   "kind": "core"
+  },
+  {
+   "id": "life-04-c6",
+   "text": "唔該埋單！",
+   "kind": "core"
+  },
+  {
+   "id": "life-04-d1",
+   "text": "幾位呀，先生？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-04-d2",
+   "text": "兩位。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-04-d3",
+   "text": "呢邊請。要咩茶呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-04-d4",
+   "text": "一壺普洱，唔該。另外要一籠蝦餃、一碟腸粉。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-04-d5",
+   "text": "仲要唔要馬拉糕？今日新鮮出爐。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-04-d6",
+   "text": "好呀，加多一籠。食完先埋單。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-04-v1",
+   "text": "飲茶",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-04-v2",
+   "text": "點心",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-04-v3",
+   "text": "蝦餃",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-04-v4",
+   "text": "燒賣",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-04-v5",
+   "text": "腸粉",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-04-v6",
+   "text": "馬拉糕",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-04-v7",
+   "text": "一壺茶",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-04-v8",
+   "text": "埋單",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-04-df",
+   "text": "幾位呀，先生？兩位。呢邊請。要咩茶呀？一壺普洱，唔該。另外要一籠蝦餃、一碟腸粉。仲要唔要馬拉糕？今日新鮮出爐。好呀，加多一籠。食完先埋單。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "life-05-c1",
+   "text": "呢個幾錢一斤呀？",
+   "kind": "core"
+  },
+  {
+   "id": "life-05-c2",
+   "text": "廿八蚊一斤。",
+   "kind": "core"
+  },
+  {
+   "id": "life-05-c3",
+   "text": "平啲得唔得呀？",
+   "kind": "core"
+  },
+  {
+   "id": "life-05-c4",
+   "text": "唔夠秤喎。",
+   "kind": "core"
+  },
+  {
+   "id": "life-05-c5",
+   "text": "搭多條葱畀我啦。",
+   "kind": "core"
+  },
+  {
+   "id": "life-05-c6",
+   "text": "總共幾錢？",
+   "kind": "core"
+  },
+  {
+   "id": "life-05-d1",
+   "text": "阿姐，啲菜心幾錢斤呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-05-d2",
+   "text": "廿八蚊一斤，好新鮮㗎。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-05-d3",
+   "text": "廿八蚊？貴咗啲喎，廿五得唔得？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-05-d4",
+   "text": "廿六啦，唔賺你錢㗎喇。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-05-d5",
+   "text": "好，要一斤。另外搭多條葱畀我。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-05-d6",
+   "text": "冇問題，多謝晒！",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-05-v1",
+   "text": "街市",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-05-v2",
+   "text": "買餸",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-05-v3",
+   "text": "一斤",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-05-v4",
+   "text": "平啲",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-05-v5",
+   "text": "新鮮",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-05-v6",
+   "text": "菜心",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-05-v7",
+   "text": "葱",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-05-v8",
+   "text": "唔夠秤",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-05-df",
+   "text": "阿姐，啲菜心幾錢斤呀？廿八蚊一斤，好新鮮㗎。廿八蚊？貴咗啲喎，廿五得唔得？廿六啦，唔賺你錢㗎喇。好，要一斤。另外搭多條葱畀我。冇問題，多謝晒！",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "life-06-c1",
+   "text": "唔該落單。",
+   "kind": "core"
+  },
+  {
+   "id": "life-06-c2",
+   "text": "我要一個A餐，凍檸茶。",
+   "kind": "core"
+  },
+  {
+   "id": "life-06-c3",
+   "text": "飲品加唔加錢？",
+   "kind": "core"
+  },
+  {
+   "id": "life-06-c4",
+   "text": "走冰，少甜。",
+   "kind": "core"
+  },
+  {
+   "id": "life-06-c5",
+   "text": "唔要葱，唔該。",
+   "kind": "core"
+  },
+  {
+   "id": "life-06-c6",
+   "text": "埋單，唔該。",
+   "kind": "core"
+  },
+  {
+   "id": "life-06-d1",
+   "text": "唔該落單。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-06-d2",
+   "text": "好，要咩呀？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-06-d3",
+   "text": "一個鮮茄牛肉飯，凍檸茶少甜。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-06-d4",
+   "text": "要唔要湯呀？加五蚊有例湯。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-06-d5",
+   "text": "唔使喇，唔該。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-06-d6",
+   "text": "好，等陣。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-06-v1",
+   "text": "落單",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-06-v2",
+   "text": "凍檸茶",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-06-v3",
+   "text": "少甜",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-06-v4",
+   "text": "走冰",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-06-v5",
+   "text": "例湯",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-06-v6",
+   "text": "加錢",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-06-v7",
+   "text": "等陣",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-06-v8",
+   "text": "唔該",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-06-df",
+   "text": "唔該落單。好，要咩呀？一個鮮茄牛肉飯，凍檸茶少甜。要唔要湯呀？加五蚊有例湯。唔使喇，唔該。好，等陣。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "life-07-c1",
+   "text": "呢班車去唔去中環？",
+   "kind": "core"
+  },
+  {
+   "id": "life-07-c2",
+   "text": "要轉車㗎。",
+   "kind": "core"
+  },
+  {
+   "id": "life-07-c3",
+   "text": "幾個站到呀？",
+   "kind": "core"
+  },
+  {
+   "id": "life-07-c4",
+   "text": "用八達通定係買票？",
+   "kind": "core"
+  },
+  {
+   "id": "life-07-c5",
+   "text": "塞車塞得好犀利。",
+   "kind": "core"
+  },
+  {
+   "id": "life-07-c6",
+   "text": "我趕唔切喇。",
+   "kind": "core"
+  },
+  {
+   "id": "life-07-d1",
+   "text": "唔該，呢班巴士去唔去銅鑼灣？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-07-d2",
+   "text": "去呀，不過要轉車。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-07-d3",
+   "text": "喺邊度轉呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-07-d4",
+   "text": "喺灣仔轉 8 號巴士，或者搭地鐵都得。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-07-d5",
+   "text": "咁我搭地鐵啦，快啲。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-07-d6",
+   "text": "係呀，地鐵唔會塞車，穩陣啲。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-07-v1",
+   "text": "巴士",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-07-v2",
+   "text": "地鐵",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-07-v3",
+   "text": "轉車",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-07-v4",
+   "text": "八達通",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-07-v5",
+   "text": "塞車",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-07-v6",
+   "text": "趕唔切",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-07-v7",
+   "text": "班次",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-07-v8",
+   "text": "穩陣",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-07-df",
+   "text": "唔該，呢班巴士去唔去銅鑼灣？去呀，不過要轉車。喺邊度轉呀？喺灣仔轉 8 號巴士，或者搭地鐵都得。咁我搭地鐵啦，快啲。係呀，地鐵唔會塞車，穩陣啲。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "life-08-c1",
+   "text": "唔好意思，請問郵局喺邊度？",
+   "kind": "core"
+  },
+  {
+   "id": "life-08-c2",
+   "text": "直行，然後轉左。",
+   "kind": "core"
+  },
+  {
+   "id": "life-08-c3",
+   "text": "喺第二個路口轉右。",
+   "kind": "core"
+  },
+  {
+   "id": "life-08-c4",
+   "text": "大概行五分鐘就到。",
+   "kind": "core"
+  },
+  {
+   "id": "life-08-c5",
+   "text": "喺對面馬路。",
+   "kind": "core"
+  },
+  {
+   "id": "life-08-c6",
+   "text": "唔該晒你！",
+   "kind": "core"
+  },
+  {
+   "id": "life-08-d1",
+   "text": "唔好意思，請問地鐵站點去呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-08-d2",
+   "text": "你直行到路口，然後轉左。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-08-d3",
+   "text": "遠唔遠呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-08-d4",
+   "text": "唔遠，大概行三分鐘，喺銀行隔籬。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-08-d5",
+   "text": "唔該晒！",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-08-d6",
+   "text": "唔使客氣。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-08-v1",
+   "text": "問路",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-08-v2",
+   "text": "直行",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-08-v3",
+   "text": "轉左",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-08-v4",
+   "text": "轉右",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-08-v5",
+   "text": "路口",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-08-v6",
+   "text": "對面",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-08-v7",
+   "text": "隔籬",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-08-v8",
+   "text": "唔使客氣",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-08-df",
+   "text": "唔好意思，請問地鐵站點去呀？你直行到路口，然後轉左。遠唔遠呀？唔遠，大概行三分鐘，喺銀行隔籬。唔該晒！唔使客氣。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "life-09-c1",
+   "text": "我可唔可以試下？",
+   "kind": "core"
+  },
+  {
+   "id": "life-09-c2",
+   "text": "有冇大一個碼？",
+   "kind": "core"
+  },
+  {
+   "id": "life-09-c3",
+   "text": "呢件幾錢呀？",
+   "kind": "core"
+  },
+  {
+   "id": "life-09-c4",
+   "text": "太貴喇，平啲得唔得？",
+   "kind": "core"
+  },
+  {
+   "id": "life-09-c5",
+   "text": "買兩件有冇折？",
+   "kind": "core"
+  },
+  {
+   "id": "life-09-c6",
+   "text": "我要呢件，唔該。",
+   "kind": "core"
+  },
+  {
+   "id": "life-09-d1",
+   "text": "呢件褸幾錢呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-09-d2",
+   "text": "三百八。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-09-d3",
+   "text": "三百八？太貴喇，平啲得唔得？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-09-d4",
+   "text": "你買兩件，我畀你三百一件。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-09-d5",
+   "text": "咁我試下身先，啱嘅話就買。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-09-d6",
+   "text": "好，試身室喺後面。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-09-v1",
+   "text": "試身",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-09-v2",
+   "text": "碼",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-09-v3",
+   "text": "貴",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-09-v4",
+   "text": "平",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-09-v5",
+   "text": "打折",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-09-v6",
+   "text": "啱",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-09-v7",
+   "text": "試身室",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-09-v8",
+   "text": "褸",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-09-df",
+   "text": "呢件褸幾錢呀？三百八。三百八？太貴喇，平啲得唔得？你買兩件，我畀你三百一件。咁我試下身先，啱嘅話就買。好，試身室喺後面。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "life-10-c1",
+   "text": "我唔舒服。",
+   "kind": "core"
+  },
+  {
+   "id": "life-10-c2",
+   "text": "邊度唔舒服呀？",
+   "kind": "core"
+  },
+  {
+   "id": "life-10-c3",
+   "text": "我尋晚開始發燒。",
+   "kind": "core"
+  },
+  {
+   "id": "life-10-c4",
+   "text": "有冇咳？",
+   "kind": "core"
+  },
+  {
+   "id": "life-10-c5",
+   "text": "一日食三次，食完飯食。",
+   "kind": "core"
+  },
+  {
+   "id": "life-10-c6",
+   "text": "幾日就好返。",
+   "kind": "core"
+  },
+  {
+   "id": "life-10-d1",
+   "text": "邊度唔舒服呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-10-d2",
+   "text": "我頭痛，仲有少少燒。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-10-d3",
+   "text": "幾時開始㗎？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-10-d4",
+   "text": "尋晚開始，成晚都瞓唔好。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-10-d5",
+   "text": "我開啲藥畀你，一日三次，食完飯食。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-10-d6",
+   "text": "要戒口嗎？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-10-v1",
+   "text": "唔舒服",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-10-v2",
+   "text": "睇醫生",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-10-v3",
+   "text": "發燒",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-10-v4",
+   "text": "頭痛",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-10-v5",
+   "text": "咳",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-10-v6",
+   "text": "食藥",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-10-v7",
+   "text": "戒口",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-10-v8",
+   "text": "休息",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-10-df",
+   "text": "邊度唔舒服呀？我頭痛，仲有少少燒。幾時開始㗎？尋晚開始，成晚都瞓唔好。我開啲藥畀你，一日三次，食完飯食。要戒口嗎？",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "life-11-c1",
+   "text": "今日天氣點呀？",
+   "kind": "core"
+  },
+  {
+   "id": "life-11-c2",
+   "text": "出面好曬。",
+   "kind": "core"
+  },
+  {
+   "id": "life-11-c3",
+   "text": "天文台話聽日會落雨。",
+   "kind": "core"
+  },
+  {
+   "id": "life-11-c4",
+   "text": "記得帶遮。",
+   "kind": "core"
+  },
+  {
+   "id": "life-11-c5",
+   "text": "著多件衫啦。",
+   "kind": "core"
+  },
+  {
+   "id": "life-11-c6",
+   "text": "凍到你唔信。",
+   "kind": "core"
+  },
+  {
+   "id": "life-11-d1",
+   "text": "今日出街使唔使帶遮呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-11-d2",
+   "text": "要呀，天文台話下晝有雨。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-11-d3",
+   "text": "咁我著對波鞋啦，唔著皮鞋。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-11-d4",
+   "text": "好主意。仲有，冷氣好大，帶件外套。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-11-d5",
+   "text": "咁多嘢帶……",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-11-d6",
+   "text": "一言為定，唔好冷親呀。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-11-v1",
+   "text": "天氣",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-11-v2",
+   "text": "落雨",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-11-v3",
+   "text": "帶遮",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-11-v4",
+   "text": "著衫",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-11-v5",
+   "text": "外套",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-11-v6",
+   "text": "天文台",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-11-v7",
+   "text": "冷親",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-11-v8",
+   "text": "波鞋",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-11-df",
+   "text": "今日出街使唔使帶遮呀？要呀，天文台話下晝有雨。咁我著對波鞋啦，唔著皮鞋。好主意。仲有，冷氣好大，帶件外套。咁多嘢帶……一言為定，唔好冷親呀。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "life-12-c1",
+   "text": "幫手執下屋啦。",
+   "kind": "core"
+  },
+  {
+   "id": "life-12-c2",
+   "text": "邊個洗碗？",
+   "kind": "core"
+  },
+  {
+   "id": "life-12-c3",
+   "text": "我掃地，你拖地。",
+   "kind": "core"
+  },
+  {
+   "id": "life-12-c4",
+   "text": "衫洗完記得晾。",
+   "kind": "core"
+  },
+  {
+   "id": "life-12-c5",
+   "text": "垃圾要拎落樓。",
+   "kind": "core"
+  },
+  {
+   "id": "life-12-c6",
+   "text": "搞掂晒喇！",
+   "kind": "core"
+  },
+  {
+   "id": "life-12-d1",
+   "text": "今日大掃除，大家幫手啦。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-12-d2",
+   "text": "我負責洗碗同抹枱。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-12-d3",
+   "text": "咁我掃地拖地，垃圾你拎落樓。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-12-d4",
+   "text": "冇問題。啲衫洗完邊個晾呀？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-12-d5",
+   "text": "我晾啦，你搞掂廚房就得。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "life-12-d6",
+   "text": "好，搞掂晒就一齊去食雪糕！",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "life-12-v1",
+   "text": "執屋",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-12-v2",
+   "text": "打掃",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-12-v3",
+   "text": "洗碗",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-12-v4",
+   "text": "拖地",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-12-v5",
+   "text": "晾衫",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-12-v6",
+   "text": "垃圾",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-12-v7",
+   "text": "抹枱",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-12-v8",
+   "text": "搞掂",
+   "kind": "vocab"
+  },
+  {
+   "id": "life-12-df",
+   "text": "今日大掃除，大家幫手啦。我負責洗碗同抹枱。咁我掃地拖地，垃圾你拎落樓。冇問題。啲衫洗完邊個晾呀？我晾啦，你搞掂廚房就得。好，搞掂晒就一齊去食雪糕！",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "study-01-c1",
+   "text": "老師，我有一個問題。",
+   "kind": "core"
+  },
+  {
+   "id": "study-01-c2",
+   "text": "可唔可以再講一次？",
+   "kind": "core"
+  },
+  {
+   "id": "study-01-c3",
+   "text": "我唔係好明白。",
+   "kind": "core"
+  },
+  {
+   "id": "study-01-c4",
+   "text": "可唔可以講慢啲？",
+   "kind": "core"
+  },
+  {
+   "id": "study-01-c5",
+   "text": "呢個字點讀呀？",
+   "kind": "core"
+  },
+  {
+   "id": "study-01-c6",
+   "text": "明白喇，唔該老師。",
+   "kind": "core"
+  },
+  {
+   "id": "study-01-d1",
+   "text": "老師，我有一個問題。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-01-d2",
+   "text": "你講。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-01-d3",
+   "text": "呢個詞語我唔係好明白，可唔可以再解釋一次？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-01-d4",
+   "text": "冇問題。大家睇下第三段……",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-01-d5",
+   "text": "唔該老師。仲有，「粵」字點讀呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-01-d6",
+   "text": "讀 jyut6。記住係入聲字，收音要短。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-01-v1",
+   "text": "老師",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-01-v2",
+   "text": "同學",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-01-v3",
+   "text": "問題",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-01-v4",
+   "text": "明白",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-01-v5",
+   "text": "解釋",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-01-v6",
+   "text": "課室",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-01-v7",
+   "text": "筆記",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-01-v8",
+   "text": "舉手",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-01-df",
+   "text": "老師，我有一個問題。你講。呢個詞語我唔係好明白，可唔可以再解釋一次？冇問題。大家睇下第三段……唔該老師。仲有，「粵」字點讀呀？讀 jyut6。記住係入聲字，收音要短。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "study-02-c1",
+   "text": "呢本書喺邊個架？",
+   "kind": "core"
+  },
+  {
+   "id": "study-02-c2",
+   "text": "我想借呢兩本。",
+   "kind": "core"
+  },
+  {
+   "id": "study-02-c3",
+   "text": "借期兩個禮拜。",
+   "kind": "core"
+  },
+  {
+   "id": "study-02-c4",
+   "text": "可以續借一次。",
+   "kind": "core"
+  },
+  {
+   "id": "study-02-c5",
+   "text": "過期要罰款㗎。",
+   "kind": "core"
+  },
+  {
+   "id": "study-02-c6",
+   "text": "唔該幫我還書。",
+   "kind": "core"
+  },
+  {
+   "id": "study-02-d1",
+   "text": "唔該，我想搵一本講粵語語法嘅書。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-02-d2",
+   "text": "喺二樓語言類，編號 800 嗰排。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-02-d3",
+   "text": "唔該。我想借呢兩本。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-02-d4",
+   "text": "好，借期兩個禮拜，可以續借一次。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-02-d5",
+   "text": "如果過期呢？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-02-d6",
+   "text": "過期一日罰一蚊，記得準時還呀。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-02-v1",
+   "text": "圖書館",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-02-v2",
+   "text": "借書",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-02-v3",
+   "text": "還書",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-02-v4",
+   "text": "續借",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-02-v5",
+   "text": "過期",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-02-v6",
+   "text": "罰款",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-02-v7",
+   "text": "書架",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-02-v8",
+   "text": "編號",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-02-df",
+   "text": "唔該，我想搵一本講粵語語法嘅書。喺二樓語言類，編號 800 嗰排。唔該。我想借呢兩本。好，借期兩個禮拜，可以續借一次。如果過期呢？過期一日罰一蚊，記得準時還呀。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "study-03-c1",
+   "text": "我哋分三部分做。",
+   "kind": "core"
+  },
+  {
+   "id": "study-03-c2",
+   "text": "你負責搵資料。",
+   "kind": "core"
+  },
+  {
+   "id": "study-03-c3",
+   "text": "我落星期交初稿。",
+   "kind": "core"
+  },
+  {
+   "id": "study-03-c4",
+   "text": "你有咩意見？",
+   "kind": "core"
+  },
+  {
+   "id": "study-03-c5",
+   "text": "我覺得咁樣好啲。",
+   "kind": "core"
+  },
+  {
+   "id": "study-03-c6",
+   "text": "就咁決定啦。",
+   "kind": "core"
+  },
+  {
+   "id": "study-03-d1",
+   "text": "呢個報告我哋點分工呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-03-d2",
+   "text": "我搵資料，你負責做 PPT，阿玲負責講。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-03-d3",
+   "text": "好。幾時要交初稿？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-03-d4",
+   "text": "下星期三之前，畀大家睇下先。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-03-d5",
+   "text": "我有一個建議：不如加多個例子。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-03-d6",
+   "text": "好主意，就咁決定。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-03-v1",
+   "text": "分工",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-03-v2",
+   "text": "報告",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-03-v3",
+   "text": "資料",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-03-v4",
+   "text": "初稿",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-03-v5",
+   "text": "意見",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-03-v6",
+   "text": "建議",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-03-v7",
+   "text": "決定",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-03-v8",
+   "text": "合作",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-03-df",
+   "text": "呢個報告我哋點分工呀？我搵資料，你負責做 PPT，阿玲負責講。好。幾時要交初稿？下星期三之前，畀大家睇下先。我有一個建議：不如加多個例子。好主意，就咁決定。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "study-04-c1",
+   "text": "你溫咗書未呀？",
+   "kind": "core"
+  },
+  {
+   "id": "study-04-c2",
+   "text": "仲未開始，死啦。",
+   "kind": "core"
+  },
+  {
+   "id": "study-04-c3",
+   "text": "一齊去自修室啦。",
+   "kind": "core"
+  },
+  {
+   "id": "study-04-c4",
+   "text": "我驚唔合格。",
+   "kind": "core"
+  },
+  {
+   "id": "study-04-c5",
+   "text": "捱夜溫書唔好。",
+   "kind": "core"
+  },
+  {
+   "id": "study-04-c6",
+   "text": "盡咗力就得啦。",
+   "kind": "core"
+  },
+  {
+   "id": "study-04-d1",
+   "text": "下個禮拜考試喇，你溫咗書未？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-04-d2",
+   "text": "仲未開始，好緊張。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-04-d3",
+   "text": "我一齊去自修室啦，互相監督。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-04-d4",
+   "text": "好呀。不過我驚溫唔晒。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-04-d5",
+   "text": "唔使驚，分開幾日溫，唔好捱夜。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-04-d6",
+   "text": "你講得啱，盡咗力就得。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-04-v1",
+   "text": "溫習",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-04-v2",
+   "text": "考試",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-04-v3",
+   "text": "自修室",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-04-v4",
+   "text": "合格",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-04-v5",
+   "text": "緊張",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-04-v6",
+   "text": "捱夜",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-04-v7",
+   "text": "盡力",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-04-v8",
+   "text": "成績",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-04-df",
+   "text": "下個禮拜考試喇，你溫咗書未？仲未開始，好緊張。我一齊去自修室啦，互相監督。好呀。不過我驚溫唔晒。唔使驚，分開幾日溫，唔好捱夜。你講得啱，盡咗力就得。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "study-05-c1",
+   "text": "我想讀語言系。",
+   "kind": "core"
+  },
+  {
+   "id": "study-05-c2",
+   "text": "你成績夠唔夠？",
+   "kind": "core"
+  },
+  {
+   "id": "study-05-c3",
+   "text": "要考咩公開試？",
+   "kind": "core"
+  },
+  {
+   "id": "study-05-c4",
+   "text": "你對咩最有興趣？",
+   "kind": "core"
+  },
+  {
+   "id": "study-05-c5",
+   "text": "可以考慮報呢科。",
+   "kind": "core"
+  },
+  {
+   "id": "study-05-c6",
+   "text": "我返去諗諗。",
+   "kind": "core"
+  },
+  {
+   "id": "study-05-d1",
+   "text": "老師，我想讀語言系，唔知夠唔夠分。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-05-d2",
+   "text": "你成績幾好，不過要考好個公開試。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-05-d3",
+   "text": "要考咩試呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-05-d4",
+   "text": "主要睇語文同通識，另外面試都好重要。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-05-d5",
+   "text": "我最有興趣其實係翻譯。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-05-d6",
+   "text": "咁你可以考慮報翻譯系，出路都幾好。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-05-v1",
+   "text": "選科",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-05-v2",
+   "text": "升學",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-05-v3",
+   "text": "成績",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-05-v4",
+   "text": "公開試",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-05-v5",
+   "text": "面試",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-05-v6",
+   "text": "興趣",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-05-v7",
+   "text": "出路",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-05-v8",
+   "text": "考慮",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-05-df",
+   "text": "老師，我想讀語言系，唔知夠唔夠分。你成績幾好，不過要考好個公開試。要考咩試呀？主要睇語文同通識，另外面試都好重要。我最有興趣其實係翻譯。咁你可以考慮報翻譯系，出路都幾好。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "study-06-c1",
+   "text": "我報咗個畫畫班。",
+   "kind": "core"
+  },
+  {
+   "id": "study-06-c2",
+   "text": "一星期上一堂。",
+   "kind": "core"
+  },
+  {
+   "id": "study-06-c3",
+   "text": "你識唔識彈琴？",
+   "kind": "core"
+  },
+  {
+   "id": "study-06-c4",
+   "text": "我學咗兩年游水。",
+   "kind": "core"
+  },
+  {
+   "id": "study-06-c5",
+   "text": "一齊參加啦。",
+   "kind": "core"
+  },
+  {
+   "id": "study-06-c6",
+   "text": "玩得好開心。",
+   "kind": "core"
+  },
+  {
+   "id": "study-06-d1",
+   "text": "你放學之後有咩活動呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-06-d2",
+   "text": "我逢星期二上畫畫班，星期四學琴。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-06-d3",
+   "text": "嘩，你好忙喎。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-06-d4",
+   "text": "係呀，不過好開心。你有冇參加咩？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-06-d5",
+   "text": "我想學游水，不過驚水。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "study-06-d6",
+   "text": "一齊報啦，有伴就唔驚。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "study-06-v1",
+   "text": "興趣班",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-06-v2",
+   "text": "課外活動",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-06-v3",
+   "text": "報名",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-06-v4",
+   "text": "參加",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-06-v5",
+   "text": "游水",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-06-v6",
+   "text": "彈琴",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-06-v7",
+   "text": "畫畫",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-06-v8",
+   "text": "一堂",
+   "kind": "vocab"
+  },
+  {
+   "id": "study-06-df",
+   "text": "你放學之後有咩活動呀？我逢星期二上畫畫班，星期四學琴。嘩，你好忙喎。係呀，不過好開心。你有冇參加咩？我想學游水，不過驚水。一齊報啦，有伴就唔驚。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "work-01-c1",
+   "text": "麻煩你介紹下自己。",
+   "kind": "core"
+  },
+  {
+   "id": "work-01-c2",
+   "text": "我有三年經驗。",
+   "kind": "core"
+  },
+  {
+   "id": "work-01-c3",
+   "text": "我擅長溝通。",
+   "kind": "core"
+  },
+  {
+   "id": "work-01-c4",
+   "text": "你點解想轉工？",
+   "kind": "core"
+  },
+  {
+   "id": "work-01-c5",
+   "text": "我期望月薪三萬。",
+   "kind": "core"
+  },
+  {
+   "id": "work-01-c6",
+   "text": "幾時可以返工？",
+   "kind": "core"
+  },
+  {
+   "id": "work-01-d1",
+   "text": "你好，請坐。麻煩你介紹下自己。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-01-d2",
+   "text": "你好，我叫陳小明，做咗三年市場推廣。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-01-d3",
+   "text": "你點解想轉工呢？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-01-d4",
+   "text": "我想搵個發展空間大啲嘅平台。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-01-d5",
+   "text": "你期望嘅人工係幾多？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-01-d6",
+   "text": "大概三萬左右，可以再商量。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-01-v1",
+   "text": "見工",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-01-v2",
+   "text": "面試",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-01-v3",
+   "text": "履歷",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-01-v4",
+   "text": "經驗",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-01-v5",
+   "text": "擅長",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-01-v6",
+   "text": "期望",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-01-v7",
+   "text": "人工",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-01-v8",
+   "text": "通知",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-01-df",
+   "text": "你好，請坐。麻煩你介紹下自己。你好，我叫陳小明，做咗三年市場推廣。你點解想轉工呢？我想搵個發展空間大啲嘅平台。你期望嘅人工係幾多？大概三萬左右，可以再商量。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "work-02-c1",
+   "text": "早晨！",
+   "kind": "core"
+  },
+  {
+   "id": "work-02-c2",
+   "text": "食咗早餐未？",
+   "kind": "core"
+  },
+  {
+   "id": "work-02-c3",
+   "text": "琴晚瞓得好唔好？",
+   "kind": "core"
+  },
+  {
+   "id": "work-02-c4",
+   "text": "今日好多嘢做。",
+   "kind": "core"
+  },
+  {
+   "id": "work-02-c5",
+   "text": "一齊去飲杯咖啡？",
+   "kind": "core"
+  },
+  {
+   "id": "work-02-c6",
+   "text": "加油呀！",
+   "kind": "core"
+  },
+  {
+   "id": "work-02-d1",
+   "text": "早晨，阿Ken。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-02-d2",
+   "text": "早晨。今日咁早嘅？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-02-d3",
+   "text": "係呀，約咗客十點。你琴晚加班呀？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-02-d4",
+   "text": "係呀，做到十一點先走。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-02-d5",
+   "text": "辛苦晒。一陣間一齊飲杯咖啡啦。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-02-d6",
+   "text": "好呀，等我搞掂手上嘅嘢先。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-02-v1",
+   "text": "早晨",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-02-v2",
+   "text": "加班",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-02-v3",
+   "text": "辛苦",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-02-v4",
+   "text": "一陣間",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-02-v5",
+   "text": "搞掂",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-02-v6",
+   "text": "約客",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-02-v7",
+   "text": "同事",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-02-v8",
+   "text": "加油",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-02-df",
+   "text": "早晨，阿Ken。早晨。今日咁早嘅？係呀，約咗客十點。你琴晚加班呀？係呀，做到十一點先走。辛苦晒。一陣間一齊飲杯咖啡啦。好呀，等我搞掂手上嘅嘢先。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "work-03-c1",
+   "text": "我同意你嘅講法。",
+   "kind": "core"
+  },
+  {
+   "id": "work-03-c2",
+   "text": "我有個唔同嘅睇法。",
+   "kind": "core"
+  },
+  {
+   "id": "work-03-c3",
+   "text": "不如先聽下其他人意見。",
+   "kind": "core"
+  },
+  {
+   "id": "work-03-c4",
+   "text": "呢點值得考慮。",
+   "kind": "core"
+  },
+  {
+   "id": "work-03-c5",
+   "text": "我建議分階段做。",
+   "kind": "core"
+  },
+  {
+   "id": "work-03-c6",
+   "text": "就咁定案啦。",
+   "kind": "core"
+  },
+  {
+   "id": "work-03-d1",
+   "text": "呢個方案大家覺得點？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-03-d2",
+   "text": "我同意大方向，不過時間表太急。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-03-d3",
+   "text": "你有咩建議？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-03-d4",
+   "text": "我建議分階段做，第一階段做測試先。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-03-d5",
+   "text": "呢點值得考慮。其他人有冇意見？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-03-d6",
+   "text": "我同意阿Ken嘅講法，穩陣啲。",
+   "kind": "dlg",
+   "sp": "C"
+  },
+  {
+   "id": "work-03-v1",
+   "text": "開會",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-03-v2",
+   "text": "方案",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-03-v3",
+   "text": "意見",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-03-v4",
+   "text": "同意",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-03-v5",
+   "text": "建議",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-03-v6",
+   "text": "階段",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-03-v7",
+   "text": "定案",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-03-v8",
+   "text": "計劃書",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-03-df",
+   "text": "呢個方案大家覺得點？我同意大方向，不過時間表太急。你有咩建議？我建議分階段做，第一階段做測試先。呢點值得考慮。其他人有冇意見？我同意阿Ken嘅講法，穩陣啲。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "work-04-c1",
+   "text": "唔好意思，打擾你。",
+   "kind": "core"
+  },
+  {
+   "id": "work-04-c2",
+   "text": "我係永達公司嘅陳小姐。",
+   "kind": "core"
+  },
+  {
+   "id": "work-04-c3",
+   "text": "可唔可以轉去市場部？",
+   "kind": "core"
+  },
+  {
+   "id": "work-04-c4",
+   "text": "我寄咗封電郵畀你。",
+   "kind": "core"
+  },
+  {
+   "id": "work-04-c5",
+   "text": "附件有詳細資料。",
+   "kind": "core"
+  },
+  {
+   "id": "work-04-c6",
+   "text": "麻煩你覆返我。",
+   "kind": "core"
+  },
+  {
+   "id": "work-04-d1",
+   "text": "早晨，請問係咪陳經理？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-04-d2",
+   "text": "係，邊位？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-04-d3",
+   "text": "我係永達公司嘅阿明，早兩日寄咗封電郵畀你。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-04-d4",
+   "text": "唔好意思，我未睇到，你講下重點。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-04-d5",
+   "text": "主要係想約你下星期傾合約，附件有詳細條款。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-04-d6",
+   "text": "好，我睇完覆返你。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-04-v1",
+   "text": "打擾",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-04-v2",
+   "text": "轉駁",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-04-v3",
+   "text": "電郵",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-04-v4",
+   "text": "附件",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-04-v5",
+   "text": "覆返",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-04-v6",
+   "text": "條款",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-04-v7",
+   "text": "重點",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-04-v8",
+   "text": "傾",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-04-df",
+   "text": "早晨，請問係咪陳經理？係，邊位？我係永達公司嘅阿明，早兩日寄咗封電郵畀你。唔好意思，我未睇到，你講下重點。主要係想約你下星期傾合約，附件有詳細條款。好，我睇完覆返你。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "work-05-c1",
+   "text": "歡迎光臨，請坐。",
+   "kind": "core"
+  },
+  {
+   "id": "work-05-c2",
+   "text": "要唔要飲杯嘢？",
+   "kind": "core"
+  },
+  {
+   "id": "work-05-c3",
+   "text": "我帶你參觀下。",
+   "kind": "core"
+  },
+  {
+   "id": "work-05-c4",
+   "text": "呢邊係我哋嘅會議室。",
+   "kind": "core"
+  },
+  {
+   "id": "work-05-c5",
+   "text": "有咩問題即管問。",
+   "kind": "core"
+  },
+  {
+   "id": "work-05-c6",
+   "text": "希望合作愉快。",
+   "kind": "core"
+  },
+  {
+   "id": "work-05-d1",
+   "text": "歡迎光臨，陳總。請坐。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-05-d2",
+   "text": "唔該。你哋公司最近擴充咗喎。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-05-d3",
+   "text": "係呀，上年多咗二十個同事。要唔要飲杯茶？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-05-d4",
+   "text": "唔使客氣。不如先睇下產品。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-05-d5",
+   "text": "好，我帶你過去展廳，順便介紹下新產品。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-05-d6",
+   "text": "麻煩晒，希望今次合作愉快。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-05-v1",
+   "text": "客戶",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-05-v2",
+   "text": "歡迎",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-05-v3",
+   "text": "參觀",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-05-v4",
+   "text": "展廳",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-05-v5",
+   "text": "會議室",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-05-v6",
+   "text": "洽談",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-05-v7",
+   "text": "合作",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-05-v8",
+   "text": "即管",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-05-df",
+   "text": "歡迎光臨，陳總。請坐。唔該。你哋公司最近擴充咗喎。係呀，上年多咗二十個同事。要唔要飲杯茶？唔使客氣。不如先睇下產品。好，我帶你過去展廳，順便介紹下新產品。麻煩晒，希望今次合作愉快。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "work-06-c1",
+   "text": "我匯報下項目進度。",
+   "kind": "core"
+  },
+  {
+   "id": "work-06-c2",
+   "text": "已經完成七成。",
+   "kind": "core"
+  },
+  {
+   "id": "work-06-c3",
+   "text": "遇到少少問題。",
+   "kind": "core"
+  },
+  {
+   "id": "work-06-c4",
+   "text": "可能會延遲兩日。",
+   "kind": "core"
+  },
+  {
+   "id": "work-06-c5",
+   "text": "我會盡快跟進。",
+   "kind": "core"
+  },
+  {
+   "id": "work-06-c6",
+   "text": "有需要支援嗎？",
+   "kind": "core"
+  },
+  {
+   "id": "work-06-d1",
+   "text": "呢個項目做到邊度？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-06-d2",
+   "text": "已經完成七成，不過測試嗰部分有少少問題。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-06-d3",
+   "text": "會唔會影響交貨期？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-06-d4",
+   "text": "可能會延遲兩日，我已經同客戶講咗。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-06-d5",
+   "text": "有咩要支援嘅？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-06-d6",
+   "text": "我希望多一個人手幫手做測試。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-06-v1",
+   "text": "匯報",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-06-v2",
+   "text": "進度",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-06-v3",
+   "text": "完成",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-06-v4",
+   "text": "延遲",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-06-v5",
+   "text": "交貨期",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-06-v6",
+   "text": "跟進",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-06-v7",
+   "text": "支援",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-06-v8",
+   "text": "人手",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-06-df",
+   "text": "呢個項目做到邊度？已經完成七成，不過測試嗰部分有少少問題。會唔會影響交貨期？可能會延遲兩日，我已經同客戶講咗。有咩要支援嘅？我希望多一個人手幫手做測試。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "work-07-c1",
+   "text": "我想請一日病假。",
+   "kind": "core"
+  },
+  {
+   "id": "work-07-c2",
+   "text": "我今日唔舒服。",
+   "kind": "core"
+  },
+  {
+   "id": "work-07-c3",
+   "text": "手上嘅嘢點安排？",
+   "kind": "core"
+  },
+  {
+   "id": "work-07-c4",
+   "text": "麻煩你頂住先。",
+   "kind": "core"
+  },
+  {
+   "id": "work-07-c5",
+   "text": "我會遙距跟進。",
+   "kind": "core"
+  },
+  {
+   "id": "work-07-c6",
+   "text": "真係唔好意思。",
+   "kind": "core"
+  },
+  {
+   "id": "work-07-d1",
+   "text": "經理，我想請一日病假。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-07-d2",
+   "text": "咩事呀？嚴重嗎？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-07-d3",
+   "text": "發燒同喉嚨痛，想睇下醫生。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-07-d4",
+   "text": "冇問題，休息要緊。手上嘅嘢點呀？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-07-d5",
+   "text": "我已經交代咗阿明，有咩事我會遙距跟進。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-07-d6",
+   "text": "好，好好休息。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-07-v1",
+   "text": "請假",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-07-v2",
+   "text": "病假",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-07-v3",
+   "text": "年假",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-07-v4",
+   "text": "交代",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-07-v5",
+   "text": "遙距",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-07-v6",
+   "text": "頂住",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-07-v7",
+   "text": "休息",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-07-v8",
+   "text": "要緊",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-07-df",
+   "text": "經理，我想請一日病假。咩事呀？嚴重嗎？發燒同喉嚨痛，想睇下醫生。冇問題，休息要緊。手上嘅嘢點呀？我已經交代咗阿明，有咩事我會遙距跟進。好，好好休息。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "work-08-c1",
+   "text": "今日由我嚟做東。",
+   "kind": "core"
+  },
+  {
+   "id": "work-08-c2",
+   "text": "你食唔食辣？",
+   "kind": "core"
+  },
+  {
+   "id": "work-08-c3",
+   "text": "敬你一杯。",
+   "kind": "core"
+  },
+  {
+   "id": "work-08-c4",
+   "text": "呢道菜好出名。",
+   "kind": "core"
+  },
+  {
+   "id": "work-08-c5",
+   "text": "生意慢慢傾。",
+   "kind": "core"
+  },
+  {
+   "id": "work-08-c6",
+   "text": "合作愉快！",
+   "kind": "core"
+  },
+  {
+   "id": "work-08-d1",
+   "text": "陳總，今日由我做東，你隨便叫。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-08-d2",
+   "text": "太客氣喇。你食唔食辣？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-08-d3",
+   "text": "我食得辣。呢間嘅避風塘炒蟹好出名。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-08-d4",
+   "text": "咁就叫一個。講返正事，你哋嘅報價……",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-08-d5",
+   "text": "生意慢慢傾，食嘢先。我敬你一杯。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "work-08-d6",
+   "text": "好，合作愉快！",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "work-08-v1",
+   "text": "飯局",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-08-v2",
+   "text": "應酬",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-08-v3",
+   "text": "做東",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-08-v4",
+   "text": "敬酒",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-08-v5",
+   "text": "出名",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-08-v6",
+   "text": "報價",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-08-v7",
+   "text": "生意",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-08-v8",
+   "text": "客氣",
+   "kind": "vocab"
+  },
+  {
+   "id": "work-08-df",
+   "text": "陳總，今日由我做東，你隨便叫。太客氣喇。你食唔食辣？我食得辣。呢間嘅避風塘炒蟹好出名。咁就叫一個。講返正事，你哋嘅報價……生意慢慢傾，食嘢先。我敬你一杯。好，合作愉快！",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-01-c1",
+   "text": "我以前做開紮鐵。",
+   "kind": "core"
+  },
+  {
+   "id": "con-01-c2",
+   "text": "我識睇圖則。",
+   "kind": "core"
+  },
+  {
+   "id": "con-01-c3",
+   "text": "呢行日薪幾多？",
+   "kind": "core"
+  },
+  {
+   "id": "con-01-c4",
+   "text": "朝早八點開工，六點收工。",
+   "kind": "core"
+  },
+  {
+   "id": "con-01-c5",
+   "text": "你跟邊個判頭？",
+   "kind": "core"
+  },
+  {
+   "id": "con-01-c6",
+   "text": "有冇平安卡？",
+   "kind": "core"
+  },
+  {
+   "id": "con-01-c7",
+   "text": "幾時出糧？",
+   "kind": "core"
+  },
+  {
+   "id": "con-01-d1",
+   "text": "師傅，你係嚟見工嘅？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-01-d2",
+   "text": "係呀，想問下呢度請唔請人。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-01-d3",
+   "text": "請呀，你以前做開咩工種？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-01-d4",
+   "text": "我做過兩年紮鐵，釘板都識少少。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-01-d5",
+   "text": "有冇平安卡同身份證？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-01-d6",
+   "text": "有，全部帶齊。幾點開工呀？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-01-d7",
+   "text": "朝早八點開工，六點收工，日薪一千二。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-01-d8",
+   "text": "好呀，我聽日就可以開工。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-01-v1",
+   "text": "工種",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-01-v2",
+   "text": "紮鐵",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-01-v3",
+   "text": "釘板",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-01-v4",
+   "text": "判頭",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-01-v5",
+   "text": "平安卡",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-01-v6",
+   "text": "日薪",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-01-v7",
+   "text": "開工",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-01-v8",
+   "text": "收工",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-01-v9",
+   "text": "出糧",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-01-v10",
+   "text": "師傅",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-01-df",
+   "text": "師傅，你係嚟見工嘅？係呀，想問下呢度請唔請人。請呀，你以前做開咩工種？我做過兩年紮鐵，釘板都識少少。有冇平安卡同身份證？有，全部帶齊。幾點開工呀？朝早八點開工，六點收工，日薪一千二。好呀，我聽日就可以開工。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-02-c1",
+   "text": "今日喺三樓做外牆。",
+   "kind": "core"
+  },
+  {
+   "id": "con-02-c2",
+   "text": "記住戴安全帽。",
+   "kind": "core"
+  },
+  {
+   "id": "con-02-c3",
+   "text": "上棚一定要扣安全帶。",
+   "kind": "core"
+  },
+  {
+   "id": "con-02-c4",
+   "text": "呢度有吊運，唔好行過。",
+   "kind": "core"
+  },
+  {
+   "id": "con-02-c5",
+   "text": "有咩問題即刻出聲。",
+   "kind": "core"
+  },
+  {
+   "id": "con-02-c6",
+   "text": "安全第一，做唔切就停。",
+   "kind": "core"
+  },
+  {
+   "id": "con-02-c7",
+   "text": "出事打九九九。",
+   "kind": "core"
+  },
+  {
+   "id": "con-02-d1",
+   "text": "各位早，今日開工前講兩句。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-02-d2",
+   "text": "收到，阿頭。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-02-d3",
+   "text": "今日三樓有吊運，地下呢邊會封。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-02-d4",
+   "text": "咁我哋由邊度上？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-02-d5",
+   "text": "行後樓梯，記住扣好安全帶。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-02-d6",
+   "text": "地下啲碎石仲未清，會唔會絆腳？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-02-d7",
+   "text": "我即刻叫人清，你哋行慢啲。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-02-d8",
+   "text": "明白，安全第一。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-02-v1",
+   "text": "早會",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-02-v2",
+   "text": "安全帽",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-02-v3",
+   "text": "安全帶",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-02-v4",
+   "text": "吊運",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-02-v5",
+   "text": "危險源",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-02-v6",
+   "text": "封路",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-02-v7",
+   "text": "安全主任",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-02-v8",
+   "text": "圍板",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-02-v9",
+   "text": "絆腳",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-02-v10",
+   "text": "出聲",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-02-df",
+   "text": "各位早，今日開工前講兩句。收到，阿頭。今日三樓有吊運，地下呢邊會封。咁我哋由邊度上？行後樓梯，記住扣好安全帶。地下啲碎石仲未清，會唔會絆腳？我即刻叫人清，你哋行慢啲。明白，安全第一。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-03-c1",
+   "text": "唔該畀對安全鞋我。",
+   "kind": "core"
+  },
+  {
+   "id": "con-03-c2",
+   "text": "呢個口罩太鬆。",
+   "kind": "core"
+  },
+  {
+   "id": "con-03-c3",
+   "text": "對手套爛咗。",
+   "kind": "core"
+  },
+  {
+   "id": "con-03-c4",
+   "text": "有冇大碼反光衣？",
+   "kind": "core"
+  },
+  {
+   "id": "con-03-c5",
+   "text": "耳塞聽唔到人講嘢。",
+   "kind": "core"
+  },
+  {
+   "id": "con-03-c6",
+   "text": "眼罩起霧，睇唔清楚。",
+   "kind": "core"
+  },
+  {
+   "id": "con-03-c7",
+   "text": "裝備唔齊唔可以開工。",
+   "kind": "core"
+  },
+  {
+   "id": "con-03-d1",
+   "text": "新嚟嘅？裝備拎咗未？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-03-d2",
+   "text": "拎咗安全帽同反光衣，但係鞋唔啱。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-03-d3",
+   "text": "點唔啱法？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-03-d4",
+   "text": "太窄，著半日腳就痛。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-03-d5",
+   "text": "你去物料房換過對，順便拎耳塞。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-03-d6",
+   "text": "眼罩有冇？我想要防霧嗰隻。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-03-d7",
+   "text": "有，喺第三格。口罩要唔要？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-03-d8",
+   "text": "要呀，多謝阿頭。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-03-v1",
+   "text": "個人防護裝備",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-03-v2",
+   "text": "安全鞋",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-03-v3",
+   "text": "反光衣",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-03-v4",
+   "text": "防塵口罩",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-03-v5",
+   "text": "耳塞",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-03-v6",
+   "text": "眼罩",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-03-v7",
+   "text": "手套",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-03-v8",
+   "text": "物料房",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-03-v9",
+   "text": "大碼",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-03-v10",
+   "text": "起霧",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-03-df",
+   "text": "新嚟嘅？裝備拎咗未？拎咗安全帽同反光衣，但係鞋唔啱。點唔啱法？太窄，著半日腳就痛。你去物料房換過對，順便拎耳塞。眼罩有冇？我想要防霧嗰隻。有，喺第三格。口罩要唔要？要呀，多謝阿頭。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-04-c1",
+   "text": "借把士巴拿我。",
+   "kind": "core"
+  },
+  {
+   "id": "con-04-c2",
+   "text": "鎚仔擺喺邊？",
+   "kind": "core"
+  },
+  {
+   "id": "con-04-c3",
+   "text": "電鑽冇電。",
+   "kind": "core"
+  },
+  {
+   "id": "con-04-c4",
+   "text": "呢把鋸片鈍咗。",
+   "kind": "core"
+  },
+  {
+   "id": "con-04-c5",
+   "text": "墨斗要入墨。",
+   "kind": "core"
+  },
+  {
+   "id": "con-04-c6",
+   "text": "平水尺跌歪咗。",
+   "kind": "core"
+  },
+  {
+   "id": "con-04-c7",
+   "text": "用完記得還返倉。",
+   "kind": "core"
+  },
+  {
+   "id": "con-04-d1",
+   "text": "阿頭，我要借工具。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-04-d2",
+   "text": "要咩？自己喺架度搵。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-04-d3",
+   "text": "士巴拿、鎚仔，仲有平水尺。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-04-d4",
+   "text": "平水尺喺第二行，小心啲唔好跌。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-04-d5",
+   "text": "呢把電鑽叉唔到電。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-04-d6",
+   "text": "咁你換過把，壞嘅放去維修箱。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-04-d7",
+   "text": "好，用完我會還。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-04-d8",
+   "text": "記住登記，唔係我唔知邊個借咗。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-04-v1",
+   "text": "士巴拿",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-04-v2",
+   "text": "鎚仔",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-04-v3",
+   "text": "電鑽",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-04-v4",
+   "text": "墨斗",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-04-v5",
+   "text": "平水尺",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-04-v6",
+   "text": "鋸",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-04-v7",
+   "text": "叉電",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-04-v8",
+   "text": "倉",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-04-v9",
+   "text": "登記",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-04-v10",
+   "text": "維修",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-04-df",
+   "text": "阿頭，我要借工具。要咩？自己喺架度搵。士巴拿、鎚仔，仲有平水尺。平水尺喺第二行，小心啲唔好跌。呢把電鑽叉唔到電。咁你換過把，壞嘅放去維修箱。好，用完我會還。記住登記，唔係我唔知邊個借咗。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-05-c1",
+   "text": "今日到咗幾多包英泥？",
+   "kind": "core"
+  },
+  {
+   "id": "con-05-c2",
+   "text": "石屎幾點到？",
+   "kind": "core"
+  },
+  {
+   "id": "con-05-c3",
+   "text": "呢批鋼筋生鏽。",
+   "kind": "core"
+  },
+  {
+   "id": "con-05-c4",
+   "text": "沙入面有泥。",
+   "kind": "core"
+  },
+  {
+   "id": "con-05-c5",
+   "text": "磚爛咗十幾隻。",
+   "kind": "core"
+  },
+  {
+   "id": "con-05-c6",
+   "text": "木板唔夠厚。",
+   "kind": "core"
+  },
+  {
+   "id": "con-05-c7",
+   "text": "點貨同送貨單唔對。",
+   "kind": "core"
+  },
+  {
+   "id": "con-05-d1",
+   "text": "送貨嘅，單畀我睇睇。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-05-d2",
+   "text": "呢度，五十包英泥、兩車沙。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-05-d3",
+   "text": "包數啱，但係沙好似濕咗。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-05-d4",
+   "text": "落過雨，難免嘅。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-05-d5",
+   "text": "濕沙唔用得，我要扣數。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-05-d6",
+   "text": "咁我影張相返公司問下。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-05-d7",
+   "text": "好，你影啦。鋼筋呢邊要點多一次。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-05-d8",
+   "text": "冇問題，我陪你點。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-05-v1",
+   "text": "英泥",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-05-v2",
+   "text": "石屎",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-05-v3",
+   "text": "鋼筋",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-05-v4",
+   "text": "沙",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-05-v5",
+   "text": "碎石",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-05-v6",
+   "text": "磚",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-05-v7",
+   "text": "送貨單",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-05-v8",
+   "text": "點貨",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-05-v9",
+   "text": "扣數",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-05-v10",
+   "text": "生鏽",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-05-df",
+   "text": "送貨嘅，單畀我睇睇。呢度，五十包英泥、兩車沙。包數啱，但係沙好似濕咗。落過雨，難免嘅。濕沙唔用得，我要扣數。咁我影張相返公司問下。好，你影啦。鋼筋呢邊要點多一次。冇問題，我陪你點。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-06-c1",
+   "text": "呢張係平面圖。",
+   "kind": "core"
+  },
+  {
+   "id": "con-06-c2",
+   "text": "標高寫幾多？",
+   "kind": "core"
+  },
+  {
+   "id": "con-06-c3",
+   "text": "呢道牆幾厚？",
+   "kind": "core"
+  },
+  {
+   "id": "con-06-c4",
+   "text": "圖則同現場唔一致。",
+   "kind": "core"
+  },
+  {
+   "id": "con-06-c5",
+   "text": "呢度要開個窿。",
+   "kind": "core"
+  },
+  {
+   "id": "con-06-c6",
+   "text": "尺寸係唔係跟中心線？",
+   "kind": "core"
+  },
+  {
+   "id": "con-06-c7",
+   "text": "等則師覆先做。",
+   "kind": "core"
+  },
+  {
+   "id": "con-06-d1",
+   "text": "阿則師，呢個位有啲問題。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-06-d2",
+   "text": "咩問題？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-06-d3",
+   "text": "圖則寫牆厚二百，但現場做咗百五。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-06-d4",
+   "text": "等我睇下大樣圖……係喎，係二百。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-06-d5",
+   "text": "咁要唔要拆？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-06-d6",
+   "text": "唔使拆，喺另一邊補返就得。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-06-d7",
+   "text": "好，我出張工作指示。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-06-d8",
+   "text": "記得寫清楚位置同日期。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-06-v1",
+   "text": "圖則",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-06-v2",
+   "text": "平面圖",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-06-v3",
+   "text": "立面圖",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-06-v4",
+   "text": "大樣圖",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-06-v5",
+   "text": "標高",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-06-v6",
+   "text": "尺寸",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-06-v7",
+   "text": "中心線",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-06-v8",
+   "text": "則師",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-06-v9",
+   "text": "開窿",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-06-v10",
+   "text": "覆",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-06-df",
+   "text": "阿則師，呢個位有啲問題。咩問題？圖則寫牆厚二百，但現場做咗百五。等我睇下大樣圖……係喎，係二百。咁要唔要拆？唔使拆，喺另一邊補返就得。好，我出張工作指示。記得寫清楚位置同日期。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-07-c1",
+   "text": "呢道牆長十呎。",
+   "kind": "core"
+  },
+  {
+   "id": "con-07-c2",
+   "text": "一呎等於十二寸。",
+   "kind": "core"
+  },
+  {
+   "id": "con-07-c3",
+   "text": "一米大概三呎三。",
+   "kind": "core"
+  },
+  {
+   "id": "con-07-c4",
+   "text": "厚度係五十毫米。",
+   "kind": "core"
+  },
+  {
+   "id": "con-07-c5",
+   "text": "呢包重五十公斤。",
+   "kind": "core"
+  },
+  {
+   "id": "con-07-c6",
+   "text": "要幾多公升油？",
+   "kind": "core"
+  },
+  {
+   "id": "con-07-c7",
+   "text": "差少少，唔夠數。",
+   "kind": "core"
+  },
+  {
+   "id": "con-07-d1",
+   "text": "阿師傅，呢邊要幾長？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-07-d2",
+   "text": "圖則寫三米。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-07-d3",
+   "text": "三米即係幾多呎？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-07-d4",
+   "text": "大概十呎，你開料開十呎一。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-07-d5",
+   "text": "留一呎咁多？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-07-d6",
+   "text": "唔係，係多一吋咋，留位修口。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-07-d7",
+   "text": "明白，咁我鋸十呎一吋。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-07-d8",
+   "text": "鋸完攞過嚟我度多次。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-07-v1",
+   "text": "呎",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-07-v2",
+   "text": "寸",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-07-v3",
+   "text": "米",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-07-v4",
+   "text": "毫米",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-07-v5",
+   "text": "公斤",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-07-v6",
+   "text": "公升",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-07-v7",
+   "text": "開料",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-07-v8",
+   "text": "量度",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-07-v9",
+   "text": "留位",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-07-v10",
+   "text": "對數",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-07-df",
+   "text": "阿師傅，呢邊要幾長？圖則寫三米。三米即係幾多呎？大概十呎，你開料開十呎一。留一呎咁多？唔係，係多一吋咋，留位修口。明白，咁我鋸十呎一吋。鋸完攞過嚟我度多次。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-08-c1",
+   "text": "鐵要紮實啲。",
+   "kind": "core"
+  },
+  {
+   "id": "con-08-c2",
+   "text": "間距差咗少少。",
+   "kind": "core"
+  },
+  {
+   "id": "con-08-c3",
+   "text": "保護層唔夠厚。",
+   "kind": "core"
+  },
+  {
+   "id": "con-08-c4",
+   "text": "模板要加支撐。",
+   "kind": "core"
+  },
+  {
+   "id": "con-08-c5",
+   "text": "呢塊夾板鬆咗。",
+   "kind": "core"
+  },
+  {
+   "id": "con-08-c6",
+   "text": "落石屎前要驗鐵。",
+   "kind": "core"
+  },
+  {
+   "id": "con-08-c7",
+   "text": "簽咗紙先可以落。",
+   "kind": "core"
+  },
+  {
+   "id": "con-08-d1",
+   "text": "阿頭，鐵紮好，可以驗。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-08-d2",
+   "text": "等我睇下間距……呢度密咗，嗰度疏咗。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-08-d3",
+   "text": "我即刻叫佢哋調整。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-08-d4",
+   "text": "仲有，保護層要用膠墊墊高。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-08-d5",
+   "text": "好，模板呢邊冇問題啦？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-08-d6",
+   "text": "呢塊夾板鬆，加兩隻釘。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-08-d7",
+   "text": "加好就叫監理嚟驗。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-08-d8",
+   "text": "檢驗完我簽紙，你哋先可以落石屎。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-08-v1",
+   "text": "紮鐵",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-08-v2",
+   "text": "鐵網",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-08-v3",
+   "text": "間距",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-08-v4",
+   "text": "保護層",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-08-v5",
+   "text": "模板",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-08-v6",
+   "text": "夾板",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-08-v7",
+   "text": "支撐",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-08-v8",
+   "text": "驗鐵",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-08-v9",
+   "text": "監理",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-08-v10",
+   "text": "簽紙",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-08-df",
+   "text": "阿頭，鐵紮好，可以驗。等我睇下間距……呢度密咗，嗰度疏咗。我即刻叫佢哋調整。仲有，保護層要用膠墊墊高。好，模板呢邊冇問題啦？呢塊夾板鬆，加兩隻釘。加好就叫監理嚟驗。檢驗完我簽紙，你哋先可以落石屎。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-09-c1",
+   "text": "泵車到咗，準備落石屎。",
+   "kind": "core"
+  },
+  {
+   "id": "con-09-c2",
+   "text": "呢車石屎太稀。",
+   "kind": "core"
+  },
+  {
+   "id": "con-09-c3",
+   "text": "落完要用震筆震實。",
+   "kind": "core"
+  },
+  {
+   "id": "con-09-c4",
+   "text": "要留試辦做測試。",
+   "kind": "core"
+  },
+  {
+   "id": "con-09-c5",
+   "text": "落完要養護七日。",
+   "kind": "core"
+  },
+  {
+   "id": "con-09-c6",
+   "text": "唔好成日澆水，會裂。",
+   "kind": "core"
+  },
+  {
+   "id": "con-09-c7",
+   "text": "落唔切就停，唔好夾層。",
+   "kind": "core"
+  },
+  {
+   "id": "con-09-d1",
+   "text": "泵車到咗，可以開始未？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-09-d2",
+   "text": "等多陣，模板仲要檢查多一次。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-09-d3",
+   "text": "檢查完喇，冇問題。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-09-d4",
+   "text": "好，開始落。呢車睇落有啲稀。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-09-d5",
+   "text": "係呀，坍度可能大咗。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-09-d6",
+   "text": "叫供應商補車乾啲，分兩邊落。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-09-d7",
+   "text": "試辦留幾組？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-09-d8",
+   "text": "留三組，七日、廿八日各一組。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-09-v1",
+   "text": "落石屎",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-09-v2",
+   "text": "泵車",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-09-v3",
+   "text": "石屎漿",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-09-v4",
+   "text": "震筆",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-09-v5",
+   "text": "稀",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-09-v6",
+   "text": "試辦",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-09-v7",
+   "text": "養護",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-09-v8",
+   "text": "裂",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-09-v9",
+   "text": "夾層",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-09-v10",
+   "text": "坍度",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-09-df",
+   "text": "泵車到咗，可以開始未？等多陣，模板仲要檢查多一次。檢查完喇，冇問題。好，開始落。呢車睇落有啲稀。係呀，坍度可能大咗。叫供應商補車乾啲，分兩邊落。試辦留幾組？留三組，七日、廿八日各一組。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-10-c1",
+   "text": "磚要浸水先砌。",
+   "kind": "core"
+  },
+  {
+   "id": "con-10-c2",
+   "text": "打橫打直都要平。",
+   "kind": "core"
+  },
+  {
+   "id": "con-10-c3",
+   "text": "批盪要批兩層。",
+   "kind": "core"
+  },
+  {
+   "id": "con-10-c4",
+   "text": "呢度盪得唔夠平。",
+   "kind": "core"
+  },
+  {
+   "id": "con-10-c5",
+   "text": "貼瓦要留縫。",
+   "kind": "core"
+  },
+  {
+   "id": "con-10-c6",
+   "text": "勾縫用白色好睇。",
+   "kind": "core"
+  },
+  {
+   "id": "con-10-c7",
+   "text": "有空鼓就要拆返。",
+   "kind": "core"
+  },
+  {
+   "id": "con-10-d1",
+   "text": "呢道牆批盪批成點？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-10-d2",
+   "text": "第一層批咗，等佢乾先批第二層。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-10-d3",
+   "text": "睇落有啲唔平。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-10-d4",
+   "text": "係，呢個角高咗，我一陣間執返。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-10-d5",
+   "text": "地板呢邊貼瓦未？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-10-d6",
+   "text": "貼咗一半，等乾咗先勾縫。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-10-d7",
+   "text": "敲下睇下有冇空鼓。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-10-d8",
+   "text": "有兩塊空心，我拆返出嚟再貼。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-10-v1",
+   "text": "砌磚",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-10-v2",
+   "text": "批盪",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-10-v3",
+   "text": "盪平",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-10-v4",
+   "text": "貼瓦",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-10-v5",
+   "text": "瓦仔",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-10-v6",
+   "text": "勾縫",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-10-v7",
+   "text": "空鼓",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-10-v8",
+   "text": "浸水",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-10-v9",
+   "text": "執返",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-10-v10",
+   "text": "橫平豎直",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-10-df",
+   "text": "呢道牆批盪批成點？第一層批咗，等佢乾先批第二層。睇落有啲唔平。係，呢個角高咗，我一陣間執返。地板呢邊貼瓦未？貼咗一半，等乾咗先勾縫。敲下睇下有冇空鼓。有兩塊空心，我拆返出嚟再貼。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-11-c1",
+   "text": "棚架要由合資格嘅人搭。",
+   "kind": "core"
+  },
+  {
+   "id": "con-11-c2",
+   "text": "棚網要圍密。",
+   "kind": "core"
+  },
+  {
+   "id": "con-11-c3",
+   "text": "行出棚要扣安全帶。",
+   "kind": "core"
+  },
+  {
+   "id": "con-11-c4",
+   "text": "吊船試過先可以用。",
+   "kind": "core"
+  },
+  {
+   "id": "con-11-c5",
+   "text": "大風就唔准上棚。",
+   "kind": "core"
+  },
+  {
+   "id": "con-11-c6",
+   "text": "塔吊吊料要有人看。",
+   "kind": "core"
+  },
+  {
+   "id": "con-11-c7",
+   "text": "下面要拉封鎖線。",
+   "kind": "core"
+  },
+  {
+   "id": "con-11-d1",
+   "text": "今日上棚做外牆。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-11-d2",
+   "text": "棚架驗咗未？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-11-d3",
+   "text": "驗咗，掛咗牌。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-11-d4",
+   "text": "安全帶呢？人人都有？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-11-d5",
+   "text": "有，仲有獨立救生繩。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-11-d6",
+   "text": "下面要拉封鎖線，唔好有人行過。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-11-d7",
+   "text": "已經拉咗，仲放咗告示牌。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-11-d8",
+   "text": "好，落雨或者大風就即刻落嚟。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-11-v1",
+   "text": "搭棚",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-11-v2",
+   "text": "棚架",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-11-v3",
+   "text": "棚網",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-11-v4",
+   "text": "吊船",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-11-v5",
+   "text": "安全帶",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-11-v6",
+   "text": "救生繩",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-11-v7",
+   "text": "塔吊",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-11-v8",
+   "text": "封鎖線",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-11-v9",
+   "text": "掛牌",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-11-v10",
+   "text": "落嚟",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-11-df",
+   "text": "今日上棚做外牆。棚架驗咗未？驗咗，掛咗牌。安全帶呢？人人都有？有，仲有獨立救生繩。下面要拉封鎖線，唔好有人行過。已經拉咗，仲放咗告示牌。好，落雨或者大風就即刻落嚟。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-12-c1",
+   "text": "水喉要走得直。",
+   "kind": "core"
+  },
+  {
+   "id": "con-12-c2",
+   "text": "呢度要留個檢查口。",
+   "kind": "core"
+  },
+  {
+   "id": "con-12-c3",
+   "text": "電線槽要分開做。",
+   "kind": "core"
+  },
+  {
+   "id": "con-12-c4",
+   "text": "試水睇下有冇漏。",
+   "kind": "core"
+  },
+  {
+   "id": "con-12-c5",
+   "text": "電要搵合資格師傅做。",
+   "kind": "core"
+  },
+  {
+   "id": "con-12-c6",
+   "text": "冷氣去水位要斜。",
+   "kind": "core"
+  },
+  {
+   "id": "con-12-c7",
+   "text": "圖則冇預留位。",
+   "kind": "core"
+  },
+  {
+   "id": "con-12-d1",
+   "text": "水喉鋪好，可以試水。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-12-d2",
+   "text": "閂晒啲掣，加壓試。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-12-d3",
+   "text": "加壓到幾多？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-12-d4",
+   "text": "照圖則，一點五倍。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-12-d5",
+   "text": "有滲水呀，呢個接頭。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-12-d6",
+   "text": "扭實啲，再纏多幾圈膠布。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-12-d7",
+   "text": "好……冇漏喇。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-12-d8",
+   "text": "記住影相留底，之後要交報告。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-12-v1",
+   "text": "水喉",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-12-v2",
+   "text": "電線槽",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-12-v3",
+   "text": "檢查口",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-12-v4",
+   "text": "試水",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-12-v5",
+   "text": "加壓",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-12-v6",
+   "text": "滲水",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-12-v7",
+   "text": "膠布",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-12-v8",
+   "text": "預留位",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-12-v9",
+   "text": "去水位",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-12-v10",
+   "text": "留底",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-12-df",
+   "text": "水喉鋪好，可以試水。閂晒啲掣，加壓試。加壓到幾多？照圖則，一點五倍。有滲水呀，呢個接頭。扭實啲，再纏多幾圈膠布。好……冇漏喇。記住影相留底，之後要交報告。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-13-c1",
+   "text": "呢邊做完七成。",
+   "kind": "core"
+  },
+  {
+   "id": "con-13-c2",
+   "text": "材料唔夠，要補貨。",
+   "kind": "core"
+  },
+  {
+   "id": "con-13-c3",
+   "text": "聽日要唔要加班？",
+   "kind": "core"
+  },
+  {
+   "id": "con-13-c4",
+   "text": "我聽唔清楚，再講一次。",
+   "kind": "core"
+  },
+  {
+   "id": "con-13-c5",
+   "text": "叫吊車等一等。",
+   "kind": "core"
+  },
+  {
+   "id": "con-13-c6",
+   "text": "呢單交畀你做。",
+   "kind": "core"
+  },
+  {
+   "id": "con-13-c7",
+   "text": "有咩改動即刻通知我。",
+   "kind": "core"
+  },
+  {
+   "id": "con-13-d1",
+   "text": "阿頭，呢邊做到七成。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-13-d2",
+   "text": "落石屎之前搞得切？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-13-d3",
+   "text": "搞得切，但係鋼筋唔夠。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-13-d4",
+   "text": "要幾多？我叫人送。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-13-d5",
+   "text": "大概兩噸，最好聽日朝早到。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-13-d6",
+   "text": "好。聽日可能要加班，得唔得？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-13-d7",
+   "text": "得，不過七點要走，我要接仔。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-13-d8",
+   "text": "冇問題，你講聲就得。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-13-v1",
+   "text": "做得切",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-13-v2",
+   "text": "補貨",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-13-v3",
+   "text": "加班",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-13-v4",
+   "text": "吊車",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-13-v5",
+   "text": "交畀",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-13-v6",
+   "text": "改動",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-13-v7",
+   "text": "進度",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-13-v8",
+   "text": "對講機",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-13-v9",
+   "text": "追更",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-13-v10",
+   "text": "頂更",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-13-df",
+   "text": "阿頭，呢邊做到七成。落石屎之前搞得切？搞得切，但係鋼筋唔夠。要幾多？我叫人送。大概兩噸，最好聽日朝早到。好。聽日可能要加班，得唔得？得，不過七點要走，我要接仔。冇問題，你講聲就得。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-14-c1",
+   "text": "呢度有裂縫。",
+   "kind": "core"
+  },
+  {
+   "id": "con-14-c2",
+   "text": "呢幅牆唔直。",
+   "kind": "core"
+  },
+  {
+   "id": "con-14-c3",
+   "text": "要重做。",
+   "kind": "core"
+  },
+  {
+   "id": "con-14-c4",
+   "text": "我哋今日之內改好。",
+   "kind": "core"
+  },
+  {
+   "id": "con-14-c5",
+   "text": "簽收之前再驗一次。",
+   "kind": "core"
+  },
+  {
+   "id": "con-14-c6",
+   "text": "瑕疵要記錄低。",
+   "kind": "core"
+  },
+  {
+   "id": "con-14-c7",
+   "text": "改完影相畀你睇。",
+   "kind": "core"
+  },
+  {
+   "id": "con-14-d1",
+   "text": "今日驗收，有幾個位要跟。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-14-d2",
+   "text": "邊幾個位？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-14-d3",
+   "text": "地下有裂縫，牆角唔直。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-14-d4",
+   "text": "裂縫係收水裂，唔影響結構。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-14-d5",
+   "text": "都要修返，唔可以就咁算。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-14-d6",
+   "text": "明白，我哋三日內搞好，影相畀你。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-14-d7",
+   "text": "搞好之後再驗，先至簽收。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-14-d8",
+   "text": "冇問題。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-14-v1",
+   "text": "驗收",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-14-v2",
+   "text": "裂縫",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-14-v3",
+   "text": "瑕疵",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-14-v4",
+   "text": "重做",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-14-v5",
+   "text": "簽收",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-14-v6",
+   "text": "跟",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-14-v7",
+   "text": "修返",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-14-v8",
+   "text": "收水",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-14-v9",
+   "text": "結構",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-14-v10",
+   "text": "記錄低",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-14-df",
+   "text": "今日驗收，有幾個位要跟。邊幾個位？地下有裂縫，牆角唔直。裂縫係收水裂，唔影響結構。都要修返，唔可以就咁算。明白，我哋三日內搞好，影相畀你。搞好之後再驗，先至簽收。冇問題。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-15-c1",
+   "text": "有人跌親，快啲叫救護車。",
+   "kind": "core"
+  },
+  {
+   "id": "con-15-c2",
+   "text": "佢隻手流好多血。",
+   "kind": "core"
+  },
+  {
+   "id": "con-15-c3",
+   "text": "唔好郁佢，等救護員。",
+   "kind": "core"
+  },
+  {
+   "id": "con-15-c4",
+   "text": "急救箱喺寫字樓。",
+   "kind": "core"
+  },
+  {
+   "id": "con-15-c5",
+   "text": "要即刻通知安全主任。",
+   "kind": "core"
+  },
+  {
+   "id": "con-15-c6",
+   "text": "意外要報勞工處。",
+   "kind": "core"
+  },
+  {
+   "id": "con-15-c7",
+   "text": "工傷可以索償保險。",
+   "kind": "core"
+  },
+  {
+   "id": "con-15-d1",
+   "text": "出事喇！有人喺二樓跌親！",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-15-d2",
+   "text": "打九九九，講清楚地址同傷勢。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-15-d3",
+   "text": "佢話隻腳郁唔到。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-15-d4",
+   "text": "唔好搬佢，攞件衫畀佢蓋住保暖。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-15-d5",
+   "text": "救護車五分鐘到。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-15-d6",
+   "text": "通知安全主任冇？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-15-d7",
+   "text": "通知咗，佢而家落嚟。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-15-d8",
+   "text": "記住影相、寫報告，工傷要報勞工處。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-15-v1",
+   "text": "意外",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-15-v2",
+   "text": "受傷",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-15-v3",
+   "text": "救護車",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-15-v4",
+   "text": "急救箱",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-15-v5",
+   "text": "出血",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-15-v6",
+   "text": "骨折",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-15-v7",
+   "text": "安全主任",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-15-v8",
+   "text": "工傷",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-15-v9",
+   "text": "勞工處",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-15-v10",
+   "text": "索償",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-15-df",
+   "text": "出事喇！有人喺二樓跌親！打九九九，講清楚地址同傷勢。佢話隻腳郁唔到。唔好搬佢，攞件衫畀佢蓋住保暖。救護車五分鐘到。通知安全主任冇？通知咗，佢而家落嚟。記住影相、寫報告，工傷要報勞工處。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-16-c1",
+   "text": "掛八號風球就停工。",
+   "kind": "core"
+  },
+  {
+   "id": "con-16-c2",
+   "text": "黑色暴雨都唔開工。",
+   "kind": "core"
+  },
+  {
+   "id": "con-16-c3",
+   "text": "要加固棚架同圍板。",
+   "kind": "core"
+  },
+  {
+   "id": "con-16-c4",
+   "text": "吊船要放低。",
+   "kind": "core"
+  },
+  {
+   "id": "con-16-c5",
+   "text": "材料要綁實。",
+   "kind": "core"
+  },
+  {
+   "id": "con-16-c6",
+   "text": "落波之後先可以復工。",
+   "kind": "core"
+  },
+  {
+   "id": "con-16-c7",
+   "text": "復工前要檢查一次。",
+   "kind": "core"
+  },
+  {
+   "id": "con-16-d1",
+   "text": "天文台話下晝掛八號。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-16-d2",
+   "text": "咁快啲收嘢，加固先。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-16-d3",
+   "text": "棚網要唔要拆？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-16-d4",
+   "text": "唔使拆，但係要綁實，鬆嘅位置加繩。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-16-d5",
+   "text": "塔吊呢？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-16-d6",
+   "text": "塔吊要鬆開迴轉，唔好鎖死。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-16-d7",
+   "text": "幾時復工？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-16-d8",
+   "text": "落波之後，檢查完棚架先可以開工。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-16-v1",
+   "text": "風球",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-16-v2",
+   "text": "八號風球",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-16-v3",
+   "text": "黑色暴雨",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-16-v4",
+   "text": "停工",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-16-v5",
+   "text": "復工",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-16-v6",
+   "text": "加固",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-16-v7",
+   "text": "綁實",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-16-v8",
+   "text": "落波",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-16-v9",
+   "text": "天文台",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-16-v10",
+   "text": "圍板",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-16-df",
+   "text": "天文台話下晝掛八號。咁快啲收嘢，加固先。棚網要唔要拆？唔使拆，但係要綁實，鬆嘅位置加繩。塔吊呢？塔吊要鬆開迴轉，唔好鎖死。幾時復工？落波之後，檢查完棚架先可以開工。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-17-c1",
+   "text": "呢份標書幾時截？",
+   "kind": "core"
+  },
+  {
+   "id": "con-17-c2",
+   "text": "我哋要報個價。",
+   "kind": "core"
+  },
+  {
+   "id": "con-17-c3",
+   "text": "數量要計清楚。",
+   "kind": "core"
+  },
+  {
+   "id": "con-17-c4",
+   "text": "呢個價唔包料。",
+   "kind": "core"
+  },
+  {
+   "id": "con-17-c5",
+   "text": "今個月計糧點計？",
+   "kind": "core"
+  },
+  {
+   "id": "con-17-c6",
+   "text": "遲到要扣錢。",
+   "kind": "core"
+  },
+  {
+   "id": "con-17-c7",
+   "text": "做多咗可以補返。",
+   "kind": "core"
+  },
+  {
+   "id": "con-17-d1",
+   "text": "呢份標書下星期三截。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-17-d2",
+   "text": "工程範圍有幾大？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-17-d3",
+   "text": "外牆批盪連貼瓦，大約三千平米。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-17-d4",
+   "text": "咁我報每平米一百八，唔包料。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-17-d5",
+   "text": "包唔包搭棚？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-17-d6",
+   "text": "包，但係棚租另外計。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-17-d7",
+   "text": "好，你出份正式報價畀我。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-17-d8",
+   "text": "冇問題，聽日出畀你。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-17-v1",
+   "text": "標書",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-17-v2",
+   "text": "報價",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-17-v3",
+   "text": "數量",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-17-v4",
+   "text": "截標",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-17-v5",
+   "text": "工程範圍",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-17-v6",
+   "text": "平米",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-17-v7",
+   "text": "計糧",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-17-v8",
+   "text": "扣錢",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-17-v9",
+   "text": "補返",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-17-v10",
+   "text": "棚租",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-17-df",
+   "text": "呢份標書下星期三截。工程範圍有幾大？外牆批盪連貼瓦，大約三千平米。咁我報每平米一百八，唔包料。包唔包搭棚？包，但係棚租另外計。好，你出份正式報價畀我。冇問題，聽日出畀你。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "con-18-c1",
+   "text": "下個月可以交樓。",
+   "kind": "core"
+  },
+  {
+   "id": "con-18-c2",
+   "text": "業主會嚟驗樓。",
+   "kind": "core"
+  },
+  {
+   "id": "con-18-c3",
+   "text": "有瑕疵要執漏。",
+   "kind": "core"
+  },
+  {
+   "id": "con-18-c4",
+   "text": "執漏期係三個月。",
+   "kind": "core"
+  },
+  {
+   "id": "con-18-c5",
+   "text": "保養期一年。",
+   "kind": "core"
+  },
+  {
+   "id": "con-18-c6",
+   "text": "過咗期就唔包。",
+   "kind": "core"
+  },
+  {
+   "id": "con-18-c7",
+   "text": "留低聯絡人電話。",
+   "kind": "core"
+  },
+  {
+   "id": "con-18-d1",
+   "text": "幾時交樓？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-18-d2",
+   "text": "下個月十五號，已經通知業主。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-18-d3",
+   "text": "業主驗樓嗰日邊個陪？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-18-d4",
+   "text": "我同裝修師傅一齊去，帶埋圖則。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-18-d5",
+   "text": "如果業主話要改呢？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-18-d6",
+   "text": "合理嘅就改，超出範圍就要報價。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-18-d7",
+   "text": "執漏期幾長？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "con-18-d8",
+   "text": "三個月，保養期一年，過期唔包。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "con-18-v1",
+   "text": "交樓",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-18-v2",
+   "text": "驗樓",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-18-v3",
+   "text": "執漏",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-18-v4",
+   "text": "業主",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-18-v5",
+   "text": "保養期",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-18-v6",
+   "text": "執漏期",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-18-v7",
+   "text": "瑕疵",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-18-v8",
+   "text": "收樓",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-18-v9",
+   "text": "圖則",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-18-v10",
+   "text": "聯絡",
+   "kind": "vocab"
+  },
+  {
+   "id": "con-18-df",
+   "text": "幾時交樓？下個月十五號，已經通知業主。業主驗樓嗰日邊個陪？我同裝修師傅一齊去，帶埋圖則。如果業主話要改呢？合理嘅就改，超出範圍就要報價。執漏期幾長？三個月，保養期一年，過期唔包。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-01-c1",
+   "text": "我嚟睇醫生。",
+   "kind": "core"
+  },
+  {
+   "id": "med-01-c2",
+   "text": "有冇帶身份證？",
+   "kind": "core"
+  },
+  {
+   "id": "med-01-c3",
+   "text": "邊度唔舒服？",
+   "kind": "core"
+  },
+  {
+   "id": "med-01-c4",
+   "text": "我個頭好痛。",
+   "kind": "core"
+  },
+  {
+   "id": "med-01-c5",
+   "text": "攞個籌等叫號。",
+   "kind": "core"
+  },
+  {
+   "id": "med-01-c6",
+   "text": "急症室要等好耐。",
+   "kind": "core"
+  },
+  {
+   "id": "med-01-c7",
+   "text": "分流站喺左手邊。",
+   "kind": "core"
+  },
+  {
+   "id": "med-01-d1",
+   "text": "你好，請問有咩事？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-01-d2",
+   "text": "我肚痛，痛咗兩日。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-01-d3",
+   "text": "有冇身份證或者醫療卡？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-01-d4",
+   "text": "有，喺呢度。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-01-d5",
+   "text": "你去分流站量血壓，之後坐低等叫號。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-01-d6",
+   "text": "要等幾耐？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-01-d7",
+   "text": "今日人多，大概兩個鐘。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-01-d8",
+   "text": "咁我坐低等。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-01-v1",
+   "text": "掛號",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-01-v2",
+   "text": "急症室",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-01-v3",
+   "text": "分流",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-01-v4",
+   "text": "籌",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-01-v5",
+   "text": "叫號",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-01-v6",
+   "text": "身份證",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-01-v7",
+   "text": "醫療卡",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-01-v8",
+   "text": "唔舒服",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-01-v9",
+   "text": "等",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-01-v10",
+   "text": "睇醫生",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-01-df",
+   "text": "你好，請問有咩事？我肚痛，痛咗兩日。有冇身份證或者醫療卡？有，喺呢度。你去分流站量血壓，之後坐低等叫號。要等幾耐？今日人多，大概兩個鐘。咁我坐低等。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-02-c1",
+   "text": "你邊度唔舒服？",
+   "kind": "core"
+  },
+  {
+   "id": "med-02-c2",
+   "text": "幾時開始㗎？",
+   "kind": "core"
+  },
+  {
+   "id": "med-02-c3",
+   "text": "有冇藥物敏感？",
+   "kind": "core"
+  },
+  {
+   "id": "med-02-c4",
+   "text": "食開咩藥？",
+   "kind": "core"
+  },
+  {
+   "id": "med-02-c5",
+   "text": "屋企人有冇同樣病？",
+   "kind": "core"
+  },
+  {
+   "id": "med-02-c6",
+   "text": "有冇發燒？",
+   "kind": "core"
+  },
+  {
+   "id": "med-02-c7",
+   "text": "我幫你檢查下。",
+   "kind": "core"
+  },
+  {
+   "id": "med-02-d1",
+   "text": "請坐。邊度唔舒服？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-02-d2",
+   "text": "我咳咗一個禮拜，仲有痰。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-02-d3",
+   "text": "幾時開始㗎？有冇發燒？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-02-d4",
+   "text": "上星期三開始，頭兩日有燒。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-02-d5",
+   "text": "有冇藥物敏感？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-02-d6",
+   "text": "我對盤尼西林敏感。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-02-d7",
+   "text": "平時有冇食開藥？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-02-d8",
+   "text": "有，食高血壓藥。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-02-v1",
+   "text": "主訴",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-02-v2",
+   "text": "病史",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-02-v3",
+   "text": "藥物敏感",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-02-v4",
+   "text": "盤尼西林",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-02-v5",
+   "text": "病歷",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-02-v6",
+   "text": "症狀",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-02-v7",
+   "text": "家族史",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-02-v8",
+   "text": "檢查",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-02-v9",
+   "text": "痰",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-02-v10",
+   "text": "咳",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-02-df",
+   "text": "請坐。邊度唔舒服？我咳咗一個禮拜，仲有痰。幾時開始㗎？有冇發燒？上星期三開始，頭兩日有燒。有冇藥物敏感？我對盤尼西林敏感。平時有冇食開藥？有，食高血壓藥。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-03-c1",
+   "text": "呢度痛。",
+   "kind": "core"
+  },
+  {
+   "id": "med-03-c2",
+   "text": "係刺痛定係隱隱作痛？",
+   "kind": "core"
+  },
+  {
+   "id": "med-03-c3",
+   "text": "痛到幾多分？",
+   "kind": "core"
+  },
+  {
+   "id": "med-03-c4",
+   "text": "一按就痛。",
+   "kind": "core"
+  },
+  {
+   "id": "med-03-c5",
+   "text": "痛到蔓延去背後。",
+   "kind": "core"
+  },
+  {
+   "id": "med-03-c6",
+   "text": "夜晚痛得犀利啲。",
+   "kind": "core"
+  },
+  {
+   "id": "med-03-c7",
+   "text": "食咗止痛藥都冇用。",
+   "kind": "core"
+  },
+  {
+   "id": "med-03-d1",
+   "text": "邊度痛？指畀我睇。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-03-d2",
+   "text": "呢度，肚嘅右邊。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-03-d3",
+   "text": "點樣痛法？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-03-d4",
+   "text": "係抽住痛，一郁就痛。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-03-d5",
+   "text": "痛到幾多分？十分最痛。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-03-d6",
+   "text": "大概七分，痛咗兩日。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-03-d7",
+   "text": "有冇蔓延去其他地方？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-03-d8",
+   "text": "有，痛到去背脊。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-03-v1",
+   "text": "刺痛",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-03-v2",
+   "text": "隱隱作痛",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-03-v3",
+   "text": "抽住痛",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-03-v4",
+   "text": "酸痛",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-03-v5",
+   "text": "一按就痛",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-03-v6",
+   "text": "蔓延",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-03-v7",
+   "text": "犀利",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-03-v8",
+   "text": "止痛藥",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-03-v9",
+   "text": "背脊",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-03-v10",
+   "text": "程度",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-03-df",
+   "text": "邊度痛？指畀我睇。呢度，肚嘅右邊。點樣痛法？係抽住痛，一郁就痛。痛到幾多分？十分最痛。大概七分，痛咗兩日。有冇蔓延去其他地方？有，痛到去背脊。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-04-c1",
+   "text": "我發燒三十八度五。",
+   "kind": "core"
+  },
+  {
+   "id": "med-04-c2",
+   "text": "喉嚨好痛，吞口水都痛。",
+   "kind": "core"
+  },
+  {
+   "id": "med-04-c3",
+   "text": "咳到成晚瞓唔著。",
+   "kind": "core"
+  },
+  {
+   "id": "med-04-c4",
+   "text": "有鼻水同鼻塞。",
+   "kind": "core"
+  },
+  {
+   "id": "med-04-c5",
+   "text": "要唔要食抗生素？",
+   "kind": "core"
+  },
+  {
+   "id": "med-04-c6",
+   "text": "可唔可以開病假紙？",
+   "kind": "core"
+  },
+  {
+   "id": "med-04-c7",
+   "text": "幾時要覆診？",
+   "kind": "core"
+  },
+  {
+   "id": "med-04-d1",
+   "text": "邊度唔舒服？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-04-d2",
+   "text": "我發燒，喉嚨痛，仲咳。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-04-d3",
+   "text": "探過熱未？幾多度？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-04-d4",
+   "text": "今朝三十八度五。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-04-d5",
+   "text": "喉嚨紅咗，係感冒。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-04-d6",
+   "text": "要唔要食抗生素？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-04-d7",
+   "text": "唔使，係病毒，食藥舒緩就得。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-04-d8",
+   "text": "可唔可以開兩日病假紙？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-04-v1",
+   "text": "發燒",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-04-v2",
+   "text": "探熱",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-04-v3",
+   "text": "喉嚨痛",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-04-v4",
+   "text": "咳",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-04-v5",
+   "text": "鼻塞",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-04-v6",
+   "text": "鼻水",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-04-v7",
+   "text": "抗生素",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-04-v8",
+   "text": "病毒",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-04-v9",
+   "text": "病假紙",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-04-v10",
+   "text": "覆診",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-04-df",
+   "text": "邊度唔舒服？我發燒，喉嚨痛，仲咳。探過熱未？幾多度？今朝三十八度五。喉嚨紅咗，係感冒。要唔要食抗生素？唔使，係病毒，食藥舒緩就得。可唔可以開兩日病假紙？",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-05-c1",
+   "text": "我肚瀉咗成日。",
+   "kind": "core"
+  },
+  {
+   "id": "med-05-c2",
+   "text": "肚痛，仲想嘔。",
+   "kind": "core"
+  },
+  {
+   "id": "med-05-c3",
+   "text": "大便有血。",
+   "kind": "core"
+  },
+  {
+   "id": "med-05-c4",
+   "text": "食完海鮮就唔舒服。",
+   "kind": "core"
+  },
+  {
+   "id": "med-05-c5",
+   "text": "有啲便秘，去唔到廁所。",
+   "kind": "core"
+  },
+  {
+   "id": "med-05-c6",
+   "text": "胃氣好重。",
+   "kind": "core"
+  },
+  {
+   "id": "med-05-c7",
+   "text": "已經飲好多水。",
+   "kind": "core"
+  },
+  {
+   "id": "med-05-d1",
+   "text": "邊度唔舒服？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-05-d2",
+   "text": "我肚瀉，由尋晚開始。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-05-d3",
+   "text": "瀉咗幾多次？咩顏色？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-05-d4",
+   "text": "六七次，黃色水狀。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-05-d5",
+   "text": "有冇食過生冷嘢？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-05-d6",
+   "text": "前日食過生蠔。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-05-d7",
+   "text": "應該係腸胃炎，要驗大便。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-05-d8",
+   "text": "要唔要入院？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-05-v1",
+   "text": "肚瀉",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-05-v2",
+   "text": "便秘",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-05-v3",
+   "text": "嘔",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-05-v4",
+   "text": "胃氣",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-05-v5",
+   "text": "腸胃炎",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-05-v6",
+   "text": "大便",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-05-v7",
+   "text": "脫水",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-05-v8",
+   "text": "留醫",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-05-v9",
+   "text": "生冷嘢",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-05-v10",
+   "text": "水狀",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-05-df",
+   "text": "邊度唔舒服？我肚瀉，由尋晚開始。瀉咗幾多次？咩顏色？六七次，黃色水狀。有冇食過生冷嘢？前日食過生蠔。應該係腸胃炎，要驗大便。要唔要入院？",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-06-c1",
+   "text": "我周身出紅疹。",
+   "kind": "core"
+  },
+  {
+   "id": "med-06-c2",
+   "text": "好痕，忍唔住抓。",
+   "kind": "core"
+  },
+  {
+   "id": "med-06-c3",
+   "text": "塊面腫咗。",
+   "kind": "core"
+  },
+  {
+   "id": "med-06-c4",
+   "text": "食完藥之後就咁。",
+   "kind": "core"
+  },
+  {
+   "id": "med-06-c5",
+   "text": "接觸過油漆。",
+   "kind": "core"
+  },
+  {
+   "id": "med-06-c6",
+   "text": "有冇敏感史？",
+   "kind": "core"
+  },
+  {
+   "id": "med-06-c7",
+   "text": "要搽咩藥膏？",
+   "kind": "core"
+  },
+  {
+   "id": "med-06-d1",
+   "text": "邊度出疹？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-06-d2",
+   "text": "手同頸，仲有塊面。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-06-d3",
+   "text": "幾時開始？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-06-d4",
+   "text": "尋日食完止痛藥之後。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-06-d5",
+   "text": "有冇唞唔到氣、嘴唇腫？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-06-d6",
+   "text": "冇，淨係痕。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-06-d7",
+   "text": "應該係藥物敏感，停藥先，我開藥膏畀你。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-06-d8",
+   "text": "好，如果唞唔到氣我會即刻返嚟。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-06-v1",
+   "text": "紅疹",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-06-v2",
+   "text": "痕",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-06-v3",
+   "text": "腫",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-06-v4",
+   "text": "抓",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-06-v5",
+   "text": "藥膏",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-06-v6",
+   "text": "敏感",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-06-v7",
+   "text": "接觸",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-06-v8",
+   "text": "油漆",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-06-v9",
+   "text": "唞唔到氣",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-06-v10",
+   "text": "嘴唇",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-06-df",
+   "text": "邊度出疹？手同頸，仲有塊面。幾時開始？尋日食完止痛藥之後。有冇唞唔到氣、嘴唇腫？冇，淨係痕。應該係藥物敏感，停藥先，我開藥膏畀你。好，如果唞唔到氣我會即刻返嚟。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-07-c1",
+   "text": "請坐低，鬆開衫袖。",
+   "kind": "core"
+  },
+  {
+   "id": "med-07-c2",
+   "text": "我幫你量血壓。",
+   "kind": "core"
+  },
+  {
+   "id": "med-07-c3",
+   "text": "上壓百四，下壓九十。",
+   "kind": "core"
+  },
+  {
+   "id": "med-07-c4",
+   "text": "探熱要含喺舌底。",
+   "kind": "core"
+  },
+  {
+   "id": "med-07-c5",
+   "text": "度高磅重喺呢邊。",
+   "kind": "core"
+  },
+  {
+   "id": "med-07-c6",
+   "text": "心跳快咗啲。",
+   "kind": "core"
+  },
+  {
+   "id": "med-07-c7",
+   "text": "血氧正常。",
+   "kind": "core"
+  },
+  {
+   "id": "med-07-d1",
+   "text": "請坐，鬆開件衫袖。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-07-d2",
+   "text": "好，會唔會痛？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-07-d3",
+   "text": "唔會，隻手放平就得。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-07-d4",
+   "text": "我平時血壓有啲高。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-07-d5",
+   "text": "今日上壓百四、下壓九十，偏高。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-07-d6",
+   "text": "要唔要食藥？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-07-d7",
+   "text": "等醫生睇，你坐一陣再量多次。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-07-d8",
+   "text": "好，唔該姑娘。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-07-v1",
+   "text": "血壓",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-07-v2",
+   "text": "上壓",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-07-v3",
+   "text": "下壓",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-07-v4",
+   "text": "探熱",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-07-v5",
+   "text": "度高",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-07-v6",
+   "text": "磅重",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-07-v7",
+   "text": "心跳",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-07-v8",
+   "text": "血氧",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-07-v9",
+   "text": "姑娘",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-07-v10",
+   "text": "偏高",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-07-df",
+   "text": "請坐，鬆開件衫袖。好，會唔會痛？唔會，隻手放平就得。我平時血壓有啲高。今日上壓百四、下壓九十，偏高。要唔要食藥？等醫生睇，你坐一陣再量多次。好，唔該姑娘。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-08-c1",
+   "text": "朝早要空肚抽血。",
+   "kind": "core"
+  },
+  {
+   "id": "med-08-c2",
+   "text": "抽邊隻手？",
+   "kind": "core"
+  },
+  {
+   "id": "med-08-c3",
+   "text": "驗尿要留中段尿。",
+   "kind": "core"
+  },
+  {
+   "id": "med-08-c4",
+   "text": "報告幾時有？",
+   "kind": "core"
+  },
+  {
+   "id": "med-08-c5",
+   "text": "要照X光。",
+   "kind": "core"
+  },
+  {
+   "id": "med-08-c6",
+   "text": "驗大便要放呢個樽。",
+   "kind": "core"
+  },
+  {
+   "id": "med-08-c7",
+   "text": "結果會通知你。",
+   "kind": "core"
+  },
+  {
+   "id": "med-08-d1",
+   "text": "我嚟抽血。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-08-d2",
+   "text": "有冇空肚八個鐘？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-08-d3",
+   "text": "有，尋晚之後冇食嘢。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-08-d4",
+   "text": "好，伸手出嚟，握拳。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-08-d5",
+   "text": "痛唔痛㗎？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-08-d6",
+   "text": "好似針咬一下，好快。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-08-d7",
+   "text": "報告幾時有？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-08-d8",
+   "text": "驗血兩日，下星期覆診會有結果。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-08-v1",
+   "text": "抽血",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-08-v2",
+   "text": "空肚",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-08-v3",
+   "text": "驗尿",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-08-v4",
+   "text": "中段尿",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-08-v5",
+   "text": "驗大便",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-08-v6",
+   "text": "化驗",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-08-v7",
+   "text": "報告",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-08-v8",
+   "text": "X光",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-08-v9",
+   "text": "樽",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-08-v10",
+   "text": "握拳",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-08-df",
+   "text": "我嚟抽血。有冇空肚八個鐘？有，尋晚之後冇食嘢。好，伸手出嚟，握拳。痛唔痛㗎？好似針咬一下，好快。報告幾時有？驗血兩日，下星期覆診會有結果。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-09-c1",
+   "text": "打針打喺手臂。",
+   "kind": "core"
+  },
+  {
+   "id": "med-09-c2",
+   "text": "要種豆吊鹽水。",
+   "kind": "core"
+  },
+  {
+   "id": "med-09-c3",
+   "text": "隻手唔好屈。",
+   "kind": "core"
+  },
+  {
+   "id": "med-09-c4",
+   "text": "有少少痛係正常。",
+   "kind": "core"
+  },
+  {
+   "id": "med-09-c5",
+   "text": "如果腫咗即刻話我知。",
+   "kind": "core"
+  },
+  {
+   "id": "med-09-c6",
+   "text": "滴得太快會唔舒服。",
+   "kind": "core"
+  },
+  {
+   "id": "med-09-c7",
+   "text": "打完要按實五分鐘。",
+   "kind": "core"
+  },
+  {
+   "id": "med-09-d1",
+   "text": "呢針係抗生素，打手臂。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-09-d2",
+   "text": "痛唔痛㗎？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-09-d3",
+   "text": "好似蟻咬一下，深呼吸。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-09-d4",
+   "text": "打咗之後有咩要注意？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-09-d5",
+   "text": "如果出疹或者唞唔到氣，即刻撳鐘叫我。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-09-d6",
+   "text": "好。我仲要吊鹽水？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-09-d7",
+   "text": "係，要種豆，隻手唔好屈。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-09-d8",
+   "text": "明白，唔該姑娘。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-09-v1",
+   "text": "打針",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-09-v2",
+   "text": "種豆",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-09-v3",
+   "text": "吊鹽水",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-09-v4",
+   "text": "滴",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-09-v5",
+   "text": "腫",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-09-v6",
+   "text": "撳鐘",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-09-v7",
+   "text": "手臂",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-09-v8",
+   "text": "按實",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-09-v9",
+   "text": "蟻咬",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-09-v10",
+   "text": "深呼吸",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-09-df",
+   "text": "呢針係抗生素，打手臂。痛唔痛㗎？好似蟻咬一下，深呼吸。打咗之後有咩要注意？如果出疹或者唞唔到氣，即刻撳鐘叫我。好。我仲要吊鹽水？係，要種豆，隻手唔好屈。明白，唔該姑娘。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-10-c1",
+   "text": "一日食三次。",
+   "kind": "core"
+  },
+  {
+   "id": "med-10-c2",
+   "text": "飯後食。",
+   "kind": "core"
+  },
+  {
+   "id": "med-10-c3",
+   "text": "食完會唔會眼瞓？",
+   "kind": "core"
+  },
+  {
+   "id": "med-10-c4",
+   "text": "有冇副作用？",
+   "kind": "core"
+  },
+  {
+   "id": "med-10-c5",
+   "text": "唔好同酒一齊食。",
+   "kind": "core"
+  },
+  {
+   "id": "med-10-c6",
+   "text": "食完藥要覆診。",
+   "kind": "core"
+  },
+  {
+   "id": "med-10-c7",
+   "text": "唔記得食要唔要補？",
+   "kind": "core"
+  },
+  {
+   "id": "med-10-d1",
+   "text": "呢隻藥一日三次，飯後食。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-10-d2",
+   "text": "食完會唔會眼瞓？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-10-d3",
+   "text": "會，最好唔好揸車。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-10-d4",
+   "text": "有冇副作用？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-10-d5",
+   "text": "可能會有少少口乾，好快過。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-10-d6",
+   "text": "唔記得食要唔要補？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-10-d7",
+   "text": "差唔多時間就補，接近下一餐就唔使。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-10-d8",
+   "text": "好，明白。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-10-v1",
+   "text": "藥單",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-10-v2",
+   "text": "飯後",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-10-v3",
+   "text": "飯前",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-10-v4",
+   "text": "副作用",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-10-v5",
+   "text": "眼瞓",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-10-v6",
+   "text": "補食",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-10-v7",
+   "text": "口乾",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-10-v8",
+   "text": "揸車",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-10-v9",
+   "text": "一齊食",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-10-v10",
+   "text": "藥房",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-10-df",
+   "text": "呢隻藥一日三次，飯後食。食完會唔會眼瞓？會，最好唔好揸車。有冇副作用？可能會有少少口乾，好快過。唔記得食要唔要補？差唔多時間就補，接近下一餐就唔使。好，明白。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-11-c1",
+   "text": "醫生寫咗轉介信。",
+   "kind": "core"
+  },
+  {
+   "id": "med-11-c2",
+   "text": "要排幾耐？",
+   "kind": "core"
+  },
+  {
+   "id": "med-11-c3",
+   "text": "專科門診好難約。",
+   "kind": "core"
+  },
+  {
+   "id": "med-11-c4",
+   "text": "可以改期嗎？",
+   "kind": "core"
+  },
+  {
+   "id": "med-11-c5",
+   "text": "覆診要帶咩文件？",
+   "kind": "core"
+  },
+  {
+   "id": "med-11-c6",
+   "text": "報告要一齊帶。",
+   "kind": "core"
+  },
+  {
+   "id": "med-11-c7",
+   "text": "如果唔舒服可以睇急症。",
+   "kind": "core"
+  },
+  {
+   "id": "med-11-d1",
+   "text": "我有轉介信，想約專科。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-11-d2",
+   "text": "邊個專科？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-11-d3",
+   "text": "骨科，醫生話我膝頭要照。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-11-d4",
+   "text": "新症要排六個月。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-11-d5",
+   "text": "咁耐？有冇快啲？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-11-d6",
+   "text": "你可以排政府私家門診，快啲但要收費。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-11-d7",
+   "text": "好，我考慮下。覆診要帶咩？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-11-d8",
+   "text": "轉介信、身份證、之前啲報告。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-11-v1",
+   "text": "轉介信",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-11-v2",
+   "text": "專科門診",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-11-v3",
+   "text": "排期",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-11-v4",
+   "text": "新症",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-11-v5",
+   "text": "覆診",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-11-v6",
+   "text": "改期",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-11-v7",
+   "text": "骨科",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-11-v8",
+   "text": "私家",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-11-v9",
+   "text": "收費",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-11-v10",
+   "text": "文件",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-11-df",
+   "text": "我有轉介信，想約專科。邊個專科？骨科，醫生話我膝頭要照。新症要排六個月。咁耐？有冇快啲？你可以排政府私家門診，快啲但要收費。好，我考慮下。覆診要帶咩？轉介信、身份證、之前啲報告。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-12-c1",
+   "text": "我要辦入院。",
+   "kind": "core"
+  },
+  {
+   "id": "med-12-c2",
+   "text": "住幾號床？",
+   "kind": "core"
+  },
+  {
+   "id": "med-12-c3",
+   "text": "探病時間係幾點？",
+   "kind": "core"
+  },
+  {
+   "id": "med-12-c4",
+   "text": "要唔要自備日用品？",
+   "kind": "core"
+  },
+  {
+   "id": "med-12-c5",
+   "text": "幾時可以出院？",
+   "kind": "core"
+  },
+  {
+   "id": "med-12-c6",
+   "text": "出院有咩要注意？",
+   "kind": "core"
+  },
+  {
+   "id": "med-12-c7",
+   "text": "出院紙要收好。",
+   "kind": "core"
+  },
+  {
+   "id": "med-12-d1",
+   "text": "你好，我嚟辦入院。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-12-d2",
+   "text": "身份證同入院紙畀我。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-12-d3",
+   "text": "喺呢度。住幾號床？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-12-d4",
+   "text": "六樓內科，廿二號床。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-12-d5",
+   "text": "探病時間係幾點？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-12-d6",
+   "text": "下晝四點到八點，一次兩個。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-12-d7",
+   "text": "要自備啲咩？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-12-d8",
+   "text": "拖鞋、毛巾、水杯，貴重嘢唔好帶。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-12-v1",
+   "text": "入院",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-12-v2",
+   "text": "出院",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-12-v3",
+   "text": "病房",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-12-v4",
+   "text": "探病",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-12-v5",
+   "text": "病床",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-12-v6",
+   "text": "內科",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-12-v7",
+   "text": "日用品",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-12-v8",
+   "text": "出院紙",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-12-v9",
+   "text": "貴重嘢",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-12-v10",
+   "text": "手續",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-12-df",
+   "text": "你好，我嚟辦入院。身份證同入院紙畀我。喺呢度。住幾號床？六樓內科，廿二號床。探病時間係幾點？下晝四點到八點，一次兩個。要自備啲咩？拖鞋、毛巾、水杯，貴重嘢唔好帶。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-13-c1",
+   "text": "手術前要禁食。",
+   "kind": "core"
+  },
+  {
+   "id": "med-13-c2",
+   "text": "幾點開始做？",
+   "kind": "core"
+  },
+  {
+   "id": "med-13-c3",
+   "text": "係全身麻醉定半身？",
+   "kind": "core"
+  },
+  {
+   "id": "med-13-c4",
+   "text": "傷口痛可以食止痛藥。",
+   "kind": "core"
+  },
+  {
+   "id": "med-13-c5",
+   "text": "幾時拆線？",
+   "kind": "core"
+  },
+  {
+   "id": "med-13-c6",
+   "text": "唔好整濕傷口。",
+   "kind": "core"
+  },
+  {
+   "id": "med-13-c7",
+   "text": "有咩事即刻撳鐘。",
+   "kind": "core"
+  },
+  {
+   "id": "med-13-d1",
+   "text": "你聽日做手術，今晚十二點之後禁食。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-13-d2",
+   "text": "水都唔可以飲？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-13-d3",
+   "text": "唔可以，連水都唔得。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-13-d4",
+   "text": "係全身麻醉定半身？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-13-d5",
+   "text": "半身，你會清醒但唔覺得痛。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-13-d6",
+   "text": "做完之後要住幾耐？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-13-d7",
+   "text": "大概三日，傷口唔可以整濕。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-13-d8",
+   "text": "明白。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-13-v1",
+   "text": "手術",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-13-v2",
+   "text": "禁食",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-13-v3",
+   "text": "麻醉",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-13-v4",
+   "text": "全身麻醉",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-13-v5",
+   "text": "半身麻醉",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-13-v6",
+   "text": "傷口",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-13-v7",
+   "text": "拆線",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-13-v8",
+   "text": "縫針",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-13-v9",
+   "text": "止痛藥",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-13-v10",
+   "text": "整濕",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-13-df",
+   "text": "你聽日做手術，今晚十二點之後禁食。水都唔可以飲？唔可以，連水都唔得。係全身麻醉定半身？半身，你會清醒但唔覺得痛。做完之後要住幾耐？大概三日，傷口唔可以整濕。明白。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-14-c1",
+   "text": "我跌親，隻手好痛。",
+   "kind": "core"
+  },
+  {
+   "id": "med-14-c2",
+   "text": "流好多血，止唔到。",
+   "kind": "core"
+  },
+  {
+   "id": "med-14-c3",
+   "text": "懷疑骨折。",
+   "kind": "core"
+  },
+  {
+   "id": "med-14-c4",
+   "text": "要唔要照X光？",
+   "kind": "core"
+  },
+  {
+   "id": "med-14-c5",
+   "text": "要唔要縫針？",
+   "kind": "core"
+  },
+  {
+   "id": "med-14-c6",
+   "text": "要打破傷風針。",
+   "kind": "core"
+  },
+  {
+   "id": "med-14-c7",
+   "text": "幾時可以返屋企？",
+   "kind": "core"
+  },
+  {
+   "id": "med-14-d1",
+   "text": "點受傷㗎？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-14-d2",
+   "text": "喺樓梯跌親，隻手撐住地下。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-14-d3",
+   "text": "腫得好犀利，可能骨折。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-14-d4",
+   "text": "要照X光嗎？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-14-d5",
+   "text": "要，仲要睇下有冇傷到神經。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-14-d6",
+   "text": "我隻手指而家痺。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-14-d7",
+   "text": "咁要快啲處理，我幫你安排。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-14-d8",
+   "text": "好，唔該。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-14-v1",
+   "text": "急症室",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-14-v2",
+   "text": "骨折",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-14-v3",
+   "text": "跌親",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-14-v4",
+   "text": "腫",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-14-v5",
+   "text": "痺",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-14-v6",
+   "text": "止唔到",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-14-v7",
+   "text": "縫針",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-14-v8",
+   "text": "破傷風針",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-14-v9",
+   "text": "X光",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-14-v10",
+   "text": "神經",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-14-df",
+   "text": "點受傷㗎？喺樓梯跌親，隻手撐住地下。腫得好犀利，可能骨折。要照X光嗎？要，仲要睇下有冇傷到神經。我隻手指而家痺。咁要快啲處理，我幫你安排。好，唔該。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-15-c1",
+   "text": "我懷孕二十週。",
+   "kind": "core"
+  },
+  {
+   "id": "med-15-c2",
+   "text": "今次做超聲波。",
+   "kind": "core"
+  },
+  {
+   "id": "med-15-c3",
+   "text": "胎動正常嗎？",
+   "kind": "core"
+  },
+  {
+   "id": "med-15-c4",
+   "text": "要唔要驗血糖？",
+   "kind": "core"
+  },
+  {
+   "id": "med-15-c5",
+   "text": "預產期係幾時？",
+   "kind": "core"
+  },
+  {
+   "id": "med-15-c6",
+   "text": "想順產定開刀？",
+   "kind": "core"
+  },
+  {
+   "id": "med-15-c7",
+   "text": "生完要坐月。",
+   "kind": "core"
+  },
+  {
+   "id": "med-15-d1",
+   "text": "今日做產檢，幾多週？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-15-d2",
+   "text": "二十週，預產期係十二月。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-15-d3",
+   "text": "有冇覺得胎動？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-15-d4",
+   "text": "有，郁得幾密。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-15-d5",
+   "text": "好，而家照超聲波睇下。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-15-d6",
+   "text": "要唔要驗血糖？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-15-d7",
+   "text": "廿四週之後做，到時會通知你。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-15-d8",
+   "text": "好，唔該姑娘。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-15-v1",
+   "text": "懷孕",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-15-v2",
+   "text": "產檢",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-15-v3",
+   "text": "超聲波",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-15-v4",
+   "text": "胎動",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-15-v5",
+   "text": "預產期",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-15-v6",
+   "text": "順產",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-15-v7",
+   "text": "開刀",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-15-v8",
+   "text": "坐月",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-15-v9",
+   "text": "血糖",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-15-v10",
+   "text": "週數",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-15-df",
+   "text": "今日做產檢，幾多週？二十週，預產期係十二月。有冇覺得胎動？有，郁得幾密。好，而家照超聲波睇下。要唔要驗血糖？廿四週之後做，到時會通知你。好，唔該姑娘。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-16-c1",
+   "text": "佢發燒到三十九度。",
+   "kind": "core"
+  },
+  {
+   "id": "med-16-c2",
+   "text": "唔肯食嘢，成日喊。",
+   "kind": "core"
+  },
+  {
+   "id": "med-16-c3",
+   "text": "今日打防疫針。",
+   "kind": "core"
+  },
+  {
+   "id": "med-16-c4",
+   "text": "打完會唔會發燒？",
+   "kind": "core"
+  },
+  {
+   "id": "med-16-c5",
+   "text": "打喺大髀定手臂？",
+   "kind": "core"
+  },
+  {
+   "id": "med-16-c6",
+   "text": "有冇藥物敏感？",
+   "kind": "core"
+  },
+  {
+   "id": "med-16-c7",
+   "text": "幾時覆診？",
+   "kind": "core"
+  },
+  {
+   "id": "med-16-d1",
+   "text": "小朋友邊度唔舒服？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-16-d2",
+   "text": "佢發燒兩日，仲有咳。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-16-d3",
+   "text": "幾多度？有冇抽筋？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-16-d4",
+   "text": "三十九度，冇抽筋。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-16-d5",
+   "text": "喉嚨紅，係病毒感染。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-16-d6",
+   "text": "要唔要食抗生素？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-16-d7",
+   "text": "唔使。退燒藥四個鐘一次，唔好食太多。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-16-d8",
+   "text": "好，幾時覆診？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-16-v1",
+   "text": "防疫針",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-16-v2",
+   "text": "抽筋",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-16-v3",
+   "text": "退燒藥",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-16-v4",
+   "text": "喊",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-16-v5",
+   "text": "大髀",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-16-v6",
+   "text": "覆診",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-16-v7",
+   "text": "兒科",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-16-v8",
+   "text": "病毒感染",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-16-v9",
+   "text": "食嘢",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-16-v10",
+   "text": "四個鐘",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-16-df",
+   "text": "小朋友邊度唔舒服？佢發燒兩日，仲有咳。幾多度？有冇抽筋？三十九度，冇抽筋。喉嚨紅，係病毒感染。要唔要食抗生素？唔使。退燒藥四個鐘一次，唔好食太多。好，幾時覆診？",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-17-c1",
+   "text": "我要做物理治療。",
+   "kind": "core"
+  },
+  {
+   "id": "med-17-c2",
+   "text": "一星期做兩次。",
+   "kind": "core"
+  },
+  {
+   "id": "med-17-c3",
+   "text": "呢個動作好痛。",
+   "kind": "core"
+  },
+  {
+   "id": "med-17-c4",
+   "text": "要針灸三次。",
+   "kind": "core"
+  },
+  {
+   "id": "med-17-c5",
+   "text": "敷藥之後唔好濕水。",
+   "kind": "core"
+  },
+  {
+   "id": "med-17-c6",
+   "text": "戒口唔好食海鮮。",
+   "kind": "core"
+  },
+  {
+   "id": "med-17-c7",
+   "text": "返去要日日拉筋。",
+   "kind": "core"
+  },
+  {
+   "id": "med-17-d1",
+   "text": "今日做物理治療，邊度痛？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-17-d2",
+   "text": "膝頭，上樓梯好痛。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-17-d3",
+   "text": "你跟我做呢個動作，慢慢嚟。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-17-d4",
+   "text": "哎吔，好痛！",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-17-d5",
+   "text": "痛就停，唔好硬撐。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-17-d6",
+   "text": "要做幾多次？",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-17-d7",
+   "text": "一星期兩次，返去每日拉筋十分鐘。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-17-d8",
+   "text": "好，我試下。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-17-v1",
+   "text": "物理治療",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-17-v2",
+   "text": "針灸",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-17-v3",
+   "text": "推拿",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-17-v4",
+   "text": "跌打",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-17-v5",
+   "text": "敷藥",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-17-v6",
+   "text": "拉筋",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-17-v7",
+   "text": "戒口",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-17-v8",
+   "text": "硬撐",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-17-v9",
+   "text": "膝頭",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-17-v10",
+   "text": "復康",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-17-df",
+   "text": "今日做物理治療，邊度痛？膝頭，上樓梯好痛。你跟我做呢個動作，慢慢嚟。哎吔，好痛！痛就停，唔好硬撐。要做幾多次？一星期兩次，返去每日拉筋十分鐘。好，我試下。",
+   "kind": "dlgFull"
+  },
+  {
+   "id": "med-18-c1",
+   "text": "診金幾多錢？",
+   "kind": "core"
+  },
+  {
+   "id": "med-18-c2",
+   "text": "住院費一日幾多？",
+   "kind": "core"
+  },
+  {
+   "id": "med-18-c3",
+   "text": "有冇收據？",
+   "kind": "core"
+  },
+  {
+   "id": "med-18-c4",
+   "text": "保險可以索償返。",
+   "kind": "core"
+  },
+  {
+   "id": "med-18-c5",
+   "text": "要醫生填表。",
+   "kind": "core"
+  },
+  {
+   "id": "med-18-c6",
+   "text": "病假紙寫幾日？",
+   "kind": "core"
+  },
+  {
+   "id": "med-18-c7",
+   "text": "交更要講清楚病人情況。",
+   "kind": "core"
+  },
+  {
+   "id": "med-18-d1",
+   "text": "埋單一共幾多錢？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-18-d2",
+   "text": "診金三百，藥費一百二。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-18-d3",
+   "text": "可以開收據嗎？我要索償保險。",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-18-d4",
+   "text": "可以，仲要醫生填索償表。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-18-d5",
+   "text": "病假紙呢？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-18-d6",
+   "text": "寫咗兩日，記得交畀公司。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-18-d7",
+   "text": "好。而家交更，廿二號床病人點？",
+   "kind": "dlg",
+   "sp": "A"
+  },
+  {
+   "id": "med-18-d8",
+   "text": "血壓偏高，凌晨量過一次，要留意。",
+   "kind": "dlg",
+   "sp": "B"
+  },
+  {
+   "id": "med-18-v1",
+   "text": "診金",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-18-v2",
+   "text": "住院費",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-18-v3",
+   "text": "收據",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-18-v4",
+   "text": "索償",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-18-v5",
+   "text": "保險",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-18-v6",
+   "text": "病假紙",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-18-v7",
+   "text": "埋單",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-18-v8",
+   "text": "交更",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-18-v9",
+   "text": "病人",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-18-v10",
+   "text": "留意",
+   "kind": "vocab"
+  },
+  {
+   "id": "med-18-df",
+   "text": "埋單一共幾多錢？診金三百，藥費一百二。可以開收據嗎？我要索償保險。可以，仲要醫生填索償表。病假紙呢？寫咗兩日，記得交畀公司。好。而家交更，廿二號床病人點？血壓偏高，凌晨量過一次，要留意。",
+   "kind": "dlgFull"
+  }
+ ]
+}

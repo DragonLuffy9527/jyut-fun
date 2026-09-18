@@ -1,0 +1,70 @@
+name: Android Release
+
+# 產出可上傳 Google Play 的 AAB 與可側載試玩的 APK。
+# 沒設簽名秘密時會建出「未簽名」的包，仍可驗證能否編譯成功。
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: android-actions/setup-android@v3
+
+      - name: 安裝 SDK 平台與建置工具
+        run: sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0"
+
+      - name: 安裝 JS 依賴
+        run: npm ci
+
+      - name: 同步 Web 資源到 Android 工程
+        run: npx cap sync android
+
+      - name: 還原上傳金鑰
+        if: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/upload-keystore.jks
+          {
+            echo "storeFile=upload-keystore.jks"
+            echo "storePassword=${{ secrets.ANDROID_STORE_PASSWORD }}"
+            echo "keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}"
+            echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}"
+          } > android/keystore.properties
+          echo "已還原上傳金鑰"
+
+      - name: 建置 AAB 與 APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew bundleRelease assembleRelease --no-daemon --console=plain
+
+      - name: 顯示產物
+        if: always()
+        run: |
+          ls -lh app/build/outputs/bundle/release/ || true
+          ls -lh app/build/outputs/apk/release/ || true
+        working-directory: android
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cantonese-fun-android
+          if-no-files-found: warn
+          path: |
+            android/app/build/outputs/bundle/release/*.aab
+            android/app/build/outputs/apk/release/*.apk

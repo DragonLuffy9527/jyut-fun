@@ -1,0 +1,17 @@
+{
+  "appId": "com.jyutfun.app",
+  "appName": "粵.fun",
+  "webDir": "app",
+  "loggingBehavior": "none",
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": true
+  },
+  "ios": {
+    "contentInset": "always",
+    "limitsNavigationsToAppBoundDomains": true
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}

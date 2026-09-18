@@ -1,0 +1,134 @@
+name: iOS Build
+
+# Windows 做唔到 iOS 打包，所以借用 GitHub 的 macOS runner。
+#
+# 兩段式：
+#   1) 無條件跑一次「不簽名」的 archive —— 用來驗證 iOS 工程能不能編譯，
+#      唔需要 Apple 帳號，出錯會即刻看到。
+#   2) 若已配置簽名秘密（Apple 憑證 + provisioning profile），
+#      再匯出可上傳 App Store Connect 的 IPA。
+#
+# 需要的 Secrets（第 2 段才要）：
+#   IOS_CERT_P12_BASE64      Distribution 憑證 .p12 的 base64
+#   IOS_CERT_PASSWORD        .p12 密碼
+#   IOS_PROVISION_BASE64     .mobileprovision 的 base64
+#   IOS_TEAM_ID              Apple Team ID
+#   IOS_KEYCHAIN_PASSWORD    任意臨時密碼（CI 用，唔會外洩）
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: 安裝 JS 依賴
+        run: npm ci
+
+      - name: 建立或同步 iOS 工程
+        run: |
+          if [ -d ios ]; then
+            npx cap sync ios
+          else
+            npx cap add ios
+            npx cap sync ios
+          fi
+
+      - name: CocoaPods 安裝
+        working-directory: ios/App
+        run: pod install --repo-update
+
+      - name: 顯示可用 Xcode 版本
+        run: xcodebuild -version
+
+      - name: 建置不簽名 archive（驗證可編譯）
+        working-directory: ios/App
+        run: |
+          set -o pipefail
+          xcodebuild -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -sdk iphoneos \
+            -archivePath "$RUNNER_TEMP/App.xcarchive" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            archive
+
+      - name: 上傳 archive（供排查）
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-xcarchive-unsigned
+          if-no-files-found: warn
+          path: ${{ runner.temp }}/App.xcarchive
+
+      - name: 匯入簽名憑證
+        if: ${{ secrets.IOS_CERT_P12_BASE64 != '' }}
+        env:
+          CERT_B64: ${{ secrets.IOS_CERT_P12_BASE64 }}
+          CERT_PW: ${{ secrets.IOS_CERT_PASSWORD }}
+          PROV_B64: ${{ secrets.IOS_PROVISION_BASE64 }}
+          KC_PW: ${{ secrets.IOS_KEYCHAIN_PASSWORD }}
+        run: |
+          set -euo pipefail
+          KEYCHAIN="$RUNNER_TEMP/build.keychain-db"
+          security create-keychain -p "$KC_PW" "$KEYCHAIN"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN"
+          security unlock-keychain -p "$KC_PW" "$KEYCHAIN"
+
+          echo "$CERT_B64" | base64 -d > "$RUNNER_TEMP/cert.p12"
+          security import "$RUNNER_TEMP/cert.p12" -k "$KEYCHAIN" -P "$CERT_PW" \
+            -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple:,codesign: \
+            -s -k "$KC_PW" "$KEYCHAIN" > /dev/null
+
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+          echo "$PROV_B64" | base64 -d > "$RUNNER_TEMP/profile.mobileprovision"
+          cp "$RUNNER_TEMP/profile.mobileprovision" \
+             "$HOME/Library/MobileDevice/Provisioning Profiles/"
+
+          security list-keychain -d user -s "$KEYCHAIN"
+
+      - name: 匯出已簽名 IPA
+        if: ${{ secrets.IOS_CERT_P12_BASE64 != '' }}
+        working-directory: ios/App
+        env:
+          TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+        run: |
+          set -euo pipefail
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<PLIST
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>teamID</key><string>${TEAM_ID}</string>
+            <key>signingStyle</key><string>manual</string>
+            <key>uploadSymbols</key><true/>
+            <key>compileBitcode</key><false/>
+          </dict>
+          </plist>
+          PLIST
+
+          xcodebuild -exportArchive \
+            -archivePath "$RUNNER_TEMP/App.xcarchive" \
+            -exportPath "$RUNNER_TEMP/ipa" \
+            -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist"
+
+      - name: 上傳 IPA
+        if: ${{ secrets.IOS_CERT_P12_BASE64 != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: cantonese-fun-ios-ipa
+          if-no-files-found: warn
+          path: ${{ runner.temp }}/ipa/*.ipa

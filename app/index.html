@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>粵.fun · 場景粵語</title>
+<meta name="description" content="原創場景粵語課程：6 大板塊 66 課，涵蓋日常生活、學習、職場、香港建築業與醫療業。每句都有粵拼、普通話對譯與粵語配音，完全離線可用。">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#FFF7EE">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="粵.fun">
+<style>
+  :root {
+    --bg: #FFF7EE; --card: #FFFFFF; --ink: #4A3F3D; --muted: #A89A92;
+    --pink: #FF8FAB; --pink-deep: #E56A8C; --pink-soft: #FFE4EC;
+    --yellow: #FFD166; --yellow-soft: #FFF3D6; --yellow-deep: #C98A0B;
+    --mint: #6FCFBA; --mint-deep: #3FA893; --mint-soft: #DFF6F0;
+    --purple: #9B8CDB; --purple-soft: #ECE7FB;
+    --orange: #F0A055; --orange-soft: #FFEEDC; --orange-deep: #C07425;
+    --blue: #64A8DE; --blue-soft: #E1EFFA; --blue-deep: #3C7CB0;
+    --radius: 22px; --shadow: 0 4px 14px rgba(150, 110, 90, .12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
+  body { font-family: "PingFang TC", "PingFang SC", "Microsoft JhengHei", -apple-system, sans-serif;
+    background: #F2E8DD; color: var(--ink); line-height: 1.6; display: flex; justify-content: center; }
+  .phone { width: 100%; max-width: 430px; height: 100%; background: var(--bg);
+    position: relative; display: flex; flex-direction: column; overflow: hidden; }
+  @media (min-width: 460px) {
+    .phone { margin: 16px 0; height: calc(100% - 32px); border-radius: 36px;
+      box-shadow: 0 12px 40px rgba(90,60,40,.18); }
+  }
+  .screen { flex: 1; overflow-y: auto; display: none;
+    padding: calc(20px + env(safe-area-inset-top)) 18px calc(170px + env(safe-area-inset-bottom)); }
+  .screen.active { display: block; animation: pop .25s ease; }
+  .screen::-webkit-scrollbar, .lv-body::-webkit-scrollbar { width: 0; }
+  @keyframes pop { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  button { font-family: inherit; }
+
+  /* ===== 首頁 ===== */
+  .hello { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .mascot { width: 76px; height: 76px; flex-shrink: 0; }
+  .mascot.bounce { animation: bounce 2.4s ease-in-out infinite; transform-origin: 50% 90%; }
+  @keyframes bounce { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(.94) scaleX(1.03); } }
+  @media (prefers-reduced-motion: reduce) { .mascot.bounce { animation: none; } }
+  .hello h1 { font-size: 22px; font-weight: 700; }
+  .hello .sub { font-size: 13px; color: var(--muted); }
+  .bubble-say { position: relative; background: var(--card); border-radius: 18px; padding: 10px 14px;
+    font-size: 13.5px; box-shadow: var(--shadow); flex: 1; cursor: pointer; }
+  .bubble-say::before { content: ""; position: absolute; left: -7px; top: 22px; width: 14px; height: 14px;
+    background: var(--card); transform: rotate(45deg); border-radius: 3px; }
+
+  .ring-card { background: linear-gradient(135deg, var(--pink) 0%, #FFA9BE 100%);
+    border-radius: var(--radius); padding: 18px; color: #fff; display: flex; align-items: center;
+    gap: 16px; box-shadow: var(--shadow); margin-bottom: 14px; }
+  .ring-wrap { position: relative; width: 84px; height: 84px; flex-shrink: 0; }
+  .ring-wrap svg { transform: rotate(-90deg); }
+  .ring-num { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; font-size: 18px; font-weight: 700; }
+  .ring-num small { font-size: 10px; font-weight: 400; opacity: .85; }
+  .ring-card .info h3 { font-size: 16px; margin-bottom: 4px; }
+  .ring-card .info p { font-size: 12.5px; opacity: .92; }
+  .go-btn { margin-top: 10px; display: inline-block; background: #fff; color: var(--pink-deep);
+    border: none; border-radius: 999px; padding: 7px 18px; font-size: 13.5px; font-weight: 700;
+    cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,.12); }
+
+  .sec-title { font-size: 16px; font-weight: 700; margin: 20px 0 10px; display: flex; align-items: center; gap: 7px; }
+  .sec-title .dot { width: 9px; height: 9px; border-radius: 50%; }
+
+  .quick { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .qcard { border-radius: var(--radius); padding: 15px; cursor: pointer; border: none;
+    text-align: left; color: var(--ink); box-shadow: var(--shadow); transition: transform .12s; }
+  .qcard:active { transform: scale(.96); }
+  .qcard .big { width: 34px; height: 34px; border-radius: 12px; display: flex; align-items: center;
+    justify-content: center; margin-bottom: 9px; }
+  .qcard h4 { font-size: 14.5px; }
+  .qcard p { font-size: 11.5px; color: var(--muted); }
+  .me-card { background: var(--card); border-radius: var(--radius); padding: 18px;
+    box-shadow: var(--shadow); margin-bottom: 14px; }
+  .me-card h4 { font-size: 14px; margin-bottom: 10px; }
+  .word-cloud { display: flex; flex-wrap: wrap; gap: 7px; }
+  .wchip { background: var(--mint-soft); color: var(--mint-deep); font-size: 12.5px; font-weight: 600;
+    border-radius: 999px; padding: 4px 12px; }
+  .wchip.lock { background: #F1EAE3; color: var(--muted); font-weight: 400; }
+
+  /* ===== 發音引擎卡 ===== */
+  .eng-line { display: flex; align-items: flex-start; gap: 8px; font-size: 12.5px;
+    color: var(--muted); line-height: 1.6; }
+  .eng-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted);
+    flex: none; margin-top: 7px; }
+  .eng-dot.ok { background: #4ECB8E; }
+  .eng-dot.alt { background: #F0A93B; }
+  .eng-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    margin: 12px 0 10px; }
+  .eng-grid > div { background: var(--bg); border-radius: 14px; padding: 9px 5px; text-align: center; }
+  .eng-grid b { display: block; font-size: 16px; color: var(--ink); line-height: 1.3; }
+  .eng-grid span { font-size: 10.5px; color: var(--muted); }
+  .eng-tip { font-size: 11.5px; color: var(--muted); line-height: 1.7; }
+  .eng-acts { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  .eng-acts .mini-btn { font-size: 11.5px; padding: 6px 13px; }
+  .eng-guide { margin-top: 12px; }
+  .eng-guide details { background: var(--bg); border-radius: 12px; padding: 9px 12px;
+    margin-bottom: 7px; font-size: 11.5px; color: var(--muted); }
+  .eng-guide summary { cursor: pointer; font-weight: 600; color: var(--ink); font-size: 12px; }
+  .eng-guide ol { margin: 8px 0 0 18px; padding: 0; line-height: 1.8; }
+  .eng-guide .now { display: inline-block; background: var(--mint-soft); color: var(--mint-deep);
+    font-size: 10px; font-weight: 600; border-radius: 999px; padding: 1px 8px; margin-left: 6px; }
+
+  /* ===== 課程目錄 ===== */
+  .dom-head { display: flex; align-items: center; gap: 11px; margin: 20px 0 10px; }
+  .dom-head .em { font-size: 22px; }
+  .dom-head h3 { font-size: 16px; }
+  .dom-head p { font-size: 11.5px; color: var(--muted); }
+  .dom-head .cnt { margin-left: auto; font-size: 11px; color: var(--muted);
+    background: #F3EAE2; border-radius: 999px; padding: 2px 10px; }
+  .les { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+    margin-bottom: 10px; overflow: hidden; display: flex; align-items: center; gap: 12px;
+    padding: 13px 15px; cursor: pointer; transition: transform .12s; border: none; width: 100%; text-align: left; }
+  .les:active { transform: scale(.98); }
+  .les .num { width: 42px; height: 42px; border-radius: 14px; display: flex; align-items: center;
+    justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .les .t { flex: 1; min-width: 0; }
+  .les .t h4 { font-size: 14.5px; }
+  .les .t p { font-size: 11.5px; color: var(--muted); white-space: nowrap; overflow: hidden;
+    text-overflow: ellipsis; }
+  .les .lv { font-size: 10px; border-radius: 999px; padding: 2px 8px; flex-shrink: 0;
+    background: #F3EAE2; color: var(--muted); }
+  .les.done .num::after { content: "✓"; position: absolute; }
+  .les.done { opacity: .95; }
+  .les .ck { color: var(--mint); flex-shrink: 0; display: none; }
+  .les.done .ck { display: block; }
+
+  /* ===== 遊戲 ===== */
+  .game-card { border-radius: var(--radius); padding: 18px; margin-bottom: 14px; cursor: pointer;
+    border: none; width: 100%; text-align: left; color: #fff; box-shadow: var(--shadow);
+    transition: transform .12s; position: relative; overflow: hidden; }
+  .game-card:active { transform: scale(.97); }
+  .game-card h3 { font-size: 17px; margin-bottom: 3px; }
+  .game-card p { font-size: 12.5px; opacity: .92; }
+  .game-card .stars { position: absolute; right: 16px; top: 16px; font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+  .g-match { background: linear-gradient(135deg, #6FCFBA, #4DB39C); }
+  .g-quiz { background: linear-gradient(135deg, #FFB35C, #F0932B); }
+  .g-listen { background: linear-gradient(135deg, #A99BE0, #8578C8); }
+  .game-view { display: none; }
+  .game-view.active { display: block; }
+  .gback { background: none; border: none; color: var(--pink-deep); font-size: 14px; font-weight: 700;
+    cursor: pointer; padding: 4px 0 12px; }
+  .ghead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;
+    font-size: 13px; color: var(--muted); }
+  .ghead b { color: var(--pink-deep); font-size: 15px; }
+  .match-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; }
+  .mcard { aspect-ratio: 3/3.6; border-radius: 16px; border: none; cursor: pointer;
+    perspective: 400px; background: transparent; padding: 0; }
+  .mcard .inner { position: relative; width: 100%; height: 100%; transition: transform .3s; transform-style: preserve-3d; }
+  .mcard.flip .inner { transform: rotateY(180deg); }
+  .mface { position: absolute; inset: 0; border-radius: 16px; display: flex; align-items: center;
+    justify-content: center; backface-visibility: hidden; font-weight: 700; }
+  .mface.front { background: linear-gradient(135deg, var(--mint), #8ADFCB); color: #fff; }
+  .mface.front::after { content: "?"; font-size: 26px; opacity: .7; }
+  .mface.back { transform: rotateY(180deg); background: #fff; box-shadow: var(--shadow);
+    font-size: 14px; padding: 6px; text-align: center; line-height: 1.35; }
+  .mface.back.jp { color: var(--mint-deep); font-size: 13px; }
+  .mcard.ok .mface.back { background: var(--mint-soft); border: 2px solid var(--mint); }
+  .mcard.bad .mface.back { background: var(--pink-soft); border: 2px solid var(--pink); }
+  .quiz-q { background: var(--card); border-radius: var(--radius); padding: 22px 18px; text-align: center;
+    box-shadow: var(--shadow); margin-bottom: 14px; }
+  .quiz-q .tag { font-size: 11.5px; color: var(--muted); }
+  .quiz-q .word { font-size: 38px; font-weight: 700; margin: 6px 0 2px; }
+  .quiz-q .hint { font-size: 12.5px; color: var(--muted); }
+  .opt { display: block; width: 100%; border: 2px solid #F0E4DA; background: var(--card);
+    border-radius: 18px; padding: 13px; font-size: 15.5px; font-weight: 600; color: var(--ink);
+    cursor: pointer; margin-bottom: 10px; transition: all .12s; }
+  .opt:active { transform: scale(.97); }
+  .opt.right { background: var(--mint-soft); border-color: var(--mint); color: var(--mint-deep); }
+  .opt.wrong { background: var(--pink-soft); border-color: var(--pink); color: var(--pink-deep); }
+  .opt:disabled { cursor: default; }
+  .combo { display: inline-block; background: var(--yellow-soft); color: var(--yellow-deep);
+    font-size: 12px; font-weight: 700; border-radius: 999px; padding: 2px 12px; margin-bottom: 8px; }
+  .result { text-align: center; padding: 30px 0 10px; }
+  .result .stars-big { font-size: 15px; letter-spacing: 4px; margin: 10px 0 6px; }
+  .result h2 { font-size: 21px; margin-bottom: 4px; }
+  .result p { color: var(--muted); font-size: 13.5px; margin-bottom: 18px; }
+  .btn-main { background: linear-gradient(135deg, var(--pink), var(--pink-deep)); color: #fff;
+    border: none; border-radius: 999px; padding: 12px 32px; font-size: 15px; font-weight: 700;
+    cursor: pointer; box-shadow: var(--shadow); margin: 4px; }
+  .btn-ghost { background: #fff; color: var(--muted); border: 2px solid #F0E4DA; border-radius: 999px;
+    padding: 10px 24px; font-size: 14px; font-weight: 600; cursor: pointer; margin: 4px; }
+  .listen-box { background: var(--card); border-radius: var(--radius); padding: 26px 18px; text-align: center;
+    box-shadow: var(--shadow); margin-bottom: 14px; }
+  .listen-play { width: 78px; height: 78px; border-radius: 50%; border: none; cursor: pointer;
+    background: linear-gradient(135deg, var(--purple), #8578C8); color: #fff; font-size: 26px;
+    box-shadow: 0 6px 16px rgba(120,100,190,.35); }
+  .listen-play.playing { animation: pulse 1s ease-in-out infinite; }
+  @keyframes pulse { 50% { transform: scale(1.08); } }
+
+  /* ===== 我的 ===== */
+  .stat-row { display: flex; gap: 10px; }
+  .stat { flex: 1; background: var(--bg); border-radius: 16px; padding: 12px 8px; text-align: center; }
+  .stat b { font-size: 20px; display: block; }
+  .stat span { font-size: 11px; color: var(--muted); }
+
+  /* ===== 課程詳情（全屏） ===== */
+  .lv { position: absolute; inset: 0; z-index: 50; background: #F6EFE6; display: none; flex-direction: column; }
+  .lv.show { display: flex; animation: pop .22s ease; }
+  .lv-head { display: flex; align-items: center; gap: 10px; background: #F6EFE6;
+    padding: calc(12px + env(safe-area-inset-top)) 14px 8px; }
+  .lv-back { border: none; background: #fff; color: var(--pink-deep); font-weight: 700; font-size: 13.5px;
+    border-radius: 999px; padding: 7px 15px; cursor: pointer; box-shadow: var(--shadow); flex-shrink: 0; }
+  .lv-tt { flex: 1; min-width: 0; }
+  .lv-tt b { font-size: 15px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lv-tt span { font-size: 11px; color: var(--muted); }
+  .lv-tools { display: flex; gap: 7px; padding: 0 14px 8px; }
+  .tgl { border: none; background: #fff; color: var(--muted); font-size: 11.5px; font-weight: 700;
+    border-radius: 999px; padding: 5px 13px; cursor: pointer; box-shadow: var(--shadow); }
+  .tgl.on { background: var(--mint); color: #fff; }
+  .lv-body { flex: 1; overflow-y: auto; padding: 4px 14px 108px; }
+
+  .scene { background: linear-gradient(135deg, var(--purple-soft), #F5F1FD); border-radius: var(--radius);
+    padding: 14px 16px; margin-bottom: 14px; }
+  .scene h4 { font-size: 13px; color: var(--purple); margin-bottom: 4px; }
+  .scene p { font-size: 13px; line-height: 1.6; }
+  .goals { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+  .goals span { background: #fff; color: var(--purple); font-size: 11.5px; font-weight: 600;
+    border-radius: 999px; padding: 3px 11px; }
+
+  .blk { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+    margin-bottom: 14px; overflow: hidden; }
+  .blk-h { display: flex; align-items: center; gap: 8px; padding: 13px 16px 6px; }
+  .blk-h .ic { width: 26px; height: 26px; border-radius: 9px; display: flex; align-items: center;
+    justify-content: center; font-size: 14px; }
+  .blk-h h4 { font-size: 14.5px; flex: 1; }
+  .blk-h .mini-btn { border: none; background: var(--mint-soft); color: var(--mint-deep);
+    font-size: 11.5px; font-weight: 700; border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+  .blk-b { padding: 4px 12px 12px; }
+
+  .ln { display: flex; gap: 9px; padding: 9px 6px; border-radius: 16px; transition: background .15s; }
+  .ln.cur { background: var(--pink-soft); }
+  .ln-play { width: 32px; height: 32px; border-radius: 50%; border: none; flex-shrink: 0; cursor: pointer;
+    background: var(--pink-soft); color: var(--pink-deep); display: flex; align-items: center;
+    justify-content: center; transition: all .15s; }
+  .ln.cur .ln-play, .ln-play:hover { background: var(--pink); color: #fff; }
+  .ln-body { flex: 1; min-width: 0; }
+  .ln-yue { font-size: 16px; font-weight: 600; line-height: 1.6; }
+  .ln-yue .ch { cursor: pointer; border-radius: 4px; }
+  .ln-yue .ch:hover { background: var(--yellow-soft); }
+  .ln-yue .ch.say { background: var(--mint); color: #fff; }
+  .ln-py { font-family: Consolas, monospace; font-size: 12px; color: var(--mint-deep);
+    letter-spacing: .2px; word-break: break-word; margin-top: 1px; }
+  .ln-zh { font-size: 12.5px; color: #7a6fb5; margin-top: 2px; }
+  .nopy .ln-py { display: none; }
+  .nozh .ln-zh { display: none; }
+
+  .bub { display: flex; gap: 8px; margin-bottom: 10px; }
+  .bub.right { flex-direction: row-reverse; }
+  .bub .av { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; display: flex;
+    align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff; }
+  .bub.a .av { background: var(--pink); }
+  .bub.b .av { background: var(--purple); }
+  .bub.c .av { background: var(--mint-deep); }
+  .bub-card { background: var(--bg); border-radius: 16px; padding: 9px 13px; max-width: 84%; cursor: pointer; }
+  .bub.right .bub-card { background: var(--purple-soft); }
+  .bub-card .ln-yue { font-size: 15px; }
+  .bub-card .ln-zh { font-size: 12px; }
+
+  .vgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .vitem { background: var(--bg); border-radius: 14px; padding: 9px 11px; cursor: pointer;
+    display: flex; align-items: center; gap: 8px; transition: background .15s; }
+  .vitem:hover { background: var(--mint-soft); }
+  .vitem.cur { background: var(--mint); }
+  .vitem.cur .v-y, .vitem.cur .v-p, .vitem.cur .v-z { color: #fff; }
+  .vitem .vv { flex: 1; min-width: 0; }
+  .v-y { font-size: 14.5px; font-weight: 700; }
+  .v-p { font-family: Consolas, monospace; font-size: 11px; color: var(--mint-deep); }
+  .v-z { font-size: 11px; color: var(--muted); }
+
+  .note { background: var(--yellow-soft); border-radius: 16px; padding: 10px 14px; margin-bottom: 8px;
+    font-size: 13px; line-height: 1.65; }
+  .note::before { content: "💡 "; }
+
+  .qz { margin-bottom: 14px; }
+  .qz .q { font-size: 14px; font-weight: 600; margin-bottom: 9px; }
+
+  /* ===== 迷你播放器 & tab ===== */
+  .mini { position: absolute; left: 12px; right: 12px; bottom: calc(78px + env(safe-area-inset-bottom)); background: #fff;
+    border-radius: 18px; box-shadow: 0 6px 18px rgba(150,110,90,.22); padding: 9px 13px;
+    display: none; align-items: center; gap: 10px; z-index: 60; }
+  .mini.show { display: flex; }
+  .disc { width: 38px; height: 38px; border-radius: 50%; background: radial-gradient(circle, var(--pink) 40%, var(--pink-deep) 42%);
+    position: relative; flex-shrink: 0; }
+  .disc::after { content: ""; position: absolute; inset: 13px; background: #fff; border-radius: 50%; }
+  .mini.playing .disc { animation: spin 3s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .mini.playing .disc { animation: none; } }
+  .mini .mi { flex: 1; min-width: 0; }
+  .mini .mi b { font-size: 13.5px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mini .mi span { font-size: 11px; color: var(--muted); display: block; white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis; }
+  .mini button { border: none; background: var(--pink-soft); color: var(--pink-deep); width: 34px;
+    height: 34px; border-radius: 50%; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0; }
+  .mini .pctl { display: flex; gap: 7px; }
+
+  .tabbar { position: absolute; left: 0; right: 0; bottom: 0; background: #fff; border-top: 1px solid #F3EAE2;
+    display: flex; z-index: 55; padding-bottom: env(safe-area-inset-bottom); }
+  .tab { flex: 1; border: none; background: none; padding: 9px 0 12px; cursor: pointer; display: flex;
+    flex-direction: column; align-items: center; gap: 2px; color: var(--muted); font-size: 10.5px; font-weight: 600; }
+  .tab svg { width: 23px; height: 23px; }
+  .tab.on { color: var(--pink-deep); }
+  .toast { position: absolute; top: calc(18px + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%) translateY(-70px);
+    background: #4A3F3D; color: #fff; font-size: 13px; border-radius: 999px; padding: 8px 20px;
+    z-index: 99; transition: transform .3s ease; pointer-events: none; max-width: 90%; text-align: center; }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  ::selection { background: var(--yellow); color: #4A3F3D; }
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="toast" id="toast"></div>
+
+  <!-- ===== 首頁 ===== -->
+  <div class="screen active" id="sc-home">
+    <div class="hello">
+      <svg class="mascot bounce" viewBox="0 0 100 100" aria-label="吉祥物小猫">
+        <path d="M28 30 L22 12 L40 22 Z" fill="#FFB35C"/>
+        <path d="M72 30 L78 12 L60 22 Z" fill="#FFB35C"/>
+        <path d="M29 28 L25 16 L37 23 Z" fill="#FFD9B8"/>
+        <path d="M71 28 L75 16 L63 23 Z" fill="#FFD9B8"/>
+        <circle cx="50" cy="52" r="32" fill="#FFB35C"/>
+        <path d="M14 48 Q50 22 86 48 L86 54 Q50 30 14 54 Z" fill="#5B4B49"/>
+        <circle cx="27" cy="52" r="7" fill="#FF8FAB" stroke="#5B4B49" stroke-width="3"/>
+        <circle cx="73" cy="52" r="7" fill="#FF8FAB" stroke="#5B4B49" stroke-width="3"/>
+        <circle cx="38" cy="54" r="4" fill="#4A3F3D"/>
+        <circle cx="62" cy="54" r="4" fill="#4A3F3D"/>
+        <circle cx="39.5" cy="52.5" r="1.4" fill="#fff"/>
+        <circle cx="63.5" cy="52.5" r="1.4" fill="#fff"/>
+        <path d="M46 64 Q50 68 54 64" stroke="#4A3F3D" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <ellipse cx="50" cy="60.5" rx="3" ry="2.2" fill="#E56A8C"/>
+        <ellipse cx="30" cy="64" rx="4.5" ry="3" fill="#FFC7D4" opacity=".8"/>
+        <ellipse cx="70" cy="64" rx="4.5" ry="3" fill="#FFC7D4" opacity=".8"/>
+        <rect x="22" y="59" width="10" height="6" rx="3" fill="#8ADFCB"/>
+        <rect x="68" y="59" width="10" height="6" rx="3" fill="#8ADFCB"/>
+      </svg>
+      <div class="bubble-say" id="mascotSay">哈囉！今日學邊個場景呀？</div>
+    </div>
+
+    <div class="ring-card">
+      <div class="ring-wrap">
+        <svg width="84" height="84" viewBox="0 0 84 84">
+          <circle cx="42" cy="42" r="36" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="8"/>
+          <circle id="ringBar" cx="42" cy="42" r="36" fill="none" stroke="#fff" stroke-width="8"
+            stroke-linecap="round" stroke-dasharray="226" stroke-dashoffset="226"/>
+        </svg>
+        <div class="ring-num"><span id="ringPct">0%</span><small>今日目標</small></div>
+      </div>
+      <div class="info">
+        <h3 id="resumeTitle">揀一課開始啦！</h3>
+        <p id="resumeSub">聽 5 段音頻，就達成今日目標～</p>
+        <button class="go-btn" id="btnResume">開始學習 →</button>
+      </div>
+    </div>
+
+    <div class="sec-title"><span class="dot" style="background:var(--mint)"></span>玩一玩 · 遊戲複習</div>
+    <div class="quick">
+      <button class="qcard" style="background:var(--mint-soft)" onclick="goGame('match')">
+        <div class="big" style="background:var(--mint)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="5" width="8" height="8" rx="2"/><rect x="13" y="11" width="8" height="8" rx="2"/></svg>
+        </div>
+        <h4>配對樂園</h4><p>字卡翻翻樂 · <span id="starMatch">0</span> ★</p>
+      </button>
+      <button class="qcard" style="background:var(--purple-soft)" onclick="goGame('listen')">
+        <div class="big" style="background:var(--purple)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+        </div>
+        <h4>聽音辨義</h4><p>聽聲估意思 · <span id="starListen">0</span> ★</p>
+      </button>
+    </div>
+
+    <div class="sec-title"><span class="dot" style="background:var(--pink)"></span>今日生詞</div>
+    <div class="me-card"><div class="word-cloud" id="homeWords"></div></div>
+  </div>
+
+  <!-- ===== 課程 ===== -->
+  <div class="screen" id="sc-lessons">
+    <h1 style="font-size:20px;margin-bottom:4px">場景課程</h1>
+    <p id="courseSub" style="font-size:12.5px;color:var(--muted)">載入中…</p>
+    <div id="domList"></div>
+  </div>
+
+  <!-- ===== 遊戲 ===== -->
+  <div class="screen" id="sc-games">
+    <div id="gameMenu">
+      <h1 style="font-size:20px;margin-bottom:4px">遊戲樂園</h1>
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">用課程詞庫複習，賺星星～</p>
+      <button class="game-card g-match" onclick="startMatch()">
+        <span class="stars" id="gStarMatch">☆☆☆</span>
+        <h3>配對樂園</h3><p>翻開字卡，幫粵語詞搵返佢嘅意思！翻得越少越勁～</p>
+      </button>
+      <button class="game-card g-listen" onclick="startListen()">
+        <span class="stars" id="gStarListen">☆☆☆</span>
+        <h3>聽音辨義</h3><p>聽真人粵語發音，揀返正確嘅意思，練耳仔！</p>
+      </button>
+    </div>
+
+    <div class="game-view" id="gv-match">
+      <button class="gback" onclick="backMenu()">‹ 返回</button>
+      <div class="ghead"><span>步數 <b id="mSteps">0</b></span><span>配對 <b id="mPairs">0/4</b></span></div>
+      <div class="match-grid" id="matchGrid"></div>
+      <div class="result" id="mResult" style="display:none">
+        <h2>完成！</h2>
+        <div class="stars-big" id="mStars"></div>
+        <p id="mMsg"></p>
+        <button class="btn-main" onclick="startMatch()">再玩一次</button>
+        <button class="btn-ghost" onclick="backMenu()">返回</button>
+      </div>
+    </div>
+
+    <div class="game-view" id="gv-listen">
+      <button class="gback" onclick="backMenu()">‹ 返回</button>
+      <div class="ghead"><span>第 <b id="lIdx">1</b>/8 題</span><span>得分 <b id="lScore">0</b></span></div>
+      <div id="listenWrap">
+        <div class="listen-box">
+          <button class="listen-play" id="listenBtn">▶</button>
+          <p style="font-size:12.5px;color:var(--muted);margin-top:12px" id="listenHint">㩒一下聽發音</p>
+        </div>
+        <div id="lOpts"></div>
+      </div>
+      <div class="result" id="lResult" style="display:none">
+        <h2 id="lEndTitle"></h2>
+        <div class="stars-big" id="lStars"></div>
+        <p id="lMsg"></p>
+        <button class="btn-main" onclick="startListen()">再玩一次</button>
+        <button class="btn-ghost" onclick="backMenu()">返回</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 我的 ===== -->
+  <div class="screen" id="sc-me">
+    <h1 style="font-size:20px;margin-bottom:14px">我的學習</h1>
+    <div class="me-card">
+      <div class="stat-row">
+        <div class="stat"><b id="stClips" style="color:var(--pink-deep)">0</b><span>聽過句子</span></div>
+        <div class="stat"><b id="stLessons" style="color:var(--mint-deep)">0</b><span>完成課數</span></div>
+        <div class="stat"><b id="stWords" style="color:var(--purple)">0</b><span>學過生詞</span></div>
+        <div class="stat"><b id="stStars" style="color:var(--yellow-deep)">0</b><span>遊戲星星</span></div>
+      </div>
+    </div>
+    <div class="me-card">
+      <h4>生詞本</h4>
+      <div class="word-cloud" id="meWords"></div>
+    </div>
+    <div class="me-card">
+      <h4>發音引擎</h4>
+      <div class="eng-line">
+        <span class="eng-dot" id="engDot"></span>
+        <span id="ttsInfo">檢測中…</span>
+      </div>
+      <div class="eng-grid">
+        <div><b id="engChars">—</b><span>本地字庫</span></div>
+        <div><b id="engFiles">—</b><span>發音音檔</span></div>
+        <div><b id="engTTS">—</b><span>系統音色</span></div>
+      </div>
+      <div class="eng-tip" id="engTip">點讀同劃選朗讀都行本地粵語錄音，就算部機無裝語音包都照讀。</div>
+      <div class="eng-acts">
+        <button class="mini-btn" id="btnRecheck" type="button">重新檢測</button>
+        <button class="mini-btn" id="btnTTSFirst" type="button">優先系統語音：關</button>
+      </div>
+      <div id="engGuide"></div>
+    </div>
+    <div class="me-card" style="font-size:12.5px;color:var(--muted)">
+      <h4>課程來源</h4>
+      本 App 全部課程內容（場景、對話、詞彙、練習）均為原創編寫，粵語發音由粵語神經語音合成。
+      粵拼標註採用 <b>rime-cantonese</b>（粵語計算語言學基礎建設組，CC BY 4.0）語料庫，並經雙詞庫交叉驗證。
+    </div>
+    <div class="me-card" style="font-size:12.5px;color:var(--muted)">
+      <h4>語音說明</h4>
+      課程語音為 <b>AI 合成語音</b>（粵語神經語音），並非真人錄音；App 內不會錄製你的聲音，亦不進行即時語音合成。
+    </div>
+    <div class="me-card" style="font-size:12.5px;color:var(--muted)">
+      <h4>隱私</h4>
+      本 App <b>不收集任何個人資料</b>：無帳號、無廣告、無追蹤 SDK，學習進度只存在你的裝置本機，且完全離線運作。
+      <div style="margin-top:8px">
+        <a href="privacy.html" style="color:var(--pink-deep);font-weight:700;text-decoration:none">查看完整隱私政策 →</a>
+      </div>
+    </div>
+    <div class="me-card" style="font-size:12.5px;color:var(--muted)">
+      <h4>關於</h4>
+      <span id="verLine">粵.fun · v1.0（場景課程版）</span>
+    </div>
+  </div>
+
+  <!-- ===== 課程詳情 ===== -->
+  <div class="lv" id="lessonView">
+    <div class="lv-head">
+      <button class="lv-back" onclick="closeLesson()">‹ 返回</button>
+      <div class="lv-tt"><b id="lvTitle"></b><span id="lvSub"></span></div>
+    </div>
+    <div class="lv-tools">
+      <button class="tgl on" id="tgPy" onclick="togglePy()">拼音 開</button>
+      <button class="tgl on" id="tgZh" onclick="toggleZh()">對譯 開</button>
+      <button class="tgl" id="tgSlow" onclick="toggleSlow()">慢速 關</button>
+    </div>
+    <div class="lv-body" id="lvBody"></div>
+  </div>
+
+  <!-- ===== 迷你播放器 ===== -->
+  <div class="mini" id="mini">
+    <div class="disc"></div>
+    <div class="mi"><b id="miTitle">粵語</b><span id="miSub"></span></div>
+    <div class="pctl">
+      <button id="miPlay" aria-label="播放/暫停">
+        <svg id="miIcPlay" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="miIcPause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+      </button>
+      <button id="miClose" aria-label="關閉">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== Tab ===== -->
+  <div class="tabbar">
+    <button class="tab on" data-tab="home" onclick="switchTab('home')">
+      <svg viewBox="0 0 24 24"><path d="M4 11.5L12 4l8 7.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      首頁
+    </button>
+    <button class="tab" data-tab="lessons" onclick="switchTab('lessons')">
+      <svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 9h6M9 13h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      課程
+    </button>
+    <button class="tab" data-tab="games" onclick="switchTab('games')">
+      <svg viewBox="0 0 24 24"><path d="M6 8h12a4 4 0 0 1 4 4v3a3 3 0 0 1-5.4 1.8L15 15H9l-1.6 1.8A3 3 0 0 1 2 15v-3a4 4 0 0 1 4-4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 11v2M7 12h2M15.5 11.2h.01M17.5 13h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      遊戲
+    </button>
+    <button class="tab" data-tab="me" onclick="switchTab('me')">
+      <svg viewBox="0 0 24 24"><path d="M12 3a4.2 4.2 0 1 1 0 8.4A4.2 4.2 0 0 1 12 3zM4.5 20a7.5 7.5 0 0 1 15 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      我的
+    </button>
+  </div>
+</div>
+
+<script>
+/* ================= 持久化 =================
+   讀取走 localStorage（同步、零重構），寫入同時鏡像到 Capacitor 原生儲存。
+   iOS 的 WKWebView 會把 localStorage 視為「可清理快取」，系統儲存緊張時直接清空，
+   學習進度會無聲消失 —— 原生儲存不受此影響，啟動時回灌。 */
+const Store = (() => {
+  const NS = 'yf.';
+  const LS = window.localStorage;
+  const plugin = () => {
+    const c = window.Capacitor;
+    return (c && c.Plugins && c.Plugins.Preferences) || null;
+  };
+  let native = null, ready = false;
+  return {
+    get ready() { return ready; },
+    get native() { return !!native; },
+    /* 啟動時由原生儲存回灌，localStorage 只作快速快取 */
+    async init() {
+      native = plugin();
+      if (native) {
+        try {
+          const res = await native.keys();
+          const mine = (res.keys || []).filter(k => k.indexOf(NS) === 0);
+          for (const k of mine) {
+            const got = await native.get({ key: k });
+            if (got && got.value !== null && got.value !== undefined) {
+              try { LS.setItem(k, got.value); } catch (e) {}
+            }
+          }
+        } catch (e) {}
+      }
+      ready = true;
+    },
+    getItem(k) { try { return LS.getItem(k); } catch (e) { return null; } },
+    setItem(k, v) {
+      const s = String(v);
+      try { LS.setItem(k, s); } catch (e) {}
+      if (native) { try { native.set({ key: k, value: s }).catch(() => {}); } catch (e) {} }
+    },
+    removeItem(k) {
+      try { LS.removeItem(k); } catch (e) {}
+      if (native) { try { native.remove({ key: k }).catch(() => {}); } catch (e) {} }
+    }
+  };
+})();
+
+/* ================= 狀態 ================= */
+let CURR = null, LESSONS = [], VOCAB = [];
+const store = {
+  get played()  { return JSON.parse(Store.getItem('yf.played') || '[]'); },
+  set played(v) { Store.setItem('yf.played', JSON.stringify(v)); },
+  get stars()   { return JSON.parse(Store.getItem('yf.stars') || '{"match":0,"listen":0}'); },
+  set stars(v)  { Store.setItem('yf.stars', JSON.stringify(v)); },
+  get words()   { return JSON.parse(Store.getItem('yf.words') || '[]'); },
+  set words(v)  { Store.setItem('yf.words', JSON.stringify(v)); },
+  get last()    { return Store.getItem('yf.last'); },
+  set last(v)   { Store.setItem('yf.last', v); },
+  get done()    { return JSON.parse(Store.getItem('yf.done') || '[]'); },
+  set done(v)   { Store.setItem('yf.done', JSON.stringify(v)); },
+  get today()   { const t = JSON.parse(Store.getItem('yf.today') || 'null');
+                  const d = new Date().toDateString();
+                  return (t && t.d === d) ? t.n : 0; },
+  set today(n)  { Store.setItem('yf.today', JSON.stringify({ d: new Date().toDateString(), n })); }
+};
+const COLORS = [
+  ['var(--pink-soft)', 'var(--pink-deep)'], ['var(--mint-soft)', 'var(--mint-deep)'],
+  ['var(--yellow-soft)', 'var(--yellow-deep)'], ['var(--purple-soft)', 'var(--purple)']
+];
+
+/* ================= 音頻播放 ================= */
+const audio = new Audio();
+let curClip = null, curText = '', curName = '';
+const listening = { active: false, onEnd: null };   // 聽音辨義遊戲用
+
+function playClip(clipId, name, text, sub) {
+  if (curClip === clipId && !audio.paused) { audio.pause(); paintPlayUI(false); return; }
+  if (curClip !== clipId) {
+    curClip = clipId; curName = name || clipId; curText = text || '';
+    audio.src = 'audio/' + clipId + '.mp3';
+    audio.playbackRate = slowMode ? 0.75 : 1;
+    document.getElementById('miTitle').textContent = name || clipId;
+    document.getElementById('miSub').textContent = sub || text || '';
+    if (isLessonClip(clipId)) store.last = clipId.split('-').slice(0, 2).join('-');
+  }
+  audio.play().catch(() => toast('音頻播放失敗，請檢查檔案'));
+  paintPlayUI(true);
+  markPlayed(clipId);
+}
+/* 邊個 clipId 屬於課程錄音（用於進度記錄）。
+   由 domains 資料推導，唔好寫死板塊名 —— 之前寫死 basic|life|study|work，
+   新增建築／醫療板塊後進度就唔會被記錄。 */
+let _clipRe = null;
+function isLessonClip(id) {
+  if (!_clipRe) {
+    const ids = (CURR && CURR.domains ? CURR.domains.map(d => d.id) : []).join('|');
+    _clipRe = new RegExp('^(?:' + (ids || '[a-z]+') + ')-\\d');
+  }
+  return _clipRe.test(id);
+}
+function markPlayed(clipId) {
+  if (!isLessonClip(clipId)) return;
+  const p = store.played;
+  if (!p.includes(clipId)) { p.push(clipId); store.played = p; }
+  const t = store.today;
+  if (t < 5) store.today = t + 1;
+  paintCurrent(); renderRing(); renderMe();
+}
+function paintPlayUI(playing) {
+  document.getElementById('mini').classList.toggle('show', !!curClip);
+  document.getElementById('mini').classList.toggle('playing', playing);
+  document.getElementById('miIcPlay').style.display = playing ? 'none' : '';
+  document.getElementById('miIcPause').style.display = playing ? '' : 'none';
+  paintCurrent();
+}
+function paintCurrent() {
+  document.querySelectorAll('[data-clip]').forEach(el =>
+    el.classList.toggle('cur', el.dataset.clip === curClip && !audio.paused));
+}
+document.getElementById('miPlay').addEventListener('click', () => {
+  if (!curClip) return;
+  if (audio.paused) { audio.play(); paintPlayUI(true); }
+  else { audio.pause(); paintPlayUI(false); }
+});
+document.getElementById('miClose').addEventListener('click', () => {
+  audio.pause(); curClip = null;
+  document.getElementById('mini').classList.remove('show'); paintPlayUI(false);
+});
+audio.addEventListener('pause', () => paintPlayUI(false));
+audio.addEventListener('ended', () => {
+  paintPlayUI(false);
+  if (listening.active && listening.onEnd) listening.onEnd();
+});
+
+/* ================= 導航 ================= */
+function switchTab(name) {
+  closeLesson();
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.tab === name));
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('sc-' + name).classList.add('active');
+  if (name === 'me') renderMe();
+  if (name === 'games') backMenu();
+}
+function goGame(which) {
+  switchTab('games');
+  which === 'match' ? startMatch() : startListen();
+}
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 1900);
+}
+
+/* ============ 發音路由：本地錄音優先，系統語音只做後備 ============
+   以前點讀直接嗌系統語音合成，裝置一無裝粵語音色就完全讀唔到，
+   仲要喺畫面彈「未安裝粵語音色」。而家改成四層路由，主力係 App 自帶錄音：
+     ① 課程原聲      —— 句／詞有現成錄音就直接播（最自然）
+     ② 本地單字音檔  —— audio/chars/，按上下文粵拼揀正確讀音
+     ③ 逐字拼接      —— 任意文字都讀得出，零系統依賴
+     ④ 系統語音合成  —— 只有真係偵測到粵語音色先當額外補充
+================================================================ */
+const HAN_RE = /[\u3400-\u4dbf\u4e00-\u9fff]/;
+const CHAR_AUDIO = {};          // 字 → {d: 預設檔, r: {粵拼: 檔}}
+const TEXT2CLIP = {};           // 原文 → 課程錄音 clipId
+let CHAR_AUDIO_META = null;
+
+const TTS = { voice: null, voices: [], probed: false };
+const isCanto = v => /^yue/i.test(v.lang) || /zh[-_](HK|YUE)/i.test(v.lang)
+  || /cantonese|粵語|粵|hiumaan|hiugaai|wanlung/i.test(v.name);
+let ttsFirst = Store.getItem('yf.ttsFirst') === '1';   // 用戶可自選優先系統語音
+
+function pickVoice() {
+  if (!('speechSynthesis' in window)) { renderVoiceCard(); return; }
+  TTS.voices = speechSynthesis.getVoices();
+  if (!TTS.voices.length) return;          // 瀏覽器啱啱開機，等 onvoiceschanged
+  TTS.voice = TTS.voices.find(isCanto) || null;
+  TTS.probed = true;
+  renderVoiceCard();
+}
+if ('speechSynthesis' in window) { speechSynthesis.onvoiceschanged = pickVoice; }
+
+/* 揀走粵拼同拉丁字母，淨低可發音嘅漢字 */
+function stripJyutping(s) {
+  return String(s == null ? '' : s)
+    .replace(/[A-Za-z]+[1-6](?:['’-]?[A-Za-z]*[1-6])*/g, ' ')
+    .replace(/[A-Za-z]+/g, ' ')
+    .trim();
+}
+/* 查本地單字音檔；有上下文粵拼就揀返嗰個讀音（例：銀行嘅行 → hong4） */
+function charFile(ch, jp) {
+  const e = CHAR_AUDIO[ch];
+  if (!e) return null;
+  if (jp && e.r && e.r[jp]) return e.r[jp];
+  if (e.d) return e.d;
+  const v = e.r ? Object.values(e.r) : [];
+  return v.length ? v[0] : null;
+}
+/* 正規化：去掉空白同標點，方便同原文比對 */
+const PUNCT_RE = /[\s，。！？、；：,.!?;:·「」『』（）()《》〈〉【】\[\]…—～~"'“”‘’]/g;
+function normKey(t) { return String(t == null ? '' : t).replace(PUNCT_RE, ''); }
+/* 查有無現成課程錄音 */
+function clipForText(text) { return TEXT2CLIP[normKey(text)] || null; }
+
+/* ---------- 逐字拼接播放隊列（唔干擾迷你播放器） ---------- */
+const charAudio = new Audio();
+let charToken = 0, charList = [], charPos = 0, charBtn = null;
+function clearSay() { document.querySelectorAll('.say').forEach(e => e.classList.remove('say')); }
+
+function playCharQueue(files, btn) {
+  charToken++;
+  const token = charToken;
+  charList = files.slice(); charPos = 0; charBtn = btn || null;
+  charAudio.pause(); clearSay();
+  const step = () => {
+    if (token !== charToken) return;
+    if (charPos >= charList.length) { if (charBtn) charBtn.classList.remove('say'); return; }
+    const f = charList[charPos++];
+    charAudio.src = 'audio/chars/' + f + '.mp3';
+    charAudio.playbackRate = slowMode ? 0.85 : 1;
+    charAudio.play()
+      .then(() => { if (charBtn) charBtn.classList.add('say'); })
+      .catch(() => setTimeout(step, 20));
+  };
+  charAudio.onended = () => setTimeout(step, slowMode ? 110 : 55);
+  charAudio.onerror = () => setTimeout(step, 20);      // 冇呢個字檔就自動略過
+  step();
+}
+function stopSpeak() {
+  charToken++; charAudio.pause();
+  if ('speechSynthesis' in window) speechSynthesis.cancel();
+  clearSay();
+}
+
+/* ---------- 對外唯一入口 ---------- */
+const MAX_SPEAK = 24;      // 劃選朗讀上限，太長逐粒字讀會好難頂
+
+function speakText(raw, btn, jp) {
+  const text = String(raw == null ? '' : raw).trim();
+  if (!text) return;
+
+  /* ① 有現成課程錄音 → 直接播原聲 */
+  const clip = clipForText(text);
+  if (clip) { playClip(clip, text, text, ''); return; }
+
+  const clean = stripJyutping(text);
+  const chars = [...clean].filter(c => HAN_RE.test(c));
+  if (!chars.length) return;
+
+  /* 用戶指定優先系統語音，而且真係有粵語音色 */
+  if (ttsFirst && TTS.voice) { speakTTS(clean, btn); return; }
+
+  /* ② / ③ 本地字庫逐粒拼 */
+  const jpArr = (jp && chars.length === 1) ? [jp] : null;
+  const files = []; let miss = 0;
+  chars.forEach((ch, i) => {
+    const f = charFile(ch, jpArr ? jpArr[i] : null);
+    if (f) files.push(f); else miss++;
+  });
+  if (files.length) {
+    playCharQueue(files, btn);
+    if (miss) toast(miss + ' 個字未有本地讀音，已跳過');
+    return;
+  }
+  /* ④ 真係搵唔到本地檔，先叫系統語音 */
+  if (TTS.voice) { speakTTS(clean, btn); return; }
+  toast('呢句暫時未有本地讀音' + (TTS.probed ? '' : '，亦未偵測到系統粵語音色'));
+}
+
+function speakTTS(text, btn) {
+  if (!TTS.voice) return false;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = TTS.voice.lang; u.voice = TTS.voice; u.rate = slowMode ? 0.7 : 0.85;
+  if (btn) {
+    clearSay(); btn.classList.add('say');
+    u.onend = u.onerror = () => btn.classList.remove('say');
+  }
+  speechSynthesis.speak(u);
+  return true;
+}
+
+function speakChar(el) { speakText(el.dataset.ch, el, el.dataset.jp); }
+
+/* 劃選即讀 */
+document.addEventListener('mouseup', e => {
+  if (!e.target.closest('.lv-body')) return;
+  const sel = (window.getSelection() || '').toString().trim();
+  if (!sel) return;
+  const n = [...stripJyutping(sel)].filter(c => HAN_RE.test(c)).length;
+  if (!n) return;
+  if (n > MAX_SPEAK) { toast('揀咗 ' + n + ' 個字，一次最多讀 ' + MAX_SPEAK + ' 個，試下逐句揀'); return; }
+  speakText(sel);
+});
+
+/* ================= 顯示偏好 ================= */
+let showPy = Store.getItem('yf.py') !== '0';
+let showZh = Store.getItem('yf.zh') !== '0';
+let slowMode = Store.getItem('yf.slow') === '1';
+function togglePy() { showPy = !showPy; Store.setItem('yf.py', showPy ? '1' : '0'); applyPrefs(); }
+function toggleZh() { showZh = !showZh; Store.setItem('yf.zh', showZh ? '1' : '0'); applyPrefs(); }
+function toggleSlow() {
+  slowMode = !slowMode; Store.setItem('yf.slow', slowMode ? '1' : '0');
+  audio.playbackRate = slowMode ? 0.75 : 1;
+  applyPrefs();
+  toast(slowMode ? '慢速播放 開' : '正常速度');
+}
+function applyPrefs() {
+  const b = document.getElementById('lvBody');
+  if (b) { b.classList.toggle('nopy', !showPy); b.classList.toggle('nozh', !showZh); }
+  document.getElementById('tgPy').textContent = '拼音 ' + (showPy ? '開' : '關');
+  document.getElementById('tgPy').classList.toggle('on', showPy);
+  document.getElementById('tgZh').textContent = '對譯 ' + (showZh ? '開' : '關');
+  document.getElementById('tgZh').classList.toggle('on', showZh);
+  document.getElementById('tgSlow').textContent = '慢速 ' + (slowMode ? '開' : '關');
+  document.getElementById('tgSlow').classList.toggle('on', slowMode);
+}
+
+/* ================= 首頁 ================= */
+const SAYS = ['哈囉！今日學邊個場景呀？', '聽多一次，口語自然溜！', '唔使急，最緊要開口講～',
+  '去玩個遊戲鬆一鬆先？', '日日講三句，一個月就唔同晒！'];
+function renderRing() {
+  const goal = 5, done = Math.min(store.today, goal);
+  document.getElementById('ringPct').textContent = Math.round(done / goal * 100) + '%';
+  document.getElementById('ringBar').style.strokeDashoffset = 226 - 226 * done / goal;
+}
+function renderResume() {
+  const last = store.last;
+  const L = last && LESSONS.find(x => x.id === last);
+  if (L) {
+    document.getElementById('resumeTitle').textContent = '繼續：' + L.title;
+    document.getElementById('resumeSub').textContent = L.titleZh + ' · ' + L.scene;
+    document.getElementById('btnResume').textContent = '繼續學習 ▶';
+  }
+}
+document.getElementById('btnResume').addEventListener('click', () => {
+  const last = store.last;
+  const L = last && LESSONS.find(x => x.id === last);
+  if (L) { switchTab('lessons'); openLesson(L.id); }
+  else { switchTab('lessons'); }
+});
+document.getElementById('mascotSay').addEventListener('click', () => {
+  document.getElementById('mascotSay').textContent = SAYS[Math.floor(Math.random() * SAYS.length)];
+});
+function renderHomeWords() {
+  const learned = store.words;
+  const pool = VOCAB.slice(0, 6);
+  const el = document.getElementById('homeWords');
+  el.innerHTML = '';
+  pool.forEach(w => {
+    const c = document.createElement('span');
+    c.className = 'wchip' + (learned.includes(w.y) ? '' : ' lock');
+    c.textContent = learned.includes(w.y) ? w.y + ' ✓' : w.y + ' ？';
+    el.appendChild(c);
+  });
+}
+
+/* ================= 課程資訊文案（由數據生成，唔會過期） ================= */
+function renderMeta() {
+  const d = CURR.domains, n = CURR.lessons.length;
+  const sub = document.getElementById('courseSub');
+  if (sub) {
+    const names = d.map(x => x.name.replace(/^香港/, '')).join(' · ');
+    sub.textContent = names + ' ' + n + ' 個真實場景，全部原創內容 + 粵語配音';
+  }
+  const clips = CURR.lessons.reduce((s, L) => s + ((L.clips || []).length), 0);
+  const ver = document.getElementById('verLine');
+  if (ver) {
+    ver.textContent = '粵.fun · v1.0（場景課程版）· ' + d.length + ' 大領域 ' +
+      n + ' 課 ' + clips + ' 段音頻';
+  }
+}
+
+/* ================= 課程目錄 ================= */
+function renderDomains() {
+  const wrap = document.getElementById('domList');
+  wrap.innerHTML = '';
+  CURR.domains.forEach((d, di) => {
+    const head = document.createElement('div');
+    head.className = 'dom-head';
+    head.innerHTML = '<span class="em">' + d.emoji + '</span><div><h3>' + d.name +
+      '</h3><p>' + d.desc + '</p></div><span class="cnt">' +
+      CURR.lessons.filter(l => l.domain === d.id).length + ' 課</span>';
+    wrap.appendChild(head);
+    CURR.lessons.filter(l => l.domain === d.id).forEach(L => {
+      const [bg, fg] = COLORS[di % 4];
+      const done = store.done.includes(L.id);
+      const b = document.createElement('button');
+      b.className = 'les' + (done ? ' done' : '');
+      b.innerHTML = '<div class="num" style="background:' + bg + ';color:' + fg + '">' + L.no + '</div>' +
+        '<div class="t"><h4>' + L.title + '</h4><p>' + L.titleZh + ' · ' + L.scene + '</p></div>' +
+        '<span class="lv">L' + L.level + '</span>' +
+        '<svg class="ck" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 13l5 5L20 6"/></svg>';
+      b.addEventListener('click', () => openLesson(L.id));
+      wrap.appendChild(b);
+    });
+  });
+}
+
+/* ================= 課程詳情 ================= */
+let rLesson = null;
+function openLesson(id) {
+  const L = LESSONS.find(x => x.id === id);
+  if (!L) return;
+  rLesson = L;
+  document.getElementById('lvTitle').textContent = L.title;
+  document.getElementById('lvSub').textContent = '第 ' + L.no + ' 課 · ' + L.titleZh + ' · ' +
+    L.core.length + ' 核心句 · ' + L.dialogue.length + ' 句對話 · ' + L.vocab.length + ' 詞';
+  renderLesson(L);
+  applyPrefs();
+  document.getElementById('lessonView').classList.add('show');
+  document.getElementById('lvBody').scrollTop = 0;
+}
+function closeLesson() {
+  document.getElementById('lessonView').classList.remove('show');
+  rLesson = null;
+  stopSpeak();          // 離開課程就停返點讀
+}
+function chSpans(el, s, py) {
+  const text = s || '';
+  const syls = (py || '').trim() ? String(py).trim().split(/\s+/) : [];
+  const hanN = (text.match(/[\u3400-\u4dbf\u4e00-\u9fff]/g) || []).length;
+  const aligned = syls.length > 0 && syls.length === hanN;   // 粵拼逐字對得上先帶讀音
+  let k = 0;
+  for (const ch of text) {
+    if (HAN_RE.test(ch)) {
+      const c = document.createElement('span');
+      c.className = 'ch'; c.dataset.ch = ch; c.textContent = ch;
+      if (aligned) c.dataset.jp = syls[k];
+      k++;
+      c.addEventListener('click', e => { e.stopPropagation(); speakChar(c); });
+      el.appendChild(c);
+    } else if (ch === '\n') {
+      el.appendChild(document.createElement('br'));
+    } else {
+      el.appendChild(document.createTextNode(ch));
+    }
+  }
+}
+function mkLine(clip, y, p, z) {
+  const row = document.createElement('div');
+  row.className = 'ln'; row.dataset.clip = clip;
+  const btn = document.createElement('button');
+  btn.className = 'ln-play';
+  btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+  btn.addEventListener('click', e => { e.stopPropagation(); playClip(clip, y, y, z); });
+  const body = document.createElement('div');
+  body.className = 'ln-body';
+  const a = document.createElement('div'); a.className = 'ln-yue'; chSpans(a, y, p);
+  const b = document.createElement('div'); b.className = 'ln-py'; b.textContent = p;
+  const c = document.createElement('div'); c.className = 'ln-zh'; c.textContent = z;
+  body.appendChild(a); body.appendChild(b); body.appendChild(c);
+  row.appendChild(btn); row.appendChild(body);
+  row.addEventListener('click', () => playClip(clip, y, y, z));
+  return row;
+}
+function blk(icon, iconBg, title, extra) {
+  const d = document.createElement('div');
+  d.className = 'blk';
+  const h = document.createElement('div');
+  h.className = 'blk-h';
+  h.innerHTML = '<span class="ic" style="background:' + iconBg + '">' + icon + '</span><h4>' + title + '</h4>';
+  if (extra) h.appendChild(extra);
+  const b = document.createElement('div');
+  b.className = 'blk-b';
+  d.appendChild(h); d.appendChild(b);
+  return { root: d, body: b };
+}
+function renderLesson(L) {
+  const body = document.getElementById('lvBody');
+  body.innerHTML = '';
+
+  /* 場景 + 目標 */
+  const sc = document.createElement('div');
+  sc.className = 'scene';
+  sc.innerHTML = '<h4>🎬 場景</h4><p>' + L.scene + '</p>' +
+    '<div class="goals">' + L.goals.map(g => '<span>' + g + '</span>').join('') + '</div>';
+  body.appendChild(sc);
+
+  /* 核心句 */
+  const c = blk('⭐', 'var(--yellow-soft)', '核心句');
+  L.core.forEach((s, i) => c.body.appendChild(mkLine(L.id + '-c' + (i + 1), s.y, s.p, s.z)));
+  body.appendChild(c.root);
+
+  /* 對話 */
+  const dfull = document.createElement('button');
+  dfull.className = 'mini-btn';
+  dfull.textContent = '▶ 聽成段';
+  dfull.addEventListener('click', () => playClip(L.id + '-df', L.title + ' · 完整對話', '', ''));
+  const d = blk('💬', 'var(--pink-soft)', '對話', dfull);
+  L.dialogue.forEach((t, i) => {
+    const clip = L.id + '-d' + (i + 1);
+    const sp = (t.s || 'A').toLowerCase();
+    const bub = document.createElement('div');
+    bub.className = 'bub ' + sp + (sp === 'b' ? ' right' : '');
+    bub.dataset.clip = clip;
+    const av = document.createElement('div');
+    av.className = 'av'; av.textContent = t.s;
+    const card = document.createElement('div');
+    card.className = 'bub-card';
+    const a = document.createElement('div'); a.className = 'ln-yue'; chSpans(a, t.y, t.p);
+    const b = document.createElement('div'); b.className = 'ln-py'; b.textContent = t.p;
+    const cc = document.createElement('div'); cc.className = 'ln-zh'; cc.textContent = t.z;
+    card.appendChild(a); card.appendChild(b); card.appendChild(cc);
+    bub.appendChild(av); bub.appendChild(card);
+    bub.addEventListener('click', () => playClip(clip, t.y, t.y, t.z));
+    d.body.appendChild(bub);
+  });
+  body.appendChild(d.root);
+
+  /* 詞彙 */
+  const v = blk('📖', 'var(--mint-soft)', '詞彙');
+  const grid = document.createElement('div');
+  grid.className = 'vgrid';
+  L.vocab.forEach((w, i) => {
+    const clip = L.id + '-v' + (i + 1);
+    const it = document.createElement('div');
+    it.className = 'vitem'; it.dataset.clip = clip;
+    it.innerHTML = '<div class="vv"><div class="v-y">' + w.y + '</div><div class="v-p">' + w.p +
+      '</div><div class="v-z">' + w.z + '</div></div>';
+    it.addEventListener('click', () => playClip(clip, w.y, w.y, w.z));
+    grid.appendChild(it);
+  });
+  v.body.appendChild(grid);
+  body.appendChild(v.root);
+
+  /* 貼士 */
+  const n = blk('💡', 'var(--yellow-soft)', '學習貼士');
+  L.notes.forEach(t => {
+    const p = document.createElement('div');
+    p.className = 'note'; p.textContent = t;
+    n.body.appendChild(p);
+  });
+  body.appendChild(n.root);
+
+  /* 練習 */
+  const q = blk('✏️', 'var(--purple-soft)', '即學即練');
+  L.quiz.forEach((item, qi) => {
+    const box = document.createElement('div');
+    box.className = 'qz';
+    const qq = document.createElement('div');
+    qq.className = 'q'; qq.textContent = (qi + 1) + '. ' + item.q;
+    box.appendChild(qq);
+    item.opts.forEach((o, oi) => {
+      const btn = document.createElement('button');
+      btn.className = 'opt'; btn.textContent = o;
+      btn.addEventListener('click', () => {
+        box.querySelectorAll('.opt').forEach(x => x.disabled = true);
+        if (oi === item.a) { btn.classList.add('right'); toast('啱晒！👍'); }
+        else {
+          btn.classList.add('wrong');
+          box.querySelectorAll('.opt')[item.a].classList.add('right');
+        }
+      });
+      box.appendChild(btn);
+    });
+    q.body.appendChild(box);
+  });
+  body.appendChild(q.root);
+
+  /* 完成 */
+  const fin = document.createElement('button');
+  fin.className = 'btn-main';
+  fin.style.cssText = 'width:100%;margin-top:6px';
+  fin.textContent = store.done.includes(L.id) ? '✓ 已完成本課' : '標記為已完成';
+  fin.addEventListener('click', () => {
+    const d2 = store.done;
+    if (!d2.includes(L.id)) { d2.push(L.id); store.done = d2; toast('完成第 ' + L.no + ' 課 🎉'); }
+    renderLesson(L); renderMe(); renderDomains(); renderResume();
+  });
+  body.appendChild(fin);
+
+  const foot = document.createElement('div');
+  foot.style.cssText = 'text-align:center;font-size:11px;color:var(--muted);margin-top:14px';
+  foot.textContent = '點句子播放錄音 · 點單字聽發音 · 劃選文字即讀';
+  body.appendChild(foot);
+}
+
+/* ================= 遊戲通用 ================= */
+function starStr(n) {
+  let s = '';
+  for (let i = 1; i <= 3; i++) s += i <= n ? '<span style="color:var(--yellow)">★</span>' : '<span style="color:#ddd">☆</span>';
+  return s;
+}
+function saveStar(kind, n) {
+  const st = store.stars;
+  if (n > (st[kind] || 0)) { st[kind] = n; store.stars = st; }
+  paintStars();
+}
+function paintStars() {
+  const st = store.stars;
+  document.getElementById('gStarMatch').innerHTML = starStr(st.match || 0);
+  document.getElementById('gStarListen').innerHTML = starStr(st.listen || 0);
+  document.getElementById('starMatch').textContent = st.match || 0;
+  document.getElementById('starListen').textContent = st.listen || 0;
+  const el = document.getElementById('stStars');
+  if (el) el.textContent = (st.match || 0) + (st.listen || 0);
+}
+function backMenu() {
+  document.getElementById('gameMenu').style.display = '';
+  document.querySelectorAll('.game-view').forEach(v => v.classList.remove('active'));
+  listening.active = false;
+  audio.pause();
+}
+function collectWord(y) {
+  const w = store.words;
+  if (!w.includes(y)) { w.push(y); store.words = w; toast('生詞本 +1：「' + y + '」'); }
+}
+
+/* ================= 配對樂園 ================= */
+let mFirst = null, mLock = false, mSteps = 0, mFound = 0;
+function startMatch() {
+  document.getElementById('gameMenu').style.display = 'none';
+  document.getElementById('gv-match').classList.add('active');
+  document.getElementById('mResult').style.display = 'none';
+  document.getElementById('matchGrid').style.display = '';
+  mFirst = null; mLock = false; mSteps = 0; mFound = 0;
+  document.getElementById('mSteps').textContent = 0;
+  document.getElementById('mPairs').textContent = '0/4';
+  const pool = [...VOCAB].sort(() => Math.random() - .5).slice(0, 4);
+  const cards = [];
+  pool.forEach(w => { cards.push({ txt: w.y, jp: true, w }); cards.push({ txt: w.z, jp: false, w }); });
+  cards.sort(() => Math.random() - .5);
+  const grid = document.getElementById('matchGrid');
+  grid.innerHTML = '';
+  cards.forEach(c => {
+    const b = document.createElement('button');
+    b.className = 'mcard';
+    b.innerHTML = '<div class="inner"><div class="mface front"></div><div class="mface back ' +
+      (c.jp ? 'jp' : '') + '">' + c.txt + '</div></div>';
+    b.dataset.yue = c.w.y; b.dataset.jp = c.jp;
+    b.addEventListener('click', () => flipCard(b));
+    grid.appendChild(b);
+  });
+}
+function flipCard(card) {
+  if (mLock || card.classList.contains('flip') || card.classList.contains('ok')) return;
+  card.classList.add('flip');
+  if (!mFirst) { mFirst = card; return; }
+  mSteps++; document.getElementById('mSteps').textContent = mSteps;
+  const a = mFirst, b = card;
+  if (a.dataset.yue === b.dataset.yue && a !== b) {
+    a.classList.add('ok'); b.classList.add('ok');
+    collectWord(a.dataset.yue);
+    const w = VOCAB.find(x => x.y === a.dataset.yue);
+    if (w) playClip(VOCAB_CLIP[w.y], w.y, w.y, w.z);
+    mFirst = null; mFound++;
+    document.getElementById('mPairs').textContent = mFound + '/4';
+    if (mFound === 4) setTimeout(winMatch, 500);
+  } else {
+    mLock = true; const f = mFirst; mFirst = null;
+    a.classList.add('bad'); b.classList.add('bad');
+    setTimeout(() => { [a, b].forEach(x => x.classList.remove('flip', 'bad')); mLock = false; }, 750);
+  }
+}
+function winMatch() {
+  const n = mSteps <= 8 ? 3 : mSteps <= 12 ? 2 : 1;
+  saveStar('match', n);
+  document.getElementById('matchGrid').style.display = 'none';
+  document.getElementById('mResult').style.display = '';
+  document.getElementById('mStars').innerHTML = starStr(n);
+  document.getElementById('mMsg').textContent = '用了 ' + mSteps + ' 步！' + (n === 3 ? '記憶力超班！' : '再挑戰一次三星？');
+  renderMe();
+}
+
+/* ================= 聽音辨義 ================= */
+let lList = [], lCur = 0, lScore = 0;
+function startListen() {
+  document.getElementById('gameMenu').style.display = 'none';
+  document.getElementById('gv-listen').classList.add('active');
+  document.getElementById('lResult').style.display = 'none';
+  document.getElementById('listenWrap').style.display = '';
+  lList = [...VOCAB].sort(() => Math.random() - .5).slice(0, 8);
+  lCur = 0; lScore = 0;
+  document.getElementById('lScore').textContent = 0;
+  paintListen();
+}
+function paintListen() {
+  const w = lList[lCur];
+  document.getElementById('lIdx').textContent = lCur + 1;
+  const others = VOCAB.filter(x => x.z !== w.z).sort(() => Math.random() - .5).slice(0, 2).map(x => x.z);
+  const opts = [...others, w.z].sort(() => Math.random() - .5);
+  const box = document.getElementById('lOpts');
+  box.innerHTML = '';
+  opts.forEach(o => {
+    const b = document.createElement('button');
+    b.className = 'opt'; b.textContent = o;
+    b.addEventListener('click', () => answerListen(b, o === w.z, w));
+    box.appendChild(b);
+  });
+  document.getElementById('listenHint').textContent = '㩒一下聽發音';
+  playListenClip(w);
+}
+function playListenClip(w) {
+  const clip = VOCAB_CLIP[w.y];
+  if (!clip) return;
+  listening.active = true;
+  const btn = document.getElementById('listenBtn');
+  btn.classList.add('playing');
+  curClip = clip;
+  audio.src = 'audio/' + clip + '.mp3';
+  audio.playbackRate = slowMode ? 0.75 : 1;
+  document.getElementById('miTitle').textContent = '聽音辨義';
+  document.getElementById('miSub').textContent = '聽下係邊個詞？';
+  audio.play().catch(() => {});
+  paintPlayUI(true);
+  listening.onEnd = () => { btn.classList.remove('playing'); };
+}
+document.getElementById('listenBtn').addEventListener('click', () => {
+  const w = lList[lCur];
+  if (w) playListenClip(w);
+});
+function answerListen(btn, ok, w) {
+  document.querySelectorAll('#lOpts .opt').forEach(b => b.disabled = true);
+  if (ok) { btn.classList.add('right'); lScore += 10; collectWord(w.y); }
+  else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('#lOpts .opt').forEach(b => { if (b.textContent === w.z) b.classList.add('right'); });
+  }
+  document.getElementById('lScore').textContent = lScore;
+  document.getElementById('listenHint').textContent = w.y + '  ' + w.p;
+  setTimeout(() => { lCur++; lCur < lList.length ? paintListen() : endListen(); }, ok ? 900 : 1700);
+}
+function endListen() {
+  const n = lScore >= 70 ? 3 : lScore >= 50 ? 2 : 1;
+  saveStar('listen', n);
+  document.getElementById('listenWrap').style.display = 'none';
+  document.getElementById('lResult').style.display = '';
+  document.getElementById('lEndTitle').textContent = lScore >= 70 ? '耳仔好靈！' : lScore >= 50 ? '唔錯喎！' : '再練下先！';
+  document.getElementById('lStars').innerHTML = starStr(n);
+  document.getElementById('lMsg').textContent = '得分 ' + lScore + ' / 80';
+  renderMe();
+}
+
+/* ================= 我的 ================= */
+function renderMe() {
+  document.getElementById('stClips').textContent = store.played.length;
+  document.getElementById('stLessons').textContent = store.done.length;
+  document.getElementById('stWords').textContent = store.words.length;
+  paintStars();
+  const el = document.getElementById('meWords');
+  el.innerHTML = '';
+  VOCAB.slice(0, 60).forEach(w => {
+    const c = document.createElement('span');
+    c.className = 'wchip' + (store.words.includes(w.y) ? '' : ' lock');
+    c.textContent = store.words.includes(w.y) ? w.y + ' ' + w.p : w.y;
+    el.appendChild(c);
+  });
+}
+
+/* ================= 發音引擎狀態卡 ================= */
+function platformName() {
+  const ua = navigator.userAgent;
+  if (/iPhone|iPad|iPod/i.test(ua)) return 'ios';
+  if (/Android/i.test(ua)) return 'android';
+  if (/Macintosh|Mac OS X/i.test(ua)) return 'mac';
+  if (/Windows/i.test(ua)) return 'win';
+  return 'other';
+}
+const VOICE_GUIDE = {
+  ios: ['iOS / iPadOS', [
+    '「設定」→「輔助使用」→「朗讀內容」→「聲音」',
+    '揀「中文（粵語，香港）」→ 下載',
+    '返 App 撳「重新檢測」']],
+  android: ['Android', [
+    '「設定」→「系統」→「語言與輸入」→「文字轉語音輸出」',
+    '揀「Google 語音服務」→「安裝語音資料」',
+    '下載「中文（香港）」→ 返 App 撳「重新檢測」']],
+  win: ['Windows', [
+    '「設定」→「時間與語言」→「語言與地區」→「新增語言」',
+    '揀「中文（粵語，香港）」，記得勾「語音」再安裝',
+    '重開瀏覽器 → 撳「重新檢測」']],
+  mac: ['macOS', [
+    '「系統設定」→「輔助使用」→「朗讀內容」',
+    '「系統聲音」→「管理聲音」→ 下載 Sin-ji（粵語）',
+    '返 App 撳「重新檢測」']],
+};
+function guideHTML() {
+  const p = platformName();
+  const cur = '<span class="now">你而家呢部機</span>';
+  let out = '<div style="font-size:11.5px;color:var(--muted);margin-bottom:8px;line-height:1.7">' +
+    '想連系統語音都用埋粵語，可以照下面裝。<b>但裝唔裝都唔影響點讀</b>——點讀行本地錄音。' +
+    '</div>';
+  if (p === 'other') {
+    out += '<details open><summary>瀏覽器 / 其他系統</summary><ol>' +
+      '<li>桌面 Chrome、Edge 直接借用系統語音，跟返你部機嘅作業系統裝</li>' +
+      '<li>本 App 點讀唔靠佢，無裝都照讀得</li></ol></details>';
+    return out;
+  }
+  out += '<details open><summary>' + VOICE_GUIDE[p][0] + cur + '</summary><ol>' +
+    VOICE_GUIDE[p][1].map(s => '<li>' + s + '</li>').join('') + '</ol></details>';
+  const others = Object.keys(VOICE_GUIDE).filter(k => k !== p)
+    .map(k => '<details><summary>' + VOICE_GUIDE[k][0] + '</summary><ol>' +
+      VOICE_GUIDE[k][1].map(s => '<li>' + s + '</li>').join('') + '</ol></details>').join('');
+  return out + others;
+}
+function renderVoiceCard() {
+  const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+  const meta = CHAR_AUDIO_META || {};
+  const nChars = meta.chars || Object.keys(CHAR_AUDIO).length;
+  const nFiles = meta.files || 0;
+  set('engChars', nChars ? nChars : '—');
+  set('engFiles', nFiles ? nFiles : '—');
+
+  const ok = !!TTS.voice;
+  set('engTTS', ok ? '已安裝' : (TTS.probed ? '未安裝' : '檢測中'));
+  set('ttsInfo', ok
+    ? '系統粵語音色：' + TTS.voice.name + '（' + TTS.voice.lang + '）'
+    : '系統未裝粵語音色 —— 唔影響點讀，App 用自己嘅本地錄音出聲。');
+  const dot = document.getElementById('engDot');
+  if (dot) dot.className = 'eng-dot ' + (ok ? 'ok' : 'alt');
+  const tip = document.getElementById('engTip');
+  if (tip) tip.textContent = ok
+    ? '本地字庫無嘅字，會自動交畀系統粵語語音補上。'
+    : '點讀同劃選朗讀都行本地粵語錄音，部機無裝語音包都照讀得。';
+  const b = document.getElementById('btnTTSFirst');
+  if (b) {
+    b.textContent = '優先系統語音：' + (ttsFirst ? '開' : '關');
+    b.style.opacity = ok ? '' : '.45';
+    b.disabled = !ok;
+  }
+  const g = document.getElementById('engGuide');
+  if (g) g.innerHTML = ok ? '' : guideHTML();
+}
+document.getElementById('btnRecheck').addEventListener('click', () => {
+  TTS.probed = false;
+  pickVoice();
+  toast(TTS.voice ? '偵測到粵語音色：' + TTS.voice.name : '未偵測到系統粵語音色（點讀照用本地錄音）');
+});
+document.getElementById('btnTTSFirst').addEventListener('click', () => {
+  if (!TTS.voice) { toast('要先裝粵語音色先用得呢個選項'); return; }
+  ttsFirst = !ttsFirst;
+  Store.setItem('yf.ttsFirst', ttsFirst ? '1' : '0');
+  renderVoiceCard();
+  toast(ttsFirst ? '點讀會優先交畀系統語音' : '點讀用返本地錄音');
+});
+
+/* ================= 初始化 ================= */
+let VOCAB_CLIP = {};
+
+/* Service Worker：瀏覽器環境先註冊；Capacitor 內資源已在本機，毋須亦不宜 */
+function registerSW() {
+  if (window.Capacitor) return;
+  if (!('serviceWorker' in navigator)) return;
+  if (location.protocol === 'file:') return;
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
+function boot() {
+/* 先探一次系統音色（延遲到呢度，等所有常數都就緒） */
+pickVoice();
+/* 本地字庫：發音路由嘅底層資料，唔靠系統音色都讀得出 */
+fetch('content/char_audio.json').then(r => r.json()).then(d => {
+  Object.assign(CHAR_AUDIO, d.chars || {});
+  CHAR_AUDIO_META = d.meta || null;
+  renderVoiceCard();
+}).catch(() => renderVoiceCard());
+
+fetch('content/curriculum.json').then(r => r.json()).then(data => {
+  CURR = data;
+  LESSONS = data.lessons;
+  /* 詞庫：全部課程詞彙去重，並記住每個詞對應嘅音檔同所屬課 */
+  const seen = new Set();
+  LESSONS.forEach(L => {
+    L.vocab.forEach((w, i) => {
+      VOCAB_CLIP[w.y] = L.id + '-v' + (i + 1);
+      if (!seen.has(w.y)) { seen.add(w.y); VOCAB.push(w); }
+    });
+    /* 順手建「原文 → 課程錄音」索引：點讀或劃選時優先播返原聲 */
+    L.core.forEach((s, i) => { TEXT2CLIP[normKey(s.y)] = L.id + '-c' + (i + 1); });
+    L.dialogue.forEach((t, i) => { TEXT2CLIP[normKey(t.y)] = L.id + '-d' + (i + 1); });
+    L.vocab.forEach((w, i) => { TEXT2CLIP[normKey(w.y)] = L.id + '-v' + (i + 1); });
+  });
+  renderMeta();
+  renderDomains();
+  renderRing(); renderResume(); renderHomeWords(); renderMe(); paintStars();
+  applyPrefs();
+}).catch(e => toast('課程數據載入失敗'));
+
+  registerSW();
+}
+
+/* 進度存喺原生儲存，要先回灌再渲染 */
+Store.init().then(boot);
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# 統一換行，避免 Windows 開發 / Linux CI 之間互相污染
+* text=auto
+
+# 二進位資產：明確標記，禁止任何換行轉換（否則 PNG / MP3 會損毀）
+*.mp3  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.ico  binary
+*.jar  binary
+*.jks  binary
+*.keystore binary
+*.ttf  binary
+*.woff binary
+*.woff2 binary
+
+# Gradle wrapper：Linux CI 要直接執行 ./gradlew，必須是 LF
+gradlew      text eol=lf
+gradlew.bat  text eol=crlf
+*.sh         text eol=lf
+*.bat        text eol=crlf
+*.cmd        text eol=crlf
