@@ -707,13 +707,21 @@ const CHAR_AUDIO = {};          // 字 → {d: 預設檔, r: {粵拼: 檔}}
 const TEXT2CLIP = {};           // 原文 → 課程錄音 clipId
 let CHAR_AUDIO_META = null;
 
-const TTS = { voice: null, voices: [], probed: false };
+const TTS = { voice: null, voices: [], probed: false, noApi: false };
 const isCanto = v => /^yue/i.test(v.lang) || /zh[-_](HK|YUE)/i.test(v.lang)
   || /cantonese|粵語|粵|hiumaan|hiugaai|wanlung/i.test(v.name);
 let ttsFirst = Store.getItem('yf.ttsFirst') === '1';   // 用戶可自選優先系統語音
 
 function pickVoice() {
-  if (!('speechSynthesis' in window)) { renderVoiceCard(); return; }
+  if (!('speechSynthesis' in window)) {
+    /* Android WebView 根本冇實作 Web Speech 合成 API（桌面 Chrome/Safari 有）。
+       一定要喺呢度標記 probed，否則「我的」頁嘅音色卡會永遠卡喺「檢測中」——
+       因為 TTS.probed 永遠冇機會變 true。 */
+    TTS.probed = true;
+    TTS.noApi = true;
+    renderVoiceCard();
+    return;
+  }
   TTS.voices = speechSynthesis.getVoices();
   if (!TTS.voices.length) return;          // 瀏覽器啱啱開機，等 onvoiceschanged
   TTS.voice = TTS.voices.find(isCanto) || null;
@@ -1345,10 +1353,12 @@ function renderVoiceCard() {
   set('engFiles', nFiles ? nFiles : '—');
 
   const ok = !!TTS.voice;
-  set('engTTS', ok ? '已安裝' : (TTS.probed ? '未安裝' : '檢測中'));
+  set('engTTS', ok ? '已安裝' : (TTS.probed ? (TTS.noApi ? '不支援' : '未安裝') : '檢測中'));
   set('ttsInfo', ok
     ? '系統粵語音色：' + TTS.voice.name + '（' + TTS.voice.lang + '）'
-    : '系統未裝粵語音色 —— 唔影響點讀，App 用自己嘅本地錄音出聲。');
+    : (TTS.noApi
+      ? '呢部機嘅系統唔提供語音合成 —— 唔影響點讀，App 用自己嘅本地錄音出聲。'
+      : '系統未裝粵語音色 —— 唔影響點讀，App 用自己嘅本地錄音出聲。'));
   const dot = document.getElementById('engDot');
   if (dot) dot.className = 'eng-dot ' + (ok ? 'ok' : 'alt');
   const tip = document.getElementById('engTip');
@@ -1365,9 +1375,11 @@ function renderVoiceCard() {
   if (g) g.innerHTML = ok ? '' : guideHTML();
 }
 document.getElementById('btnRecheck').addEventListener('click', () => {
-  TTS.probed = false;
+  TTS.probed = false; TTS.noApi = false;
   pickVoice();
-  toast(TTS.voice ? '偵測到粵語音色：' + TTS.voice.name : '未偵測到系統粵語音色（點讀照用本地錄音）');
+  toast(TTS.voice ? '偵測到粵語音色：' + TTS.voice.name
+    : (TTS.noApi ? '呢部機唔支援系統語音（點讀照用本地錄音）'
+                 : '未偵測到系統粵語音色（點讀照用本地錄音）'));
 });
 document.getElementById('btnTTSFirst').addEventListener('click', () => {
   if (!TTS.voice) { toast('要先裝粵語音色先用得呢個選項'); return; }

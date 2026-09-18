@@ -57,14 +57,30 @@
 - **建置指令**：`python tools/_build_android.py`（內部自動挑 JDK 21+，找不到會列出本機所有版本）；產物 `android/app/build/outputs/{bundle,apk}/release/`。
 - **簽名**：`android/upload-keystore.jks` + `android/keystore.properties`（alias `upload`，CN=jyut.fun，RSA 2048 / 10000 天）。**兩者已 gitignore，只存在本機 → 必須離線備份，遺失即永久無法更新此 App。** `app/build.gradle` 會同時在 `android/app/` 與 `android/` 兩處找金鑰，兩處都無則主動報錯。
 - **`app/index.html` 的 `isLessonClip()`**：板塊 regex **必須由 `CURR.domains` 動態推導**，不可寫死板塊 id（曾寫死 `basic|life|study|work`，令後加的 construction/medical 進度全不記錄）。
-- **驗證**：`python tools/verify_release.py` 一鍵發布前自檢（靜態資源 + 打包純淨度 + 外部 URL 掃描 + CDP 實時探針）。CDP 探針**不可用 `--virtual-time-budget`**（會凍結虛擬時鐘）；查發音路由要聽 **Network domain 的 `.mp3` 請求**，不要讀 `audio.src`（單字走獨立 `charAudio` player 會誤判）。
+- **驗證（兩套探針，用途不同，勿互相取代）**：
+  - `python tools/verify_release.py` — 發布前一鍵自檢（靜態資源 + 打包純淨度 + 外部 URL 掃描 + 桌面 CDP 探針）。日常邏輯回歸用這個，快。
+  - `tools/probe_webview.mjs` — **真機／模擬器 Chromium WebView** 探針，驗證「只在 Android 才會踩到」的問題（原生儲存、`https://localhost` 來源、媒體自動播放策略、`speechSynthesis` 有無、安全區）。用法：`adb forward tcp:9222 localabstract:webview_devtools_remote_<pid>` 後 `node tools/probe_webview.mjs 9222`。
+  - **CDP 探針不可用 `--virtual-time-budget`**（會凍結虛擬時鐘，App 頁計時器永不觸發）。
+  - **發音路由的觀測點兩邊不同**：桌面 Edge 可以聽 **Network domain 的 `.mp3` 請求**；但 **WebView 內不行** —— Capacitor 用 `WebViewLocalServer` 在 `shouldInterceptRequest` 攔截 `https://localhost/*`，那些請求不進 Network 域，永遠回 0，會誤判「音訊全掛」。**WebView 版一律直接讀播放器狀態**：`charAudio.src` / `audio.src` 決定走哪條路，`readyState` / `paused` / `currentTime` 決定是否真的在播（單字走獨立 `charAudio`，課程原聲走 `audio`）。
+  - **WebView 內點擊必須發真實指標事件**（`Input.dispatchMouseEvent` 的 `mouseMoved`→`mousePressed`→`mouseReleased`，座標取 `getBoundingClientRect()` 中心）。`element.click()` 不是 trusted user gesture，Chromium 會擋掉音訊播放，量到的是假路由。
+  - **陷阱**：`Runtime.evaluate` 傳 `awaitPromise:false` 配 `async` IIFE，CDP 會回 Promise 物件（序列化成 `{}`）而函式仍在背景跑，造成步驟交錯、整輪驗證假通過。另外**可見性不能靠讀內容判斷** —— `display:none` 子樹裡的元素一樣讀得到 `textContent`；`tools/probe_webview.mjs` 的 `realClick` 會在 rect 寬高為 0 時直接拋錯。
 - **iOS**：本機無 Mac，走 `.github/workflows/ios.yml`（macos-15）。未填 Apple 憑證 secrets 時只做無簽名封存驗證。
+
+## Android 模擬器（2026-09-18 建立，可重複使用）
+
+- **加速前提**：本機 Hyper-V 已開（用戶跑 WSL2）→ **AEHD/HAXM 不可用**（要求 Hyper-V 關閉），只能走 **WHPX**。已用 `dism /Online /Enable-Feature /FeatureName:HypervisorPlatform /All /NoRestart` 啟用。**DISM 回 `3010`（要求重啟）但實測毋須重啟** —— `emulator -accel-check` 即刻回 `WHPX ... is installed and usable`，開機 40 秒完成。**先試再說，不要一見 3010 就叫用戶重啟。**
+- **AVD**：`jyutfun_api36`（`pixel_7` / `system-images;android-36;google_apis;x86_64` / 1080×2400 @ density 420 / 3 GB RAM / 4 GB data）。
+- **操作入口**：`python tools/android_emu.py {check|create|start|install|launch|shot|logcat|inspect|stop|run}`。
+- **【環境坑】模擬器活不過一次工具呼叫**：沙箱在背景任務結束時回收整個 process tree（`DETACHED_PROCESS` 與 `CREATE_BREAKAWAY_FROM_JOB` 都無效）→ **必須用 `start --keepalive`**，讓長時間背景任務持有子行程。
+- **【環境坑】`npx cap sync android` 會清空目標目錄後卡死**（實測只複製 25 個 mp3 就停住，`assets/public` 由 52.8 MB 打成 576 KB；npm debug log 停在啟動階段）。**改用 `python tools/sync_assets.py`**：逐檔比對 mtime+size 的鏡像複製，保留 `cordova.js`/`cordova_plugins.js`，完成後驗證檔案數 / mp3 3311 / 五個關鍵產物 / 總大小，可重複安全執行（約 78 秒）。若真要殺卡死的 `cap sync`：殺 node 行程中命令行含 `cap sync android` 的兩個（npx 包裝 + `capacitor` 本體），**勿殺 MCP 服務那幾個 node**。
+- **App 在 Android 上不是 edge-to-edge**：WebView 自身 `screenY=136`、`height=2201`（2400−136 狀態列−63 導覽列），`env(safe-area-inset-*) = 0` 屬正確。Capacitor `SystemBars.java:270` 那個 `Error injecting safe area CSS` 是**上游 bug 但無害**（注入時 `document.documentElement` 仍為 null）。判警的正確做法是先讀 target 描述的 `screenY`，**只有 `screenY === 0`（真 edge-to-edge）才需要檢查 `env()`**。
+- **Android WebView 冇 `speechSynthesis`**（桌面 Chrome/Safari 有）→ App 內 `TTS.noApi` 會成立，音色卡顯示「不支援」。任何依賴 Web Speech API 的功能在 Android 上都不可用，別當它是 fallback。
 
 ## 版控與備份
 
 - **私有倉庫**：https://github.com/DragonLuffy9527/jyut-fun （`gh` 帳號 `DragonLuffy9527`，gh CLI 已認證且具 `repo`/`workflow` scope）。預設分支 `main`。
 - **入庫範圍**：`app/`（含 3311 段音檔，約 57 MB）、`android/`、`ios/` 設定、`tools/`、`docs/`、`store/`、`resources/`、`.github/`、`.workbuddy/memory/`。總計約 60 MB / 3428 檔。
-- **不進版控**（見 `.gitignore`）：`node_modules/`、`android/build/`、`android/app/build/`、`android/app/src/main/assets/public/`（`cap sync` 會重建）、`dist/`（AAB/APK 各約 50 MB）、`*.jks`／`keystore.properties`、`粵語教程/`、`archive/`、`prototype/`、`tools/*_acro_backup.json`、`tools/ocr_raw/`、`tools/models/`、`tools/_*`（但 `_build_android.py`／`_setup_android_sdk.py` 例外放行）。
+- **不進版控**（見 `.gitignore`）：`node_modules/`、`android/build/`、`android/app/build/`、`android/app/src/main/assets/public/`（由 `tools/sync_assets.py` 重建）、`dist/`（AAB/APK 各約 50 MB）、`*.jks`／`keystore.properties`、`粵語教程/`、`archive/`、`prototype/`、`tools/*_acro_backup.json`、`tools/ocr_raw/`、`tools/models/`、`tools/_*`（但 `_build_android.py`／`_setup_android_sdk.py` 例外放行）。
 - **新增內容前必做紅線掃描**：`.gitignore` 只擋已知路徑。提交前用內容特徵掃全部候選文字檔，例如
   `git diff --cached --name-only -z | xargs -0 grep -lI -E "粵語（香港話）教程|jointpublishing|pdfOffset|audioBaseUrl"`，
   確認沒有原教材衍生物漏網（曾靠此法攔下 `tools/*_acro_backup.json` 與 `prototype/`）。
