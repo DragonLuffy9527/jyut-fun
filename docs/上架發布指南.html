@@ -364,10 +364,11 @@ li{margin:5px 0}
 <tr><th>階段</th><th>指令／檔案</th><th>狀態</th></tr>
 <tr><td>① 清除版權風險</td><td><code>app/</code> 僅存 <code>audio content icons index.html manifest.json privacy.html sw.js</code></td><td class="ok">✓ 已完成</td></tr>
 <tr><td>② 專案內自檢</td><td><code>tools/verify_release.py</code>（一鍵發布前自檢）</td><td class="ok">✓ 全部通過</td></tr>
-<tr><td>③ 原生外殼</td><td><code>npx cap add android</code> → <code>npx cap sync</code></td><td class="ok">✓ 52.8 MB 資源已入包</td></tr>
+<tr><td>③ 原生外殼</td><td><code>python tools/sync_assets.py</code>（取代 <code>cap sync</code> 的複製步驟）</td><td class="ok">✓ 3324 檔 / 52.8 MB 已入包並驗證</td></tr>
 <tr><td>④ 簽名設定</td><td><code>android/app/build.gradle</code> 讀 <code>keystore.properties</code></td><td class="ok">✓ release 已掛簽名</td></tr>
-<tr><td>⑤ 產出 AAB</td><td><code>python tools/_build_android.py</code></td><td class="ok">✓ BUILD SUCCESSFUL（11 分 21 秒）</td></tr>
-<tr><td>⑥ iOS 打包</td><td><code>.github/workflows/ios.yml</code>（macos-15 雲端）</td><td class="half">◐ 已配置，待 Apple 簽名密鑰</td></tr>
+<tr><td>⑤ 產出 AAB</td><td><code>python tools/_build_android.py</code></td><td class="ok">✓ BUILD SUCCESSFUL（增量重build 1 分 09 秒）</td></tr>
+<tr><td>⑥ 模擬器實測</td><td><code>python tools/android_emu.py run</code> ＋ <code>node tools/probe_webview.mjs</code></td><td class="ok">✓ 功能全通過（見下）</td></tr>
+<tr><td>⑦ iOS 打包</td><td><code>.github/workflows/ios.yml</code>（macos-15 雲端）</td><td class="half">◐ 已配置，待 Apple 簽名密鑰</td></tr>
 </table>
 
 <h3>發行產物（<code>dist/</code>）</h3>
@@ -382,7 +383,23 @@ li{margin:5px 0}
 <code>base/assets/public/</code> 內含 <code>index.html</code>、<code>manifest.json</code>、<code>privacy.html</code>、<code>sw.js</code>、<code>content/curriculum.json</code>；
 音檔實點 <strong>1572 課程 + 1739 單字 ＝ 3311 段</strong>，與來源完全一致。
 簽署憑證：<code>CN=jyut.fun, OU=Mobile, O=JyutFun, L=Hong Kong, ST=Hong Kong, C=HK</code>（RSA 2048，自簽上傳金鑰）。
-AAB SHA-256：<code>1b88494e…9219c33</code>
+AAB SHA-256：<code>176f9ab9…2c89</code>
+</div>
+
+<div class="prog">
+<b>✓ 已在 Android 模擬器上實測（Pixel 7 / Android 36，非只跑桌面瀏覽器）</b>
+<code>location.href = https://localhost/</code>、<code>Capacitor.getPlatform() = android</code>、原生 Preferences 可用、Service Worker 正確地未註冊。
+<strong>逐字點讀 6/6 命中本地字庫且真的在播</strong>（棚 u68da_paang4／架 u67b6_gaa2／要 u8981_jiu3／由 u7531_jau4／合 u5408_hap6／資 u8cc7_zi1，全部 readyState=4、paused=false、currentTime 遞增）；
+點整句走 <code>con-11-c1.mp3</code> 課程原聲並彈出迷你播放器。無 JS 例外。
+</div>
+
+<div class="callout c-warn">
+  <b>⚠️ 不要把 <code>npx cap sync android</code> 當成可靠的同步步驟</b>
+  它會<strong>先清空</strong> <code>android/app/src/main/assets/public/</code> 再複製；實測它複製到第 25 個 mp3 就卡死，
+  把目錄由 52.8 MB 打成 576 KB，留下一個<strong>靜默被閹割的 App</strong>而不報錯。
+  請改用 <code>python tools/sync_assets.py</code>：逐檔比對 mtime+size 的鏡像複製，保留 <code>cordova.js</code>／<code>cordova_plugins.js</code>，
+  完成後自動驗證檔案數、mp3 3311、關鍵產物與總大小，可重複安全執行。
+  <strong>卡住的 <code>cap sync</code> 若真要終止，請按命令列（含 <code>cap sync android</code>）找行程，不要盲目終止所有 node —— 有些是 MCP 服務。</strong>
 </div>
 
 <div class="callout c-warn">
@@ -404,6 +421,10 @@ AAB SHA-256：<code>1b88494e…9219c33</code>
 <tr><td><code>gen_android_res.py</code></td><td>產出 Android 各密度圖示（含 adaptive 前景／背景）＋ 11 種啟動畫面尺寸</td></tr>
 <tr><td><code>_setup_android_sdk.py</code></td><td>免 Android Studio 安裝 SDK：commandlinetools ＋ platform-tools ＋ android-36 ＋ build-tools</td></tr>
 <tr><td><code>_build_android.py</code></td><td>建置 AAB／APK；自動挑選本機 JDK 21+（Capacitor 8 硬性要求），找不到時明確報錯</td></tr>
+<tr><td><code>sync_assets.py</code></td><td><strong>取代 <code>cap sync</code> 的複製步驟</strong>：鏡像複製 <code>app/</code> → Android assets，保留 Cordova 產物，完成後驗證檔案數／mp3／關鍵產物</td></tr>
+<tr><td><code>android_emu.py</code></td><td>模擬器一鍵：<code>check</code>／<code>create</code>／<code>start</code>／<code>install</code>／<code>launch</code>／<code>shot</code>／<code>logcat</code>／<code>inspect</code>／<code>run</code>。首次需先 <code>sdkmanager "emulator" "system-images;android-36;google_apis;x86_64"</code></td></tr>
+<tr><td><code>probe_webview.mjs</code></td><td><strong>真機 WebView 版 CDP 探針</strong>：用真實指標事件驅動，讀播放器狀態判路由（Capacitor 攔截本地資源，Network 層看不到 <code>.mp3</code>）</td></tr>
+<tr><td><code>emu_shots.mjs</code></td><td>模擬器分場景驅動 ＋ <code>adb screencap</code> 截圖 ＋ 版面量測（含安全區判定）</td></tr>
 </table>
 
 <h3>商店素材（<code>store/</code>）</h3>
@@ -414,7 +435,19 @@ AAB SHA-256：<code>1b88494e…9219c33</code>
 ├─ feature-graphic-1024x500.png  Google Play 特色圖
 └─ screenshots/               8 張 1080×1920（9:16）
      01-home  02-lessons  03-domain-construction  04-lesson-medical
-     05-lesson-vocab  06-tapping  07-game  08-me</div>
+     05-lesson-vocab  06-tapping  07-game  08-me
+
+screenshots-emu/            6 張 1080×2400（模擬器真實截圖，非裝置模擬）
+     emu-01-home  emu-02-lessons  emu-03-lesson-top
+     emu-04-me    emu-05-games    emu-06-me-engine（發音引擎卡）</div>
+
+<div class="callout c-warn">
+  <b>本機測試環境（Android 模擬器，取代 Android Studio）</b>
+  已裝 <code>emulator</code> 與 <code>system-images;android-36;google_apis;x86_64</code>，AVD 名為 <code>jyutfun_api36</code>（Pixel 7 / 1080×2400）。
+  加速走 <strong>WHPX</strong>（本機 Hyper-V 已開，而 AEHD/HAXM 要求 Hyper-V 關閉，兩者互斥）。
+  <code>dism</code> 啟用 WHPX 後雖回報需要重啟，但實測<strong>毋須重啟</strong>：<code>emulator -accel-check</code> 即刻回報可用，開機約 40 秒。
+  <strong>注意：模擬器若用 <code>DETACHED_PROCESS</code> 啟動，會在呼叫端任務結束時被回收</strong>，需由長時間存活的行程持有子行程（<code>android_emu.py start --keepalive</code>）。
+</div>
 
 <h3>上架前仍缺的三件事</h3>
 <div class="callout c-warn">
