@@ -2,6 +2,9 @@
 
 > 直接複製貼上到 Google Play Console / App Store Connect。
 > 字數限制：Play 應用名稱 30 / 簡短說明 80 / 完整說明 4000；App Store 名稱 30 / 副標題 30 / 描述 4000。
+> ⚠️ **Play 的說明欄不支援 markdown** —— 貼上時不可帶 `**粗體**`、`#` 標題等符號，會原樣顯示給用戶看。
+> 各欄字元數已腳本核過（2026-09-18）：英文簡短說明原為 83 字元**超出 80 上限**（Console 會拒絕儲存），已改為 78；
+> 繁中完整說明原含 `**正確的粵語讀音**`，已去星號。日後改文案請維持純文字並重核長度。
 
 ---
 
@@ -26,8 +29,9 @@
 
 **English**
 ```
-Learn Cantonese with 66 real-life lessons — construction & medical jargon included.
+66 real-life Cantonese lessons — construction & medical jargon, fully offline.
 ```
+（80 字符上限，此句 78 字）
 
 ---
 
@@ -57,7 +61,7 @@ Learn Cantonese with 66 real-life lessons — construction & medical jargon incl
 核心句、對話、詞彙、學習貼士、即學即練，一課一課紮實累積。
 
 ■ 點一點就出聲
-點任何一個字，都會用**正確的粵語讀音**讀出嚟。
+點任何一個字，都會用正確嘅粵語讀音讀出嚟。
 內建 1659 個常用字、1739 段離線字音檔；句子有錄音就直接播原聲。
 唔使另外安裝粵語語音包，唔使連網，地鐵裡面照樣用。
 

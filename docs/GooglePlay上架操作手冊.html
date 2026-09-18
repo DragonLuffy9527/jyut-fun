@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>粵.fun · Google Play 上架操作手冊</title>
+<style>
+:root{
+  --bg:#FFF7EE; --card:#FFFFFF; --ink:#4A3F3D; --muted:#A89A92; --line:#F0E4D8;
+  --pink:#FF8FAB; --pink-deep:#E56A8C; --pink-soft:#FFE4EC;
+  --yellow:#FFD166; --yellow-soft:#FFF3D6; --yellow-deep:#C98A0B;
+  --mint:#6FCFBA; --mint-soft:#DFF6F0; --mint-deep:#3FA893;
+  --blue:#7FB5E8; --blue-soft:#E8F2FC; --blue-deep:#2F6FA8;
+  --red:#E5736F; --red-soft:#FDEBEA; --red-deep:#B3443F;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:34px 20px 80px;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang HK","Microsoft JhengHei","Noto Sans TC",sans-serif;
+  line-height:1.75;font-size:14.5px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto}
+h1{font-size:27px;margin:0 0 8px;letter-spacing:.5px}
+.sub{color:var(--muted);font-size:13.5px;margin:0 0 26px}
+h2{font-size:19px;margin:42px 0 14px;padding-left:13px;border-left:4px solid var(--pink);line-height:1.35}
+h3{font-size:15.5px;margin:24px 0 8px;color:var(--pink-deep)}
+p{margin:9px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:16px 0;
+  box-shadow:0 3px 12px rgba(150,110,90,.06)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.pill{background:var(--pink-soft);color:var(--pink-deep);font-size:12.5px;padding:4px 12px;border-radius:99px}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;background:var(--card);
+  border-radius:12px;overflow:hidden}
+th{background:var(--yellow-soft);color:var(--yellow-deep);font-weight:600;text-align:left;
+  padding:10px 13px;font-size:13px;border-bottom:1px solid var(--line)}
+td{padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+code{background:var(--mint-soft);color:var(--mint-deep);font-size:12.5px;padding:1.5px 6px;border-radius:5px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.callout{border-radius:14px;padding:15px 18px;margin:16px 0;font-size:13.5px}
+.callout b{display:block;margin-bottom:4px;font-size:14px}
+.c-red{background:var(--red-soft);border-left:4px solid var(--red)}
+.c-red b{color:var(--red-deep)}
+.c-ok{background:var(--mint-soft);border-left:4px solid var(--mint)}
+.c-ok b{color:var(--mint-deep)}
+.c-tip{background:var(--blue-soft);border-left:4px solid var(--blue)}
+.c-tip b{color:var(--blue-deep)}
+.c-warn{background:var(--yellow-soft);border-left:4px solid var(--yellow)}
+.c-warn b{color:var(--yellow-deep)}
+ul,ol{margin:9px 0;padding-left:22px}
+li{margin:5px 0}
+.ok{color:var(--mint-deep);font-weight:600}
+.no{color:var(--red-deep);font-weight:600}
+.half{color:var(--yellow-deep);font-weight:600}
+.step{display:flex;gap:14px;align-items:flex-start;margin:16px 0}
+.num{flex:0 0 30px;height:30px;border-radius:50%;background:var(--pink-soft);color:var(--pink-deep);
+  display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px}
+.num.r{background:var(--red-soft);color:var(--red-deep)}
+.num.g{background:var(--mint-soft);color:var(--mint-deep)}
+.step-b{flex:1;min-width:0}
+.step-b h4{margin:2px 0 4px;font-size:14.5px}
+.step-b p{margin:2px 0;font-size:13.5px;color:var(--muted)}
+.foot{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
+.chk{list-style:none;padding-left:0}
+.chk li{padding-left:26px;position:relative}
+.chk li::before{content:"";position:absolute;left:0;top:7px;width:13px;height:13px;
+  border:1.5px solid var(--mint);border-radius:4px}
+.tl{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 20px;margin:16px 0}
+.tl-row{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--line)}
+.tl-row:last-child{border-bottom:none}
+.tl-d{flex:0 0 92px;font-size:12.5px;color:var(--pink-deep);font-weight:600}
+.tl-t{flex:1;font-size:13.5px}
+@media(max-width:600px){body{padding:22px 14px 60px}h1{font-size:22px}table{font-size:12.5px}th,td{padding:8px 9px}
+  .tl-row{flex-direction:column;gap:2px}.tl-d{flex:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Google Play 上架操作手冊</h1>
+<p class="sub">粵.fun 專用的逐步操作指引 —— 含 2026 年最新強制要求、可直接複製的欄位值，以及最容易被拒的環節。</p>
+
+<div class="pills">
+  <span class="pill">$25 一次性</span>
+  <span class="pill">個人帳號</span>
+  <span class="pill">必跑 12 人 × 14 天封測</span>
+  <span class="pill">需 AAB（已有）</span>
+  <span class="pill">海外首發</span>
+</div>
+
+<h2>〇、先看時間預期</h2>
+<div class="callout c-red">
+  <b>這不是三天能辦完的事 —— 中間有 14 天是硬性等待，無法壓縮、無法付費跳過。</b>
+  如果你是 2023-11-13 之後註冊的<strong>個人</strong>帳號，Google 強制要求先跑封閉測試：
+  <strong>至少 12 名測試者連續 opt-in 滿 14 天</strong>，之後才能申請正式版發布權限。
+  而且 2026 年起 Google 會<strong>查核測試者是否真的在用</strong>，只掛名不打開會被駁回。
+</div>
+
+<div class="tl">
+  <div class="tl-row"><span class="tl-d">Day 0</span><span class="tl-t">註冊開發者帳號、付 $25、提交身分驗證</span></div>
+  <div class="tl-row"><span class="tl-d">Day 1–3</span><span class="tl-t">身分驗證通過（24 小時～2 週，視情況）→ 建立應用、填完所有表單</span></div>
+  <div class="tl-row"><span class="tl-d">Day 3</span><span class="tl-t">上傳 AAB 到封閉測試軌道，發出邀請連結</span></div>
+  <div class="tl-row"><span class="tl-d">Day 3–5</span><span class="tl-t">湊滿 12 人完成 opt-in —— <b>倒數從「第 12 人完成」那一刻才起算</b></span></div>
+  <div class="tl-row"><span class="tl-d">Day 5–19</span><span class="tl-t">14 天測試期。期間照常收集回饋、可推送修正版（不會重置計時）</span></div>
+  <div class="tl-row"><span class="tl-d">Day 19+</span><span class="tl-t">申請生產存取權限 → 問卷約 48 小時審核 → 正式送審最多 7 天</span></div>
+  <div class="tl-row"><span class="tl-d">合計</span><span class="tl-t"><b>約 3 週起</b>（不含帳號驗證被要求補件的拖延）</span></div>
+</div>
+
+<h2>一、階段 0 · 備齊材料</h2>
+<p>這些東西缺一件就會卡住，而且補件往往要等好幾天。先全部備妥再開始。</p>
+
+<table>
+<tr><th>項目</th><th>要求</th><th>狀態</th></tr>
+<tr><td>Google 帳號</td><td>乾淨、未曾註冊過開發者、未關聯被封帳號。建議先正常使用 1–3 個月養號</td><td class="half">◐ 待辦</td></tr>
+<tr><td>海外網路環境</td><td>穩定、單一 IP，全程不要頻繁切換地區或節點</td><td class="half">◐ 待辦</td></tr>
+<tr><td>手機號</td><td>能收簡訊。若該號碼曾被大量用於 Google 驗證，可能失敗</td><td class="half">◐ 待辦</td></tr>
+<tr><td>信用卡</td><td><strong>真實</strong> Visa / MasterCard，支援美元扣款。持卡人姓名與註冊資料一致。禁止用虛擬卡、預付卡、他人卡</td><td class="half">◐ 待辦</td></tr>
+<tr><td>身分證明</td><td>政府簽發的帶照片證件（身分證或護照），高清、無遮擋、四角完整</td><td class="half">◐ 待辦</td></tr>
+<tr><td>地址證明</td><td>銀行對帳單／信用卡帳單／水電帳單，須含本人姓名與註冊時填的地址</td><td class="half">◐ 建議先備</td></tr>
+<tr><td>$25 註冊費</td><td>一次性，終身有效</td><td class="half">◐ 待辦</td></tr>
+<tr><td>AAB 安裝包</td><td><code>dist/粵fun-v1.0-release.aab</code>（48.0 MB，已簽名）</td><td class="ok">✓ 已就緒</td></tr>
+<tr><td>商店素材</td><td>圖示、特色圖、8 張截圖、文案</td><td class="ok">✓ 已就緒</td></tr>
+<tr><td>隱私政策網址</td><td>公開可訪問的 URL</td><td class="ok">✓ 已上線</td></tr>
+</table>
+
+<div class="callout c-warn">
+  <b>個人帳號 vs 組織帳號 —— 註冊後不可更改，一開始就要選對</b>
+  <strong>個人（Personal）</strong>：不需營業執照、不需鄧白氏碼，但<strong>必須跑 12×14 封測</strong>。<br>
+  <strong>組織（Organization）</strong>：需 D-U-N-S 碼（申請 5–30 天）＋ 營業執照，<strong>豁免封測</strong>。<br>
+  你目前沒有營業執照 → 走<strong>個人</strong>。除非日後註冊公司想省下這 14 天，才值得考慮組織號。
+</div>
+
+<h2>二、階段 1 · 註冊開發者帳號</h2>
+
+<div class="step">
+  <div class="num">1</div>
+  <div class="step-b"><h4>進入註冊頁</h4>
+  <p><code>play.google.com/console/signup</code> —— 用準備好的 Gmail 登入，點「Get started」。</p></div>
+</div>
+<div class="step">
+  <div class="num">2</div>
+  <div class="step-b"><h4>選 Personal，同意開發者分發協議</h4>
+  <p>這一步選錯就不可逆。</p></div>
+</div>
+<div class="step">
+  <div class="num">3</div>
+  <div class="step-b"><h4>填開發者資料</h4>
+  <p>開發者名稱（會公開顯示）、聯絡信箱、電話、地址。地址要精確、真實，與之後的付款資料、證件一致。</p></div>
+</div>
+<div class="step">
+  <div class="num">4</div>
+  <div class="step-b"><h4>付 $25 註冊費</h4>
+  <p>填卡號、有效期、CVC。帳單地址盡量與註冊地址一致，避免刷卡失敗。</p></div>
+</div>
+<div class="step">
+  <div class="num r">5</div>
+  <div class="step-b"><h4>身分驗證（最常卡住的一關）</h4>
+  <p>上傳帶照片的證件 ＋ 地址證明。實務上「身分證＋護照」組合常被退，
+  反而是<strong>常用銀行卡的交易流水／對帳單</strong>通過率更高 —— 因為上面同時有姓名與地址。
+  等 24 小時～2 週。</p></div>
+</div>
+
+<div class="callout c-tip">
+  <b>風控紅線</b>
+  全程用同一個穩定 IP、同一台設備操作；姓名／地址／證件／信用卡必須屬於<strong>同一主體</strong>；
+  不要與他人共用設備或 IP 註冊多個開發者帳號 —— 一旦被判定關聯，可能批量封號。
+</div>
+
+<h2>三、階段 2 · 建立應用</h2>
+
+<table>
+<tr><th>欄位</th><th>填什麼</th></tr>
+<tr><td>應用名稱</td><td><code>粵.fun · 場景粵語</code>（12 字元，上限 30）</td></tr>
+<tr><td>預設語言</td><td>海外首發建議先設 <strong>English</strong>；華人市場再加繁體中文</td></tr>
+<tr><td>應用類型</td><td>應用（Application）—— <strong>不是遊戲</strong></td></tr>
+<tr><td>定價</td><td>免費</td></tr>
+<tr><td>套件名稱</td><td><code>com.jyutfun.app</code> —— <strong>永久固定，一旦建立不可更改</strong></td></tr>
+<tr><td>聯絡信箱</td><td><code>hjjliufei@qq.com</code></td></tr>
+</table>
+
+<h2>四、階段 3 · 上傳 AAB 與 Play 應用簽章</h2>
+<p>用 <code>dist/粵fun-v1.0-release.aab</code>。Google Play 現在<strong>強制啟用</strong> Play App Signing，你需要理解它分兩把鑰匙：</p>
+
+<table>
+<tr><th>鑰匙</th><th>誰保管</th><th>作用</th></tr>
+<tr><td><strong>上傳金鑰</strong><br>（你的 <code>upload-keystore.jks</code>）</td><td>你自己</td><td>你用它簽 AAB 後上傳。<strong>遺失可向 Google 申請重置</strong>，不必換套件名</td></tr>
+<tr><td><strong>應用簽章金鑰</strong></td><td>Google</td><td>真正簽發給用戶的簽名，用戶端靠它驗證更新來源</td></tr>
+</table>
+
+<div class="callout c-ok">
+  <b>好消息：你已經把最危險的部分處理掉了</b>
+  上傳金鑰離線備份包已產出（<code>dist/keystore-backup/</code>）。
+  啟用 Play App Signing 之後，即使這把上傳金鑰真的丟了，也能申請重置 ——
+  最壞情況從「永遠無法更新這個 App」降級為「填表申請、等幾天」。
+  <strong>但仍要完成離線複製兩份</strong>，別把容錯當成不用備份的理由。
+</div>
+
+<h2>五、階段 4 · 商店列表</h2>
+
+<table>
+<tr><th>欄位</th><th>素材 / 內容</th><th>限制</th></tr>
+<tr><td>應用圖示</td><td><code>store/app-icon-512.png</code></td><td>512×512 PNG</td></tr>
+<tr><td>特色圖片</td><td><code>store/feature-graphic-1024x500.png</code></td><td>1024×500，<strong>必填</strong></td></tr>
+<tr><td>手機截圖</td><td><code>store/screenshots/</code>（8 張 1080×1920）</td><td>至少 2 張，最多 8 張</td></tr>
+<tr><td>應用名稱</td><td>粵.fun · 場景粵語</td><td class="ok">12 / 30</td></tr>
+<tr><td>簡短說明（繁）</td><td>見 <code>store/listing.md</code></td><td class="ok">40 / 80</td></tr>
+<tr><td>簡短說明（EN）</td><td>見 <code>store/listing.md</code></td><td class="ok">78 / 80</td></tr>
+<tr><td>完整說明（繁）</td><td>見 <code>store/listing.md</code></td><td class="ok">946 / 4000</td></tr>
+<tr><td>完整說明（EN）</td><td>見 <code>store/listing.md</code></td><td class="ok">2435 / 4000</td></tr>
+<tr><td>隱私政策</td><td><code>https://dragonluffy9527.github.io/jyut-fun-privacy/</code></td><td>公開可訪問</td></tr>
+</table>
+
+<div class="callout c-warn">
+  <b>兩個已修正的坑（你複製文案時不用再踩）</b>
+  ① 英文簡短說明原本 83 字元，<strong>超過 Play 的 80 上限，Console 會直接拒絕儲存</strong> —— 已改為 78 字元。<br>
+  ② 繁中完整說明裡原本有 markdown 粗體 <code>**正確的粵語讀音**</code>，
+  <strong>Play 的說明欄不支援 markdown，會把星號原樣顯示給用戶看</strong> —— 已去掉星號。<br>
+  日後改文案，記得這兩個限制：<strong>純文字、看字元數</strong>。
+</div>
+
+<h2>六、階段 5 · 必填表單（審核主要卡這裡）</h2>
+
+<table>
+<tr><th>表單</th><th>怎麼填</th></tr>
+<tr><td>應用存取權限</td><td>本 App 所有功能都無需登入即可使用 → 選「所有功能皆可存取」</td></tr>
+<tr><td>廣告</td><td>否，不含廣告</td></tr>
+<tr><td>內容分級（IARC 問卷）</td><td>教育類，所有敏感項目填「無」。預期結果 3+ / Everyone</td></tr>
+<tr><td>目標對象與內容</td><td><strong>選 13 歲以上</strong>。切勿選「兒童」—— 那會觸發 Families 政策，合規成本大增</td></tr>
+<tr><td>資料安全</td><td><strong>全部選「不收集」「不分享」</strong>。本 App 零收集、零第三方 SDK、零聯網請求</td></tr>
+<tr><td>政府應用 / 新聞應用</td><td>皆為「否」</td></tr>
+<tr><td>AI 生成內容聲明</td><td>見下方說明</td></tr>
+</table>
+
+<div class="callout c-tip">
+  <b>AI 生成內容聲明怎麼填（2026 年新規，容易搞錯）</b>
+  Google Play 自 <strong>2026-04-15</strong> 起要求：App 在<strong>執行時</strong>由生成式 AI 產生並展示給用戶的內容
+  （文字／圖片／音訊／影片），必須在<strong>介面上緊鄰輸出處</strong>顯示標籤，寫在隱私政策裡不算。<br><br>
+  <strong>你的 App 不屬於這個範圍</strong>：3311 段語音是<strong>預先生成、打包進 App 的靜態檔案</strong>，
+  執行時只是播放檔案，<strong>不會呼叫任何 AI 模型</strong>，也沒有用戶輸入 → AI 產出的流程。<br><br>
+  <strong>商店素材</strong>（圖示、截圖、特色圖、文案）方面，EU AI Act 自 2026-08-02 起要求在 Console
+  聲明是否為 AI 生成 —— 你的素材是程式繪製＋模擬器實拍截圖，<strong>如實勾「否」</strong>。<br><br>
+  <strong>額外加分</strong>：App 內隱私政策與商店完整說明都已主動披露「AI 語音合成（Azure 神經語音）」。
+  這種主動透明正是審核單位想看到的，保留即可。
+</div>
+
+<h2>七、階段 6 · 封閉測試（真正的門檻）</h2>
+
+<div class="callout c-red">
+  <b>規則：至少 12 名測試者，連續 14 天保持 opt-in，且必須真的使用</b>
+  （此數字 2024-12-11 由 20 下調為 12。若你看到「20 人」的說法，那是過時資訊。）
+</div>
+
+<h3>什麼才算有效的測試者</h3>
+<ul>
+<li><strong>必須自己點邀請連結完成 opt-in</strong> —— 只把 email 加進名單<strong>不算數</strong>，必須在該 Google 帳號下從 Play 商店安裝。</li>
+<li><strong>必須持續保持 opt-in</strong> —— Console 有即時計數；有人退出或卸載，數字會掉。</li>
+<li><strong>必須真的在用</strong> —— 這是 2026 年新增的審查重點。只裝不開、或開一次就再也沒動，
+  會被判定「參與度不足」而駁回。理想狀態是<strong>測試期內多數日子都有開啟、並用到真實功能</strong>。</li>
+<li><strong>必須是真機</strong> —— 模擬器不算，Google 能偵測。</li>
+</ul>
+
+<h3>操作要點</h3>
+<ul>
+<li><strong>招 14–16 人，不要剛好 12 人</strong> —— 留緩衝，中途有人退出不至於跌破門檻。</li>
+<li>倒數從<strong>第 12 人完成 opt-in 那一刻</strong>起算，不是從建立軌道起算。Console 上看得到。</li>
+<li>測試者可以是 email 名單，也可以是一個 Google Group。</li>
+<li>期間推送修正版<strong>不會重置計時</strong>，反而是「測試確實在運作」的證明。</li>
+<li>14 天是<strong>最低</strong>要求不是目標；參與度紮實的 20 天比勉強湊數的 14 天更容易過。</li>
+</ul>
+
+<div class="callout c-tip">
+  <b>去哪裡找 12 個人</b>
+  朋友、同事、粵語學習社群最容易談；此外有專門給開發者互測的社群
+  （例如 Reddit 的 r/AndroidClosedTesting、各類開發者互測群）。
+  互測社群的好處是大家都知道「每天要開一下」，不會裝完就忘。
+  <br><br>
+  <strong>這個 App 有個天然優勢</strong>：它真的能用 —— 66 課、3311 段離線語音、兩個小遊戲。
+  找粵語學習者當測試者，他們本來就會天天打開來學，天然滿足「真實參與度」要求。
+</div>
+
+<h2>八、階段 7 · 申請生產權限與上線</h2>
+
+<div class="step">
+  <div class="num g">1</div>
+  <div class="step-b"><h4>滿 14 天後申請生產存取權限</h4>
+  <p>Console 儀表板會出現申請入口，需回答約 10 題問卷：收到什麼回饋、做了哪些修改。這份問卷是審核判斷依據，<strong>認真寫</strong>。</p></div>
+</div>
+<div class="step">
+  <div class="num g">2</div>
+  <div class="step-b"><h4>等待審核</h4>
+  <p>生產權限約 48 小時；通過後正式發布審核最多 7 天（新 App 常見數小時～3 天）。</p></div>
+</div>
+<div class="step">
+  <div class="num g">3</div>
+  <div class="step-b"><h4>選擇發布國家／地區</h4>
+  <p>Google Play 本身不覆蓋中國大陸，選「所有國家／地區」或在華人聚居地（香港、台灣、新加坡、馬來西亞、北美）重點投放。注意：<strong>中國台灣、中國香港、中國澳門</strong>都在 Play 的覆蓋範圍內，可正常勾選。</p></div>
+</div>
+<div class="step">
+  <div class="num g">4</div>
+  <div class="step-b"><h4>分階段發布（Staged rollout）</h4>
+  <p>建議 20% → 50% → 100%。這是 Play 提供的免費保險：新版本有災難性問題時能及時喊停。</p></div>
+</div>
+
+<h2>九、這個 App 的現成優勢與待辦</h2>
+
+<h3 class="ok">已就緒 ✓</h3>
+<ul>
+<li><strong>AAB 已簽名</strong>（48.0 MB，SHA-256 <code>b973218d…cefb</code>），資源閉環校驗通過：3311 段音檔引用零缺檔。</li>
+<li><strong>targetSdk 36</strong> —— Google Play 自 2026-08-31 起要求新 App 達到 API 36，你的正好達標，不用改。</li>
+<li><strong>純 Java/Kotlin + WebView、零原生庫</strong> → 全 CPU 架構通用，也沒有 64 位相容問題。</li>
+<li><strong>零資料收集、無廣告、無內購、無需登入</strong> —— 這是審核上最省事的形態：資料安全表單 5 分鐘填完，也不會被廣告 SDK 的宣告不一致拖累。</li>
+<li><strong>隱私政策已上線</strong>，公開網址實測 HTTP 200。</li>
+<li><strong>商店素材齊備</strong>：圖示、特色圖、8 張截圖、中英文文案（長度已驗）。</li>
+<li><strong>離線可用已實測</strong>：飛航模式下安裝、點讀 6/6 命中、整句朗讀正常、零聯網請求。</li>
+</ul>
+
+<h3 class="half">待辦 ◐</h3>
+<ul>
+<li>註冊開發者帳號、付 $25、完成身分驗證（需真實信用卡）。</li>
+<li>湊齊 12+ 名願意連續 14 天使用的測試者 —— <strong>這是整個流程最需要提前動手的一件事</strong>。</li>
+<li>上傳金鑰離線備份的兩份人工複製（<code>dist/keystore-backup/</code>）。</li>
+</ul>
+
+<h2>十、最可能導致被拒的原因（針對本 App）</h2>
+<table>
+<tr><th>風險</th><th>嚴重度</th><th>對策</th></tr>
+<tr><td><strong>測試參與度不足</strong> —— 測試者裝了不用</td><td class="no">高</td><td>招 14–16 人並提醒每天開啟；找真正會用粵語學習的人</td></tr>
+<tr><td>資料安全聲明與實際行為不符</td><td class="half">中</td><td>本 App 零 SDK、零收集，如實填「不收集」即可；日後若加任何 SDK 必須回來更新</td></tr>
+<tr><td>目標對象誤選「兒童」</td><td class="half">中</td><td>選 13 歲以上，避開 Families 政策</td></tr>
+<tr><td>隱私政策網址不可訪問</td><td class="half">中</td><td>已上線且實測 200；注意倉庫若改為私有會導致 Pages 失效</td></tr>
+<tr><td>應用名稱／圖示侵權</td><td class="half">中</td><td>「粵.fun」為自創名稱、圖示自製，無第三方商標，風險低</td></tr>
+<tr><td>文案帶 markdown 符號</td><td class="half">低</td><td>已修正；日後改文案用純文字</td></tr>
+</table>
+
+<h2>十一、送審前自檢清單</h2>
+<div class="card">
+<ul class="chk">
+<li>開發者帳號已完成身分驗證，Console 可正常進入</li>
+<li>應用已建立，套件名確認為 <code>com.jyutfun.app</code></li>
+<li>AAB 已上傳且通過 Play 的格式與簽章檢查</li>
+<li>Play 應用簽章已啟用</li>
+<li>圖示 512×512、特色圖 1024×500、至少 2 張手機截圖已上傳</li>
+<li>應用名稱／簡短說明／完整說明已填入（純文字、無 markdown、字元數未超限）</li>
+<li>隱私政策網址已填入且可公開訪問</li>
+<li>內容分級問卷已完成</li>
+<li>資料安全表單已填（全部「不收集」）</li>
+<li>目標對象設為 13 歲以上，非兒童應用</li>
+<li>廣告聲明設為「無廣告」</li>
+<li>AI 內容聲明已如實填寫（商店素材非 AI 生成；App 內語音為預先生成靜態資源）</li>
+<li>封閉測試已湊滿 12 人並連續滿 14 天，且測試者確有使用</li>
+<li>生產存取權限問卷已提交並通過</li>
+<li>發布國家／地區已選擇（含香港、台灣、澳門、東南亞、北美等）</li>
+<li>發布方式已設為分階段推出</li>
+<li>上傳金鑰已離線備份至兩處</li>
+</ul>
+</div>
+
+<div class="foot">
+粵.fun · Google Play 上架操作手冊 —— 政策依據至 2026-09-18 查證。<br>
+相關文件：<code>docs/上架發布指南.html</code>（全局路線圖）、<code>store/listing.md</code>（可複製文案）。
+</div>
+
+</div>
+</body>
+</html>
